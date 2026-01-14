@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Saptiva - IA a producción en 2 semanas. De POC a valor de negocio medible con observabilidad completa y control total sobre tus datos.">
+  <meta property="og:title" content="Saptiva | IA a producción en 2 semanas">
+  <meta property="og:description" content="De POC a valor de negocio medible. Control total sobre tus datos, sin proyectos de 12 meses.">
+  <title>Saptiva | IA a producción en 2 semanas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #00E5B0;
+      --primary-hover: #00C99A;
+      --primary-dark: #00A896;
+      --primary-glow: #00FFD0;
+      --bg-dark: #0B1426;
+      --bg-dark-card: #0F1A2E;
+      --bg-light: #F5F7FA;
+      --bg-white: #FFFFFF;
+      --text-dark: #0B1426;
+      --text-gray: #4A5568;
+      --text-white: #FFFFFF;
+      --text-muted: #A0AEC0;
+      --border-dark: #1A2744;
+      --border-light: #E2E8F0;
+      --icon-box-bg: #E6FFF9;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-family); font-size: 16px; line-height: 1.6; color: var(--text-dark); background: var(--bg-dark); }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .accent { color: var(--primary); }
+    .text-center { text-align: center; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-size: 16px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; border: none; }
+    .btn-primary { background: var(--primary); color: var(--bg-dark); }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+    .btn-secondary:hover { background: rgba(0, 229, 176, 0.1); }
+
+    /* Navigation */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(11, 20, 38, 0.95); backdrop-filter: blur(10px); }
+    .nav-logo { height: 32px; display: flex; align-items: center; }
+    .nav-logo img { height: 32px; width: auto; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-link { color: var(--text-white); font-size: 15px; font-weight: 500; transition: color 0.2s ease; }
+    .nav-link:hover { color: var(--primary); }
+    .nav-cta { display: flex; gap: 16px; }
+
+    /* Sections */
+    .section { padding: 100px 0; }
+    .section-dark { background: var(--bg-dark); color: var(--text-white); }
+    .section-light { background: var(--bg-light); color: var(--text-dark); }
+    .section-title { font-size: 40px; font-weight: 700; margin-bottom: 16px; }
+    .section-subtitle { font-size: 18px; color: var(--text-muted); max-width: 600px; }
+    .section-light .section-subtitle { color: var(--text-gray); }
+
+    /* Hero - Two Column Layout */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(26,39,68,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(26,39,68,0.3) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
+    .hero-content { max-width: 560px; }
+    .hero-title { font-size: 52px; font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+    .hero-subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 40px; line-height: 1.7; }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-visual { display: flex; justify-content: center; align-items: center; }
+    .hero-visual img { max-width: 480px; width: 100%; }
+
+    /* Partners */
+    .partners { padding: 60px 0; border-bottom: 1px solid var(--border-dark); }
+    .partners-title { font-size: 15px; color: var(--text-muted); text-align: center; margin-bottom: 32px; }
+    .partners-grid { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; opacity: 0.7; }
+    .partner-logo { height: 28px; transition: opacity 0.2s ease; font-weight: 600; color: var(--text-muted); }
+    .partner-logo:hover { opacity: 1; }
+
+    /* Problema Section */
+    .problema-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .pain-card { background: var(--bg-white); border: 1px solid var(--border-light); border-radius: 12px; padding: 32px; }
+    .pain-card .icon-box { width: 56px; height: 56px; background: var(--icon-box-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .pain-card .icon-box svg { width: 28px; height: 28px; stroke: var(--primary-dark); stroke-width: 1.5; fill: none; }
+    .pain-card h3 { color: var(--primary-dark); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+    .pain-card p { color: var(--text-gray); font-size: 15px; }
+
+    /* Productos Section - 3 Cards with Images */
+    .productos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+    .producto-card { background: var(--bg-dark-card); border: 1px solid var(--border-dark); border-radius: 16px; overflow: hidden; transition: transform 0.2s ease, border-color 0.2s ease; }
+    .producto-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+    .producto-visual { height: 200px; background: var(--bg-dark); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .producto-visual::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(26,39,68,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(26,39,68,0.5) 1px, transparent 1px); background-size: 24px 24px; }
+    .producto-visual img { height: 80px; width: auto; position: relative; z-index: 1; }
+    .producto-content { padding: 28px; }
+    .producto-content h3 { color: var(--primary); font-size: 24px; font-weight: 600; margin-bottom: 12px; }
+    .producto-content p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+
+    /* Solución Section with Visual */
+    .solucion-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 48px; }
+    .solucion-visual { display: flex; justify-content: center; }
+    .solucion-visual img { max-width: 100%; border-radius: 12px; }
+    .solucion-list { display: flex; flex-direction: column; gap: 24px; }
+    .solucion-item { background: var(--bg-white); border: 1px solid var(--border-light); border-radius: 12px; padding: 24px; }
+    .solucion-tag { display: inline-block; font-size: 12px; font-weight: 500; color: var(--primary-dark); background: var(--icon-box-bg); padding: 4px 12px; border-radius: 4px; margin-bottom: 12px; }
+    .solucion-item h3 { color: var(--primary-dark); font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .solucion-item p { color: var(--text-gray); font-size: 15px; line-height: 1.6; }
+
+    /* Beneficios */
+    .beneficios-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+    .beneficio-card { background: var(--bg-dark-card); border: 1px solid var(--border-dark); border-radius: 12px; padding: 32px; text-align: left; }
+    .beneficio-metric { font-size: 40px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+    .beneficio-card h3 { color: var(--text-white); font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+    .beneficio-card p { color: var(--text-muted); font-size: 14px; }
+
+    /* Testimonials */
+    .testimonials { padding: 100px 0; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; }
+    .testimonial-card { background: var(--bg-white); border: 1px solid var(--border-light); border-radius: 12px; padding: 32px; }
+    .testimonial-quote { font-size: 16px; line-height: 1.8; color: var(--text-gray); margin-bottom: 24px; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 16px; }
+    .testimonial-avatar { width: 48px; height: 48px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--bg-dark); font-size: 18px; }
+    .testimonial-info h4 { color: var(--primary-dark); font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .testimonial-info p { color: var(--text-gray); font-size: 14px; }
+
+    /* CTA Final */
+    .cta-final { text-align: center; padding: 120px 0; }
+    .cta-final .section-title { max-width: 800px; margin: 0 auto 16px; }
+    .cta-final .section-subtitle { max-width: 600px; margin: 0 auto 40px; }
+    .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* Footer */
+    .footer { background: var(--bg-dark); border-top: 1px solid var(--border-dark); padding: 32px 0; text-align: center; }
+    .footer p { color: var(--text-muted); font-size: 14px; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-content { max-width: 100%; }
+      .hero-cta { justify-content: center; }
+      .hero-visual { margin-top: 48px; }
+      .problema-grid, .beneficios-grid { grid-template-columns: repeat(2, 1fr); }
+      .productos-grid { grid-template-columns: repeat(2, 1fr); }
+      .solucion-layout { grid-template-columns: 1fr; }
+      .solucion-visual { order: 2; }
+      .hero-title { font-size: 44px; }
+      .section-title { font-size: 32px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 36px; }
+      .hero-subtitle { font-size: 17px; }
+      .problema-grid, .beneficios-grid, .productos-grid { grid-template-columns: 1fr; }
+      .hero-cta, .cta-buttons { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; justify-content: center; }
+      .section { padding: 60px 0; }
+      .beneficio-metric { font-size: 32px; }
+      .partners-grid { gap: 24px; }
+    }
+
+    .btn:focus-visible, .nav-link:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn, .nav-link, .producto-card { transition: none; } }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Navegación principal">
+    <a href="/" class="nav-logo" aria-label="Saptiva - Inicio">
+      <img src="../../Product Logos 2025 2026/Saptiva AI logo_blackbg.PNG" alt="Saptiva">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#productos" class="nav-link">Productos</a></li>
+      <li><a href="#solucion" class="nav-link">Solución</a></li>
+      <li><a href="#resultados" class="nav-link">Resultados</a></li>
+      <li><a href="#clientes" class="nav-link">Clientes</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://calendly.com/cl-saptiva/30min" class="btn btn-primary" target="_blank" rel="noopener">Agenda una llamada</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero section-dark" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h1 id="hero-title" class="hero-title">
+            IA a producción en <span class="accent">2 semanas</span>
+          </h1>
+          <p class="hero-subtitle">
+            De POC a valor de negocio medible, sin proyectos de 12 meses que nunca terminan.
+            Control total sobre tus datos con observabilidad completa y cumplimiento regulatorio.
+          </p>
+          <div class="hero-cta">
+            <a href="https://calendly.com/cl-saptiva/30min" class="btn btn-primary" target="_blank" rel="noopener">
+              Obtén resultados en 2 semanas
+            </a>
+            <a href="/whitepaper" class="btn btn-secondary">
+              Descarga nuestro Whitepaper
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="../../context/design-system/reference/05-hero-dark-3d-cubes.png" alt="Plataforma de IA Saptiva">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section class="partners section-dark" aria-label="Partners y clientes">
+    <div class="container">
+      <p class="partners-title">Impulsando la economía de IA en Latinoamérica junto a</p>
+      <div class="partners-grid">
+        <span class="partner-logo" style="font-size: 22px;">aws</span>
+        <span class="partner-logo" style="font-size: 18px;">ORACLE</span>
+        <span class="partner-logo" style="font-size: 18px;">FUJITSU</span>
+        <span class="partner-logo" style="font-size: 14px;">Microsoft for Startups</span>
+        <span class="partner-logo" style="font-size: 13px; border: 1px solid var(--text-muted); padding: 4px 10px; border-radius: 4px;">Hecho en México</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problema Section -->
+  <section id="problema" class="section section-light" aria-labelledby="problema-title">
+    <div class="container">
+      <h2 id="problema-title" class="section-title">
+        ¿Por qué la IA no llega a <span class="accent">producción</span>?
+      </h2>
+      <p class="section-subtitle">
+        Procesos intensivos en personas, regulaciones estrictas y la presión por demostrar ROI crean barreras que parecen insuperables.
+      </p>
+
+      <div class="problema-grid">
+        <article class="pain-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Roadmaps de 6-12 meses</h3>
+          <p>Los proyectos de IA se estancan en experimentación y POCs que nunca terminan.</p>
+        </article>
+
+        <article class="pain-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <h3>Cumplimiento y auditoría</h3>
+          <p>Requisitos regulatorios exigen trazabilidad completa y residencia local de datos.</p>
+        </article>
+
+        <article class="pain-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 3v18h18"/>
+              <path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>
+            </svg>
+          </div>
+          <h3>Cero visibilidad del impacto</h3>
+          <p>Imposible conectar la inversión en IA con indicadores críticos del negocio.</p>
+        </article>
+
+        <article class="pain-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Costos operativos crecientes</h3>
+          <p>Call centers, cobranza y backoffice generan gastos de seis cifras sin optimización.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos Section -->
+  <section id="productos" class="section section-dark" aria-labelledby="productos-title">
+    <div class="container">
+      <h2 id="productos-title" class="section-title">
+        Casos de uso listos para <span class="accent">producción</span>
+      </h2>
+      <p class="section-subtitle">
+        Soluciones pre-construidas que entregan valor desde el primer día.
+      </p>
+
+      <div class="productos-grid">
+        <!-- RAGster -->
+        <article class="producto-card">
+          <div class="producto-visual">
+            <img src="../../Product Logos 2025 2026/Ragster_Dark Background.png" alt="RAGster">
+          </div>
+          <div class="producto-content">
+            <h3>RAGster</h3>
+            <p>Soporte al cliente y consultas internas con IA. Responde preguntas usando tu base de conocimiento con precisión enterprise y trazabilidad completa.</p>
+          </div>
+        </article>
+
+        <!-- OctaviOS -->
+        <article class="producto-card">
+          <div class="producto-visual">
+            <img src="../../Product Logos 2025 2026/OctaviOS_DarkBack2.png" alt="OctaviOS">
+          </div>
+          <div class="producto-content">
+            <h3>OctaviOS</h3>
+            <p>Asistente inteligente para equipos de atención y asesores. Acceso instantáneo a productos, políticas y recomendaciones personalizadas.</p>
+          </div>
+        </article>
+
+        <!-- FRIDA -->
+        <article class="producto-card">
+          <div class="producto-visual">
+            <img src="../../Product Logos 2025 2026/FRIDA_LAB_DARKBack.png" alt="FRIDA">
+          </div>
+          <div class="producto-content">
+            <h3>FRIDA</h3>
+            <p>Orquestador de infraestructura. Gestiona dónde corre tu IA, cómo escala y cómo se audita. Control total con residencia local de datos.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solución Section -->
+  <section id="solucion" class="section section-light" aria-labelledby="solucion-title">
+    <div class="container">
+      <h2 id="solucion-title" class="section-title">
+        Cómo Saptiva lo <span class="accent">resuelve</span>
+      </h2>
+      <p class="section-subtitle">
+        Una plataforma que elimina las barreras entre tu equipo y los resultados de IA.
+      </p>
+
+      <div class="solucion-layout">
+        <div class="solucion-list">
+          <article class="solucion-item">
+            <span class="solucion-tag">vs. Roadmaps de 6-12 meses</span>
+            <h3>De kickoff a valor en 2 semanas</h3>
+            <p>Despliegues one-click con casos de uso pre-construidos. Tu equipo ve resultados antes del siguiente comité.</p>
+          </article>
+
+          <article class="solucion-item">
+            <span class="solucion-tag">vs. Requisitos regulatorios</span>
+            <h3>Cumplimiento desde el diseño</h3>
+            <p>Audit trails inmutables, cifrado AES-256, residencia local verificable. Listo para CNBV, SOC 2 e ISO 27001.</p>
+          </article>
+
+          <article class="solucion-item">
+            <span class="solucion-tag">vs. Cero visibilidad</span>
+            <h3>Trazabilidad directa a KPIs</h3>
+            <p>Cada caso de uso instrumentado para mostrar exactamente cómo impacta tus indicadores. Dashboards listos para C-suite.</p>
+          </article>
+
+          <article class="solucion-item">
+            <span class="solucion-tag">vs. Costos crecientes</span>
+            <h3>Optimización de operaciones críticas</h3>
+            <p>Automatiza procesos en call centers, cobranza y backoffice con potencial de ahorros de 6+ cifras anuales.</p>
+          </article>
+        </div>
+
+        <div class="solucion-visual">
+          <img src="../../context/design-system/reference/06-cards-dark-line-art.png" alt="Capacidades de la plataforma Saptiva">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios Section -->
+  <section id="resultados" class="section section-dark" aria-labelledby="beneficios-title">
+    <div class="container">
+      <h2 id="beneficios-title" class="section-title">
+        Resultados que puedes <span class="accent">medir</span>
+      </h2>
+      <p class="section-subtitle">
+        Métricas reales de implementaciones en producción.
+      </p>
+
+      <div class="beneficios-grid">
+        <article class="beneficio-card">
+          <div class="beneficio-metric">2 sem</div>
+          <h3>Time to Value</h3>
+          <p>Desde kickoff hasta valor de negocio verificable confirmado por el sponsor.</p>
+        </article>
+
+        <article class="beneficio-card">
+          <div class="beneficio-metric">&lt;48h</div>
+          <h3>Primera inferencia</h3>
+          <p>Tu primer modelo corriendo en producción en menos de dos días.</p>
+        </article>
+
+        <article class="beneficio-card">
+          <div class="beneficio-metric">6+ cifras</div>
+          <h3>Ahorro potencial anual</h3>
+          <p>En operaciones intensivas en personas como call centers, cobranza y backoffice.</p>
+        </article>
+
+        <article class="beneficio-card">
+          <div class="beneficio-metric">100%</div>
+          <h3>Observabilidad</h3>
+          <p>Métricas de latencia, accuracy y throughput de cada modelo desplegado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="clientes" class="testimonials section-light" aria-labelledby="testimonios-title">
+    <div class="container">
+      <h2 id="testimonios-title" class="section-title text-center">
+        Lo que dicen nuestros <span class="accent">clientes</span>
+      </h2>
+      <p class="section-subtitle" style="text-align: center; margin: 0 auto;">
+        Empresas que ya transformaron sus operaciones con Saptiva.
+      </p>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          <p class="testimonial-quote">
+            "Saptiva impulsa la transformación digital segura en finanzas ofreciendo infraestructura local alineada con estándares CNBV. En Bajaware compartimos esa visión: IA soberana y confiable para un ecosistema RegTech más fuerte."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">OL</div>
+            <div class="testimonial-info">
+              <h4>Omar Lozano</h4>
+              <p>CEO, Bajaware</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <p class="testimonial-quote">
+            "Saptiva ha sido un socio estratégico clave, tanto como cliente como proveedor de tecnología. Gracias a su expertise en inteligencia artificial, hemos construido la primera empresa de leasing impulsada por IA en México."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RV</div>
+            <div class="testimonial-info">
+              <h4>Regina Valencia</h4>
+              <p>Co-founder & GM, Mako Leasing</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <p class="testimonial-quote">
+            "Saptiva no solo mejoró la IA en nuestra plataforma, nos ayudaron a redefinir cómo operan las asociaciones y cámaras en LATAM. Su velocidad, precisión y visión nos han posicionado años adelante en el mercado."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AR</div>
+            <div class="testimonial-info">
+              <h4>Alejandro Rodríguez</h4>
+              <p>Co-founder & CEO, WeChamber</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <p class="testimonial-quote">
+            "Lo que más valoramos de Saptiva es cómo traducen nuestras necesidades en soluciones de IA efectivas. Su enfoque consultivo y soporte cercano los han convertido en un socio confiable y proactivo."
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AC</div>
+            <div class="testimonial-info">
+              <h4>Alejandro Castillo</h4>
+              <p>CEO, ALEB Group</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final Section -->
+  <section id="cta" class="cta-final section-dark" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 id="cta-title" class="section-title">
+        Cada caso de uso conectado directamente a tus <span class="accent">KPIs de negocio</span>
+      </h2>
+      <p class="section-subtitle" style="text-align: center; margin: 0 auto;">
+        Resultados que puedes reportar al consejo en la próxima reunión.
+      </p>
+      <div class="cta-buttons">
+        <a href="https://calendly.com/cl-saptiva/30min" class="btn btn-primary" target="_blank" rel="noopener">
+          Obtén resultados en 2 semanas
+        </a>
+        <a href="/whitepaper" class="btn btn-secondary">
+          Descarga nuestro Whitepaper
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Saptiva. El sistema operativo de IA para LATAM.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

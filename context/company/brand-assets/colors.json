@@ -1,0 +1,44 @@
+{
+  "_comment": "Saptiva Brand Colors - from DESIGN-REFERENCE.md",
+  "primary": {
+    "main": "#00E5B0",
+    "hover": "#00C99A",
+    "dark": "#00A896",
+    "glow": "#00FFD0"
+  },
+  "backgrounds": {
+    "dark": "#0B1426",
+    "dark-card": "#0F1A2E",
+    "light": "#F5F7FA",
+    "white": "#FFFFFF"
+  },
+  "text": {
+    "dark": "#0B1426",
+    "gray": "#4A5568",
+    "white": "#FFFFFF",
+    "muted": "#A0AEC0"
+  },
+  "borders": {
+    "dark": "#1A2744",
+    "light": "#E2E8F0"
+  },
+  "icons": {
+    "box-bg": "#E6FFF9"
+  },
+  "css_variables": {
+    "--primary": "#00E5B0",
+    "--primary-hover": "#00C99A",
+    "--primary-dark": "#00A896",
+    "--primary-glow": "#00FFD0",
+    "--bg-dark": "#0B1426",
+    "--bg-dark-card": "#0F1A2E",
+    "--bg-light": "#F5F7FA",
+    "--bg-white": "#FFFFFF",
+    "--text-dark": "#0B1426",
+    "--text-gray": "#4A5568",
+    "--text-white": "#FFFFFF",
+    "--text-muted": "#A0AEC0",
+    "--border-dark": "#1A2744",
+    "--border-light": "#E2E8F0"
+  }
+}

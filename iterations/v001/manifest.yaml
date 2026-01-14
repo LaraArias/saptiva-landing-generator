@@ -1,0 +1,14 @@
+# Iteration v001 Manifest
+# TEMPLATE - Copy this structure for new iterations
+
+timestamp: 2026-01-18T14:30:00Z
+vertical: gobierno
+specs_used:
+  - specs/PRD.md@abc123
+  - specs/STYLE.md@def456
+  - specs/verticals/gobierno/config.yaml@ghi789
+context_used:
+  - context/domains/gobierno/DOMAIN.md
+  - context/company/whitepaper.md
+validation_status: fail
+triggered_by: user-request

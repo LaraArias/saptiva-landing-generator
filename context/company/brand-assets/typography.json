@@ -1,0 +1,66 @@
+{
+  "_comment": "Saptiva Typography - from DESIGN-REFERENCE.md",
+  "fontFamilies": {
+    "primary": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    "mono": "'JetBrains Mono', 'Fira Code', monospace"
+  },
+  "fontSizes": {
+    "hero-title": "56px",
+    "section-title": "40px",
+    "card-title": "20px",
+    "card-title-lg": "24px",
+    "subtitle": "18px",
+    "body": "16px",
+    "small": "14px",
+    "nav": "15px"
+  },
+  "fontWeights": {
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700
+  },
+  "lineHeights": {
+    "tight": 1.2,
+    "normal": 1.5,
+    "relaxed": 1.6
+  },
+  "patterns": {
+    "hero_title": {
+      "size": "56px",
+      "weight": 700,
+      "note": "Una palabra clave en turquesa (#00E5B0)"
+    },
+    "section_title": {
+      "size": "40px",
+      "weight": 700,
+      "note": "Una palabra clave en turquesa"
+    },
+    "card_title_dark": {
+      "size": "20-24px",
+      "weight": 600,
+      "color": "#00E5B0"
+    },
+    "card_title_light": {
+      "size": "20-24px",
+      "weight": 600,
+      "color": "#00A896"
+    },
+    "subtitle_accent": {
+      "size": "18px",
+      "weight": 500,
+      "color": "#00E5B0"
+    },
+    "body_dark_bg": {
+      "size": "16px",
+      "weight": 400,
+      "color": "#FFFFFF"
+    },
+    "body_light_bg": {
+      "size": "16px",
+      "weight": 400,
+      "color": "#4A5568"
+    }
+  },
+  "google_fonts_import": "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');"
+}

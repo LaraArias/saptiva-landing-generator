@@ -1,0 +1,40 @@
+# Enterprise Landing Configuration
+
+vertical: enterprise
+domain_file: /context/domains/enterprise/DOMAIN.md
+
+# Metadata
+meta:
+  title: "Saptiva - IA para Enterprise"  # Placeholder
+  description: ""  # Pendiente
+  keywords: []  # Pendiente
+
+# Secciones habilitadas
+sections:
+  - hero
+  - problem
+  - solution
+  - benefits
+  - cta_final
+
+# Secciones opcionales
+optional_sections:
+  - testimonials: false  # Habilitar cuando haya testimonios
+  - case_studies: false
+  - comparison: false
+  - faq: false
+
+# CTA Configuration
+cta:
+  primary_text: ""  # Definir en cta-strategy.md
+  primary_action: ""  # URL o acción
+  secondary_text: ""
+  secondary_action: ""
+
+# Tracking
+tracking:
+  gtm_id: ""  # Pendiente
+  events:
+    - cta_click
+    - scroll_depth
+    - time_on_page

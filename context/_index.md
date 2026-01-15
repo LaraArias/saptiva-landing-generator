@@ -47,6 +47,13 @@ context/
 | Logo | `/context/design-system/assets/logo-color.png` |
 | Ejemplos visuales | `/context/design-system/reference/*.png` |
 
+### Para MCPs (Herramientas Externas)
+| Necesidad | Archivo |
+|-----------|---------|
+| Generar assets/ilustraciones | `/context/mcps/MCP-ASSET.md` |
+| Mexicanizar copy con KAL | `/context/mcps/MCP-SAPTIVA.md` |
+| OCR de documentos | `/context/mcps/MCP-SAPTIVA.md` |
+
 ## Reglas
 
 1. **Read-only**: Nunca modificar archivos en `/context/`

@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "mcp__PDF_Tools_-_Analyze__Extract__Fill__Compare__read_pdf_content",
-      "mcp__Control_Chrome__list_tabs"
+      "mcp__Control_Chrome__list_tabs",
+      "Bash(git add:*)"
     ]
   }
 }

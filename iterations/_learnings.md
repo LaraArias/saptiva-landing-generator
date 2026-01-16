@@ -62,3 +62,33 @@ Cada aprendizaje previene errores futuros.
 **Causa**: Claude genera español neutro, no español mexicano corporativo
 **Principio**: Para copy auténtico MX, usar LLM fine-tuneado con corpus local (KAL)
 **Acción futura**: Construir MCP que conecte a API de Saptiva/KAL para mexicanización de copy
+
+---
+
+## [2026-01-14] - MCP-Asset acelera generación de assets visuales
+
+**Contexto**: v002 tenía image paths rotos que causaban 404s
+**Solución**: Usar MCP-Asset (Gemini) para generar assets on-demand
+**Resultado**: 4 assets generados en <30 segundos, estilo consistente
+**Principio**: No depender de assets externos con paths frágiles; generar assets locales en /output/{vertical}/assets/
+**Acción**: Siempre guardar assets generados en directorio local del output
+
+---
+
+## [2026-01-14] - Saptiva KAL funciona para mexicanización de copy
+
+**Contexto**: Copy de landing necesitaba sonar natural para C-level mexicano
+**Solución**: Pasar copy por Saptiva KAL antes de implementar
+**Resultado**: Cambios sutiles pero importantes ("IA a producción" → "IA en producción")
+**Principio**: Siempre pasar copy final por KAL antes de commit
+**Modelo correcto**: "Saptiva KAL" (no "saptiva-kal")
+
+---
+
+## [2026-01-14] - Mensajes de segmento deben ser puros
+
+**Contexto**: Hero subtitle mezclaba drivers de Enterprise (velocidad) y Gobierno (cumplimiento)
+**Error**: "Control total sobre datos con cumplimiento regulatorio" en landing Enterprise
+**Causa**: DOMAIN.md de Enterprise dice explícitamente "NO enfatizar soberanía"
+**Principio**: Un landing = un driver. No mezclar mensajes de diferentes segmentos.
+**Acción**: Reemplazado por "Observabilidad completa con métricas directas a tus KPIs"

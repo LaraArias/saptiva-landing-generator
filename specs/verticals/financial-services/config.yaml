@@ -5,9 +5,9 @@ domain_file: /context/domains/enterprise/DOMAIN.md
 
 # Metadata
 meta:
-  title: "Saptiva - IA para Enterprise"  # Placeholder
-  description: ""  # Pendiente
-  keywords: []  # Pendiente
+  title: "Saptiva - IA en Producción en 2 Semanas | Plataforma Enterprise"
+  description: "Lleva casos de uso de IA a producción en 14 días con visibilidad total del impacto en tus KPIs. Observabilidad, control y ROI medible."
+  keywords: ["IA enterprise", "time to value", "ROI IA", "plataforma IA LATAM", "IA producción"]
 
 # Secciones habilitadas
 sections:
@@ -26,8 +26,8 @@ optional_sections:
 
 # CTA Configuration
 cta:
-  primary_text: ""  # Definir en cta-strategy.md
-  primary_action: ""  # URL o acción
+  primary_text: "Acelera tu time-to-value"
+  primary_action: "https://calendly.com/saptiva/demo"
   secondary_text: ""
   secondary_action: ""
 

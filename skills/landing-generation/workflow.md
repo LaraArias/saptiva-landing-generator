@@ -2,11 +2,18 @@
 
 ## Overview
 
-Este workflow genera una landing page completa pasando por 7 fases con 7 agentes especializados.
+Este workflow genera una landing page completa pasando por fases con agentes especializados y MCPs.
 
 ```
-spec-reviewer → content-strategist → frontend-builder → validator → ux-reviewer → outcome-evaluator → iteration-logger
+spec-reviewer → content-strategist → copy-reviewer (KAL) → frontend-builder → graphic-designer (MCP-Asset) → validator → ux-reviewer → outcome-evaluator → iteration-logger
 ```
+
+## MCPs Disponibles
+
+| MCP | Agente que lo usa | Propósito |
+|-----|-------------------|-----------|
+| **MCP-Asset** | graphic-designer | Generar ilustraciones, iconos, diagramas |
+| **MCP-Saptiva** | copy-reviewer | Mexicanizar copy con KAL |
 
 ---
 
@@ -107,6 +114,62 @@ Determina qué landing se va a generar:
 
 ---
 
+## Fase 3.5: Mexicanización de Copy (MCP)
+
+**Agente:** `copy-reviewer`
+**MCP:** `MCP-Saptiva` (modelo KAL)
+
+### Objetivo
+Pasar el copy extraído por KAL para que suene natural en español mexicano corporativo.
+
+### Proceso
+1. Recibe copy estructurado de content-strategist
+2. Identifica frases que suenan "traducidas"
+3. Envía a KAL con contexto de audiencia (C-level banca)
+4. Recibe copy mexicanizado
+5. Verifica ortografía y gramática
+6. Retorna copy listo para frontend-builder
+
+### Llamada a MCP
+```javascript
+saptiva_chat({
+  model: "Saptiva KAL",
+  messages: [
+    {
+      role: "system",
+      content: "Eres un copywriter mexicano senior para audiencia C-level en sector financiero. Reescribe el copy para que suene natural y profesional, como lo diría un director de banco mexicano. Mantén términos técnicos aceptados (KPIs, dashboard, compliance) pero mexicaniza las frases."
+    },
+    {
+      role: "user",
+      content: "Mexicaniza este copy de landing:\n\n[copy de content-strategist]"
+    }
+  ],
+  max_tokens: 1000,
+  temperature: 0.7
+})
+```
+
+### Output
+```json
+{
+  "hero": {
+    "headline": "[mexicanizado]",
+    "subheadline": "[mexicanizado]",
+    "cta_text": "[mexicanizado]"
+  },
+  "sections": [...],
+  "changes_made": [
+    {
+      "original": "Time to Value",
+      "mexicanized": "Tiempo a resultados",
+      "reason": "Más natural en juntas ejecutivas MX"
+    }
+  ]
+}
+```
+
+---
+
 ## Fase 4: Cargar Specs
 
 ### Archivos a leer
@@ -138,6 +201,62 @@ Determina qué landing se va a generar:
 - `/output/{vertical}/index.html`
 - `/output/{vertical}/styles.css` (si separado)
 - `/output/{vertical}/scripts.js` (si necesario)
+
+---
+
+## Fase 5.5: Generación de Assets (MCP)
+
+**Agente:** `graphic-designer`
+**MCP:** `MCP-Asset`
+
+### Objetivo
+Generar ilustraciones y assets visuales que falten en la landing.
+
+### Cuándo se activa
+- Hero necesita ilustración personalizada
+- Secciones requieren diagramas
+- Se necesitan iconos que no existen en el design system
+
+### Proceso
+1. Analiza HTML generado
+2. Identifica secciones que necesitan assets
+3. Genera con MCP-Asset usando el design system como referencia
+4. Guarda en `/context/design-system/assets/generated/`
+5. Actualiza referencias en HTML
+
+### Llamada a MCP
+```javascript
+// Para ilustración de hero
+design({
+  concept: "AI infrastructure for financial services, 3D isometric cubes, teal accent on dark background",
+  variant: "dark",
+  provider: "gemini",
+  output: "both"
+})
+
+// Para diagrama de arquitectura
+design({
+  concept: "data flow diagram, minimal lines, enterprise security",
+  variant: "dark",
+  provider: "gemini",
+  output: "image"
+})
+```
+
+### Output
+```json
+{
+  "assets_generated": [
+    {
+      "type": "illustration",
+      "concept": "AI infrastructure",
+      "path": "/context/design-system/assets/generated/hero-ai-infra.png",
+      "svg_path": "/context/design-system/assets/generated/hero-ai-infra.svg"
+    }
+  ],
+  "html_updated": true
+}
+```
 
 ---
 

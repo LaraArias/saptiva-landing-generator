@@ -1,41 +1,37 @@
 # Gobierno Landing Configuration
 
 vertical: gobierno
-domain_file: /context/domains/gobierno/DOMAIN.md
+domain: /context/domains/gobierno/DOMAIN.md
+output: /output/gobierno/index.html
 
 # Metadata
-meta:
-  title: "Saptiva - IA Soberana para Gobierno"  # Placeholder
-  description: ""  # Pendiente
-  keywords: []  # Pendiente
+metadata:
+  title: "Saptiva - IA Soberana para el Sector Público | Infraestructura bajo tu control"
+  description: "Infraestructura de IA que cumple los 7 requisitos de soberanía. Control jurisdiccional, residencia de datos local, y compliance demostrable en horas."
+  keywords:
+    - IA soberana
+    - gobierno
+    - sector público
+    - CLOUD Act
+    - residencia de datos
+    - jurisdicción local
 
 # Secciones habilitadas
 sections:
-  - hero
-  - problem
-  - solution
-  - benefits
-  - cta_final
-
-# Secciones opcionales
-optional_sections:
-  - testimonials: false  # Habilitar cuando haya testimonios
-  - case_studies: false
-  - compliance: true  # Importante para gobierno
-  - faq: true  # Preguntas frecuentes sobre soberanía
+  - hero: true
+  - requisitos: true  # Los 7 requisitos de IA Soberana
+  - productos: true
+  - diferenciadores: true
+  - compliance: true
+  - cta_final: true
 
 # CTA Configuration
 cta:
-  primary_text: ""  # Definir en cta-strategy.md
-  primary_action: ""  # URL o acción
-  secondary_text: ""
-  secondary_action: ""
+  primary_text: "Agenda una sesión de arquitectura"
+  primary_action: "https://calendly.com/saptiva/arquitectura"
+  secondary_text: "Descarga el whitepaper"
+  secondary_action: "/recursos/whitepaper-ia-soberana.pdf"
 
 # Tracking
 tracking:
   gtm_id: ""  # Pendiente
-  events:
-    - cta_click
-    - scroll_depth
-    - time_on_page
-    - whitepaper_download

@@ -20,7 +20,7 @@ NUNCA generes código sin antes:
 
 ---
 
-## Sub-agentes Disponibles (7)
+## Sub-agentes Disponibles (11)
 
 ### Fase Pre-Build (Upstream)
 | Agente | Propósito | Cuándo Usar |
@@ -31,12 +31,14 @@ NUNCA generes código sin antes:
 | Agente | Propósito | Cuándo Usar |
 |--------|-----------|-------------|
 | `content-strategist` | Extrae y adapta copy del contexto | Cuando necesitas contenido textual |
+| `copy-reviewer` | Mexicaniza copy y valida ortografía/gramática con KAL | **SIEMPRE** después de content-strategist |
+| `graphic-designer` | Genera assets visuales con MCP-Asset | Cuando se necesitan ilustraciones/iconos |
 | `frontend-builder` | Genera HTML/CSS/JS siguiendo STYLE.md | Para crear el código de la landing |
 
 ### Fase Post-Build (Validation)
 | Agente | Propósito | Cuándo Usar |
 |--------|-----------|-------------|
-| `validator` | Verifica criterios técnicos (HTML válido, responsive, accesibilidad) | Después de generar código |
+| `validator` | Verifica criterios técnicos (HTML, CSS, assets, accesibilidad) | Después de generar código |
 | `ux-reviewer` | Evalúa experiencia de usuario y potencial de conversión | Después de validación técnica |
 | `outcome-evaluator` | Verifica alineación con objetivos de negocio | Validación final antes de entregar |
 
@@ -44,6 +46,12 @@ NUNCA generes código sin antes:
 | Agente | Propósito | Cuándo Usar |
 |--------|-----------|-------------|
 | `iteration-logger` | Documenta cambios y captura learnings | Cada vez que se modifica algo |
+
+### Estratégico (On-Demand)
+| Agente | Propósito | Cuándo Usar |
+|--------|-----------|-------------|
+| `expert-panel` | Reúne expertos virtuales para resolver problemas complejos de forma colaborativa | Decisiones estratégicas, copy/messaging, problemas sin respuesta obvia |
+| `decision-maker` | Heurísticas para tomar decisiones autónomas sin escalar al CPO | Internalizado - no se invoca explícitamente |
 
 ---
 
@@ -57,12 +65,16 @@ NUNCA generes código sin antes:
 ║                                                                 ║
 ║  GATE 1: Pre-generación                                         ║
 ║  → Decisiones de CTA, estructura, prioridades                   ║
+║  → spec-reviewer presenta resumen para aprobación               ║
 ║                                                                 ║
-║  GATE 2: Post-generación                                        ║
-║  → Ver sitio en browser, feedback de copy/diseño                ║
+║  GATE 2: Post-generación (AUTO-PREVIEW)                         ║
+║  → Se abre automáticamente en Chrome via MCP                    ║
+║  → CPO revisa visualmente en browser real                       ║
+║  → Feedback directo en chat                                     ║
 ║                                                                 ║
 ║  GATE 3: Pre-deploy                                             ║
 ║  → Aprobación final después de fixes                            ║
+║  → Snapshot guardado en /iterations/vXXX/                       ║
 ║                                                                 ║
 ║  Sin aprobación en GATE, no se avanza al siguiente paso.        ║
 ╚═════════════════════════════════════════════════════════════════╝
@@ -99,21 +111,39 @@ NUNCA generes código sin antes:
 ┌─────────────────────────────────────────────────────────────────┐
 │                    FASE 3: GENERACIÓN                           │
 ├─────────────────────────────────────────────────────────────────┤
-│  1. content-strategist extrae copy del contexto                 │
-│  2. frontend-builder genera HTML/CSS/JS                         │
-│  3. Output en /output/{vertical}/                               │
+│  Pipeline secuencial:                                           │
+│  1. content-strategist → extrae copy del contexto               │
+│  2. copy-reviewer → mexicaniza y valida con KAL                 │
+│                                                                 │
+│  Pipeline paralelo:                                             │
+│  3a. graphic-designer → genera assets con MCP-Asset             │
+│  3b. frontend-builder → genera HTML/CSS/JS                      │
+│                                                                 │
+│  4. Output en /output/{vertical}/                               │
+│     ├── index.html                                              │
+│     └── assets/    ← assets generados localmente                │
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
 │                    FASE 4: VALIDACIÓN TÉCNICA                   │
 ├─────────────────────────────────────────────────────────────────┤
 │  validator verifica:                                            │
-│  - HTML válido                                                  │
-│  - CSS responsive                                               │
-│  - Accesibilidad básica                                         │
-│  - Performance                                                  │
+│  - HTML válido (sintaxis, estructura)                           │
+│  - CSS responsive (mobile-first, breakpoints)                   │
+│  - Assets existen (todos los src= apuntan a archivos reales)    │
+│  - Accesibilidad (alt tags, contraste, semántica)               │
+│  - Performance (< 3s carga, assets optimizados)                 │
 │                                                                 │
 │  → Si falla: iteration-logger documenta, volver a Fase 3        │
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
+│                    GATE 2: AUTO-PREVIEW                         │
+├─────────────────────────────────────────────────────────────────┤
+│  1. Abrir Chrome con MCP: file:///output/{vertical}/index.html  │
+│  2. Esperar feedback del CPO en chat                            │
+│  3. Si hay cambios: volver a Fase 3                             │
+│  4. Si aprobado: continuar a Fase 5                             │
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
@@ -207,14 +237,24 @@ Gestiona cambios y mejoras a landings existentes.
 
 Para generar una landing completa:
 ```
-Genera la landing de {enterprise|gobierno}
+Genera la landing de {financial-services|gobierno}
 ```
 
 Esto activa automáticamente:
-1. spec-reviewer → valida specs
+
+**Pre-Build:**
+1. spec-reviewer → valida specs (GATE 1: espera aprobación)
+
+**Build:**
 2. content-strategist → extrae copy
-3. frontend-builder → genera código
-4. validator → verifica técnico
-5. ux-reviewer → verifica UX
-6. outcome-evaluator → verifica negocio
-7. iteration-logger → documenta
+3. copy-reviewer → mexicaniza con KAL
+4. graphic-designer + frontend-builder → genera assets y código (paralelo)
+
+**Validation:**
+5. validator → verifica técnico + assets
+6. **AUTO-PREVIEW** → abre en Chrome (GATE 2: espera feedback)
+7. ux-reviewer → verifica UX
+8. outcome-evaluator → verifica negocio (GATE 3: aprobación final)
+
+**Post:**
+9. iteration-logger → documenta en /iterations/

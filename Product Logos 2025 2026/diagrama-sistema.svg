@@ -1,0 +1,359 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFD0"/>
+      <stop offset="100%" style="stop-color:#00E5B0"/>
+    </linearGradient>
+
+    <!-- Grid pattern -->
+    <pattern id="gridPattern" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1A2744" stroke-width="0.5"/>
+    </pattern>
+
+    <!-- Arrow marker -->
+    <marker id="arrowHead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00E5B0"/>
+    </marker>
+
+    <marker id="arrowHeadMuted" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#A0AEC0"/>
+    </marker>
+
+    <!-- Drop shadow -->
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#0B1426"/>
+  <rect width="1200" height="800" fill="url(#gridPattern)" opacity="0.5"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="24" font-weight="700">
+    Saptiva Landing Generator
+  </text>
+  <text x="600" y="62" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="14">
+    Sistema de generacion outcome-driven
+  </text>
+
+  <!-- ==================== LEFT SECTION: INPUTS ==================== -->
+
+  <!-- /context Box -->
+  <g transform="translate(40, 100)">
+    <rect width="150" height="120" rx="8" fill="#0F1A2E" stroke="#1A2744" stroke-width="1" filter="url(#dropShadow)"/>
+    <rect x="0" y="0" width="150" height="4" rx="2" fill="#00E5B0"/>
+    <text x="75" y="28" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="14" font-weight="600">/context</text>
+    <text x="75" y="46" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">READ-ONLY</text>
+    <line x1="20" y1="56" x2="130" y2="56" stroke="#1A2744" stroke-width="1"/>
+    <text x="20" y="74" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">company/</text>
+    <text x="20" y="90" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">domains/</text>
+    <text x="20" y="106" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">design-system/</text>
+  </g>
+
+  <!-- /specs Box -->
+  <g transform="translate(40, 240)">
+    <rect width="150" height="120" rx="8" fill="#0F1A2E" stroke="#1A2744" stroke-width="1" filter="url(#dropShadow)"/>
+    <rect x="0" y="0" width="150" height="4" rx="2" fill="#00E5B0"/>
+    <text x="75" y="28" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="14" font-weight="600">/specs</text>
+    <text x="75" y="46" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">EDITABLE</text>
+    <line x1="20" y1="56" x2="130" y2="56" stroke="#1A2744" stroke-width="1"/>
+    <text x="20" y="74" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">PRD.md</text>
+    <text x="20" y="90" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">STYLE.md</text>
+    <text x="20" y="106" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">verticals/</text>
+  </g>
+
+  <!-- CPO Box -->
+  <g transform="translate(40, 380)">
+    <rect width="150" height="140" rx="8" fill="#0F1A2E" stroke="#00E5B0" stroke-width="2" filter="url(#dropShadow)"/>
+    <!-- Person icon -->
+    <circle cx="75" cy="36" r="16" fill="none" stroke="#00E5B0" stroke-width="2"/>
+    <circle cx="75" cy="32" r="6" fill="#00E5B0"/>
+    <path d="M 60 48 Q 75 56 90 48" fill="none" stroke="#00E5B0" stroke-width="2"/>
+    <text x="75" y="70" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="14" font-weight="600">CPO</text>
+    <text x="75" y="86" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">Human-in-the-Loop</text>
+    <line x1="20" y1="96" x2="130" y2="96" stroke="#1A2744" stroke-width="1"/>
+    <text x="20" y="114" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">GATE 1: Pre-gen</text>
+    <text x="20" y="128" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">GATE 2: Post-gen</text>
+    <text x="20" y="142" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">GATE 3: Pre-deploy</text>
+  </g>
+
+  <!-- ==================== CENTER: PIPELINE ==================== -->
+
+  <!-- Pipeline container -->
+  <g transform="translate(260, 90)">
+    <rect width="480" height="620" rx="12" fill="none" stroke="#1A2744" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="240" y="-10" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="12">PIPELINE</text>
+  </g>
+
+  <!-- Agent 1: spec-reviewer -->
+  <g transform="translate(300, 105)">
+    <rect width="180" height="50" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="25" cy="25" r="12" fill="#00E5B0" opacity="0.2"/>
+    <text x="25" y="29" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">1</text>
+    <text x="105" y="22" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12" font-weight="500">spec-reviewer</text>
+    <text x="105" y="38" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">Valida specs</text>
+  </g>
+
+  <!-- GATE 1 indicator -->
+  <g transform="translate(490, 120)">
+    <rect width="70" height="24" rx="4" fill="#00E5B0" opacity="0.15" stroke="#00E5B0" stroke-width="1"/>
+    <text x="35" y="16" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="10" font-weight="600">GATE 1</text>
+  </g>
+
+  <!-- Arrow down -->
+  <line x1="390" y1="160" x2="390" y2="175" stroke="#00E5B0" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Agent 2: content-strategist -->
+  <g transform="translate(300, 180)">
+    <rect width="180" height="50" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="25" cy="25" r="12" fill="#00E5B0" opacity="0.2"/>
+    <text x="25" y="29" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">2</text>
+    <text x="105" y="22" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12" font-weight="500">content-strategist</text>
+    <text x="105" y="38" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">Extrae copy</text>
+  </g>
+
+  <line x1="390" y1="235" x2="390" y2="250" stroke="#00E5B0" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Agent 3: graphic-designer -->
+  <g transform="translate(300, 255)">
+    <rect width="180" height="50" rx="6" fill="#0F1A2E" stroke="#00E5B0" stroke-width="2"/>
+    <circle cx="25" cy="25" r="12" fill="#00E5B0" opacity="0.2"/>
+    <text x="25" y="29" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">3</text>
+    <text x="105" y="22" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">graphic-designer</text>
+    <text x="105" y="38" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">Assets visuales</text>
+  </g>
+
+  <line x1="390" y1="310" x2="390" y2="325" stroke="#00E5B0" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Agent 4: frontend-builder -->
+  <g transform="translate(300, 330)">
+    <rect width="180" height="50" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="25" cy="25" r="12" fill="#00E5B0" opacity="0.2"/>
+    <text x="25" y="29" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">4</text>
+    <text x="105" y="22" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12" font-weight="500">frontend-builder</text>
+    <text x="105" y="38" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">HTML/CSS/JS</text>
+  </g>
+
+  <!-- GATE 2 indicator -->
+  <g transform="translate(490, 345)">
+    <rect width="70" height="24" rx="4" fill="#00E5B0" opacity="0.15" stroke="#00E5B0" stroke-width="1"/>
+    <text x="35" y="16" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="10" font-weight="600">GATE 2</text>
+  </g>
+
+  <line x1="390" y1="385" x2="390" y2="400" stroke="#00E5B0" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Agent 5: validator -->
+  <g transform="translate(300, 405)">
+    <rect width="180" height="50" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="25" cy="25" r="12" fill="#00E5B0" opacity="0.2"/>
+    <text x="25" y="29" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">5</text>
+    <text x="105" y="22" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12" font-weight="500">validator</text>
+    <text x="105" y="38" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">Verifica tecnico</text>
+  </g>
+
+  <line x1="390" y1="460" x2="390" y2="475" stroke="#00E5B0" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Agent 6: ux-reviewer -->
+  <g transform="translate(300, 480)">
+    <rect width="180" height="50" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="25" cy="25" r="12" fill="#00E5B0" opacity="0.2"/>
+    <text x="25" y="29" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">6</text>
+    <text x="105" y="22" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12" font-weight="500">ux-reviewer</text>
+    <text x="105" y="38" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">Verifica UX</text>
+  </g>
+
+  <line x1="390" y1="535" x2="390" y2="550" stroke="#00E5B0" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Agent 7: outcome-evaluator -->
+  <g transform="translate(300, 555)">
+    <rect width="180" height="50" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="25" cy="25" r="12" fill="#00E5B0" opacity="0.2"/>
+    <text x="25" y="29" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">7</text>
+    <text x="105" y="22" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12" font-weight="500">outcome-evaluator</text>
+    <text x="105" y="38" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">Verifica negocio</text>
+  </g>
+
+  <!-- GATE 3 indicator -->
+  <g transform="translate(490, 570)">
+    <rect width="70" height="24" rx="4" fill="#00E5B0" opacity="0.15" stroke="#00E5B0" stroke-width="1"/>
+    <text x="35" y="16" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="10" font-weight="600">GATE 3</text>
+  </g>
+
+  <line x1="390" y1="610" x2="390" y2="625" stroke="#00E5B0" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Agent 8: iteration-logger -->
+  <g transform="translate(300, 630)">
+    <rect width="180" height="50" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="25" cy="25" r="12" fill="#00E5B0" opacity="0.2"/>
+    <text x="25" y="29" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">8</text>
+    <text x="105" y="22" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="12" font-weight="500">iteration-logger</text>
+    <text x="105" y="38" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">Documenta cambios</text>
+  </g>
+
+  <!-- ==================== RIGHT SECTION: MCPs ==================== -->
+
+  <!-- MCP-Asset Box -->
+  <g transform="translate(800, 100)">
+    <rect width="160" height="100" rx="8" fill="#0F1A2E" stroke="#00E5B0" stroke-width="2" filter="url(#dropShadow)"/>
+    <rect x="0" y="0" width="160" height="4" rx="2" fill="url(#primaryGradient)"/>
+    <text x="80" y="28" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="13" font-weight="600">MCP-Asset</text>
+    <text x="80" y="46" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="11">Gemini 2.0 Flash</text>
+    <line x1="20" y1="56" x2="140" y2="56" stroke="#1A2744" stroke-width="1"/>
+    <text x="80" y="74" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">design()</text>
+    <text x="80" y="90" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">convert_to_svg()</text>
+  </g>
+
+  <!-- MCP-Saptiva Box -->
+  <g transform="translate(800, 220)">
+    <rect width="160" height="100" rx="8" fill="#0F1A2E" stroke="#1A2744" stroke-width="1" filter="url(#dropShadow)"/>
+    <rect x="0" y="0" width="160" height="4" rx="2" fill="#A0AEC0"/>
+    <text x="80" y="28" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="13" font-weight="600">MCP-Saptiva</text>
+    <text x="80" y="46" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="11">KAL API</text>
+    <line x1="20" y1="56" x2="140" y2="56" stroke="#1A2744" stroke-width="1"/>
+    <text x="80" y="74" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">query_kal()</text>
+    <text x="80" y="90" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">get_context()</text>
+  </g>
+
+  <!-- MCP-Chrome Box -->
+  <g transform="translate(800, 340)">
+    <rect width="160" height="100" rx="8" fill="#0F1A2E" stroke="#1A2744" stroke-width="1" filter="url(#dropShadow)"/>
+    <rect x="0" y="0" width="160" height="4" rx="2" fill="#A0AEC0"/>
+    <text x="80" y="28" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="13" font-weight="600">MCP-Chrome</text>
+    <text x="80" y="46" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="11">Browser Testing</text>
+    <line x1="20" y1="56" x2="140" y2="56" stroke="#1A2744" stroke-width="1"/>
+    <text x="80" y="74" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">navigate()</text>
+    <text x="80" y="90" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">screenshot()</text>
+  </g>
+
+  <!-- ==================== CONNECTIONS TO MCPs ==================== -->
+
+  <!-- graphic-designer to MCP-Asset -->
+  <path d="M 480 280 L 560 280 L 560 150 L 800 150" fill="none" stroke="#00E5B0" stroke-width="2" marker-end="url(#arrowHead)" filter="url(#glow)"/>
+
+  <!-- content-strategist to MCP-Saptiva -->
+  <path d="M 480 205 L 580 205 L 580 270 L 800 270" fill="none" stroke="#A0AEC0" stroke-width="1.5" marker-end="url(#arrowHeadMuted)"/>
+
+  <!-- validator to MCP-Chrome -->
+  <path d="M 480 430 L 600 430 L 600 390 L 800 390" fill="none" stroke="#A0AEC0" stroke-width="1.5" marker-end="url(#arrowHeadMuted)"/>
+
+  <!-- ==================== CONNECTIONS FROM INPUTS ==================== -->
+
+  <!-- /context to pipeline -->
+  <path d="M 190 160 L 245 160 L 245 205 L 300 205" fill="none" stroke="#A0AEC0" stroke-width="1.5" marker-end="url(#arrowHeadMuted)"/>
+
+  <!-- /specs to pipeline -->
+  <path d="M 190 300 L 245 300 L 245 130 L 300 130" fill="none" stroke="#A0AEC0" stroke-width="1.5" marker-end="url(#arrowHeadMuted)"/>
+
+  <!-- CPO to GATEs -->
+  <path d="M 190 420 L 220 420 L 220 132 L 490 132" fill="none" stroke="#00E5B0" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <path d="M 220 420 L 220 357 L 490 357" fill="none" stroke="#00E5B0" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <path d="M 220 420 L 220 582 L 490 582" fill="none" stroke="#00E5B0" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- ==================== BOTTOM: OUTPUTS ==================== -->
+
+  <!-- /output Box -->
+  <g transform="translate(800, 480)">
+    <rect width="160" height="80" rx="8" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1" filter="url(#dropShadow)"/>
+    <text x="80" y="24" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="13" font-weight="600">/output</text>
+    <line x1="20" y1="36" x2="140" y2="36" stroke="#1A2744" stroke-width="1"/>
+    <text x="80" y="54" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">index.html</text>
+    <text x="80" y="70" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">assets/</text>
+  </g>
+
+  <!-- /iterations Box -->
+  <g transform="translate(800, 580)">
+    <rect width="160" height="80" rx="8" fill="#0F1A2E" stroke="#1A2744" stroke-width="1" filter="url(#dropShadow)"/>
+    <text x="80" y="24" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="13" font-weight="600">/iterations</text>
+    <line x1="20" y1="36" x2="140" y2="36" stroke="#1A2744" stroke-width="1"/>
+    <text x="80" y="54" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">manifest.json</text>
+    <text x="80" y="70" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">_learnings.md</text>
+  </g>
+
+  <!-- GitHub Pages Box -->
+  <g transform="translate(1000, 530)">
+    <rect width="140" height="60" rx="8" fill="#0F1A2E" stroke="#00E5B0" stroke-width="2" filter="url(#dropShadow)"/>
+    <!-- GitHub icon simplified -->
+    <circle cx="30" cy="30" r="12" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+    <circle cx="30" cy="28" r="4" fill="#00E5B0"/>
+    <path d="M 22 38 Q 30 42 38 38" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+    <text x="85" y="26" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">GitHub</text>
+    <text x="85" y="42" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">Pages</text>
+  </g>
+
+  <!-- Connections to outputs -->
+  <path d="M 480 355 L 620 355 L 620 520 L 800 520" fill="none" stroke="#00E5B0" stroke-width="1.5" marker-end="url(#arrowHead)"/>
+  <path d="M 480 655 L 620 655 L 620 620 L 800 620" fill="none" stroke="#A0AEC0" stroke-width="1.5" marker-end="url(#arrowHeadMuted)"/>
+  <path d="M 960 520 L 980 520 L 980 560 L 1000 560" fill="none" stroke="#00E5B0" stroke-width="1.5" marker-end="url(#arrowHead)"/>
+
+  <!-- ==================== FEEDBACK LOOP ==================== -->
+
+  <!-- Feedback loop arrow -->
+  <g>
+    <!-- Curved path from iterations back to CPO and specs -->
+    <path d="M 800 640 L 760 640 L 760 760 L 115 760 L 115 520"
+          fill="none" stroke="#00E5B0" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowHead)"/>
+
+    <!-- Label for feedback loop -->
+    <g transform="translate(380, 745)">
+      <rect x="-80" y="-12" width="160" height="24" rx="4" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1"/>
+      <text x="0" y="4" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="11" font-weight="500">FEEDBACK LOOP</text>
+    </g>
+
+    <!-- Arrow from loop to /specs -->
+    <path d="M 115 520 L 115 360" fill="none" stroke="#00E5B0" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowHead)"/>
+  </g>
+
+  <!-- Learning indicator -->
+  <g transform="translate(985, 680)">
+    <rect width="160" height="50" rx="6" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1" stroke-dasharray="4,2"/>
+    <!-- Brain/learning icon -->
+    <circle cx="30" cy="25" r="14" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+    <path d="M 22 20 Q 30 15 38 20 M 22 30 Q 30 35 38 30" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+    <text x="100" y="22" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="11" font-weight="500">Sistema</text>
+    <text x="100" y="36" text-anchor="middle" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11">APRENDE</text>
+  </g>
+
+  <!-- Connection from iterations to learning -->
+  <path d="M 960 620 L 985 620 L 985 680" fill="none" stroke="#00E5B0" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- ==================== LEGEND ==================== -->
+  <g transform="translate(1020, 100)">
+    <text x="0" y="0" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="11" font-weight="600">LEYENDA</text>
+
+    <!-- Agent -->
+    <rect x="0" y="12" width="24" height="14" rx="3" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <text x="32" y="23" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">Agente</text>
+
+    <!-- Gate -->
+    <rect x="0" y="32" width="24" height="14" rx="3" fill="#00E5B0" opacity="0.15" stroke="#00E5B0" stroke-width="1"/>
+    <text x="32" y="43" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">Gate CPO</text>
+
+    <!-- MCP -->
+    <rect x="0" y="52" width="24" height="14" rx="3" fill="#0F1A2E" stroke="#00E5B0" stroke-width="2"/>
+    <text x="32" y="63" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">MCP</text>
+
+    <!-- Data flow -->
+    <line x1="0" y1="79" x2="24" y2="79" stroke="#00E5B0" stroke-width="2"/>
+    <text x="32" y="83" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">Flujo datos</text>
+
+    <!-- Feedback -->
+    <line x1="0" y1="99" x2="24" y2="99" stroke="#00E5B0" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="32" y="103" fill="#FFFFFF" font-family="Inter, sans-serif" font-size="10">Feedback</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="600" y="790" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">
+    Saptiva AI - Landing Generator v003 - Outcome-Driven Development
+  </text>
+</svg>

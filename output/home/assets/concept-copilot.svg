@@ -1,0 +1,54 @@
+<svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" fill="#0B1426"/>
+
+  <!-- Chat bubble -->
+  <g transform="translate(40, 100)">
+    <path d="M-20,-25 h40 a8,8 0 0 1 8,8 v30 a8,8 0 0 1 -8,8 h-25 l-10,12 v-12 h-5 a8,8 0 0 1 -8,-8 v-30 a8,8 0 0 1 8,-8 z" fill="#1A2744" stroke="#00E5B0" stroke-width="1.5"/>
+    <line x1="-12" y1="-12" x2="18" y2="-12" stroke="#00E5B0" stroke-width="1.5" stroke-opacity="0.6"/>
+    <line x1="-12" y1="-2" x2="14" y2="-2" stroke="#00E5B0" stroke-width="1.5" stroke-opacity="0.4"/>
+    <line x1="-12" y1="8" x2="10" y2="8" stroke="#00E5B0" stroke-width="1.5" stroke-opacity="0.4"/>
+  </g>
+
+  <!-- Flow line 1 -->
+  <path d="M70 100 L100 100" stroke="#00E5B0" stroke-width="1.5" stroke-opacity="0.6"/>
+  <circle cx="100" cy="100" r="3" fill="#00E5B0" fill-opacity="0.6"/>
+
+  <!-- Neural network / Processing -->
+  <g transform="translate(150, 100)">
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="32" fill="none" stroke="#00E5B0" stroke-width="1" stroke-opacity="0.3"/>
+
+    <!-- Central brain/processing icon -->
+    <circle cx="0" cy="0" r="20" fill="#1A2744" stroke="#00E5B0" stroke-width="1.5"/>
+
+    <!-- Neural connections -->
+    <circle cx="-8" cy="-6" r="4" fill="none" stroke="#00E5B0" stroke-width="1"/>
+    <circle cx="8" cy="-6" r="4" fill="none" stroke="#00E5B0" stroke-width="1"/>
+    <circle cx="0" cy="8" r="4" fill="none" stroke="#00E5B0" stroke-width="1"/>
+    <line x1="-4" y1="-6" x2="4" y2="-6" stroke="#00E5B0" stroke-width="1"/>
+    <line x1="-6" y1="-2" x2="0" y2="4" stroke="#00E5B0" stroke-width="1"/>
+    <line x1="6" y1="-2" x2="0" y2="4" stroke="#00E5B0" stroke-width="1"/>
+
+    <!-- Pulse rings -->
+    <circle cx="0" cy="0" r="26" fill="none" stroke="#00E5B0" stroke-width="0.5" stroke-opacity="0.4"/>
+  </g>
+
+  <!-- Flow line 2 -->
+  <circle cx="195" cy="100" r="3" fill="#00E5B0" fill-opacity="0.6"/>
+  <path d="M195 100 L220 100" stroke="#00E5B0" stroke-width="1.5" stroke-opacity="0.6"/>
+
+  <!-- Dashboard / Insights -->
+  <g transform="translate(260, 100)">
+    <rect x="-30" y="-35" width="60" height="70" rx="6" fill="#1A2744" stroke="#00E5B0" stroke-width="1.5"/>
+
+    <!-- Bar chart -->
+    <rect x="-22" y="5" width="8" height="20" fill="#00E5B0" fill-opacity="0.4"/>
+    <rect x="-10" y="-5" width="8" height="30" fill="#00E5B0" fill-opacity="0.6"/>
+    <rect x="2" y="0" width="8" height="25" fill="#00E5B0" fill-opacity="0.5"/>
+    <rect x="14" y="-10" width="8" height="35" fill="#00E5B0" fill-opacity="0.8"/>
+
+    <!-- Trend line -->
+    <path d="M-22 -20 L-10 -15 L2 -22 L14 -28 L22 -25" stroke="#00FFD0" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle cx="14" cy="-28" r="3" fill="#00FFD0"/>
+  </g>
+</svg>

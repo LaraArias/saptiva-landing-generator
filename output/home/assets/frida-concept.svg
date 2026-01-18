@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" fill="none">
+  <defs>
+    <pattern id="gridBg2" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#1A2744" stroke-width="0.5"/>
+    </pattern>
+    <linearGradient id="hexGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FFD0" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00E5B0" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="coreGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="450" fill="#0B1426"/>
+  <rect width="600" height="450" fill="url(#gridBg2)" opacity="0.5"/>
+
+  <!-- Cloud providers (top) -->
+  <!-- AWS Cloud -->
+  <g transform="translate(120, 60)">
+    <rect x="0" y="0" width="80" height="50" rx="8" fill="#0F1A2E" stroke="#1A2744" stroke-width="1.5"/>
+    <!-- Cloud icon -->
+    <path d="M 20 35 Q 10 35 10 28 Q 10 22 18 20 Q 18 12 30 12 Q 42 12 44 20 Q 55 20 55 28 Q 55 35 45 35 Z" fill="none" stroke="#A0AEC0" stroke-width="1.5"/>
+    <text x="40" y="48" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="8">AWS</text>
+  </g>
+
+  <!-- Azure Cloud -->
+  <g transform="translate(260, 40)">
+    <rect x="0" y="0" width="80" height="50" rx="8" fill="#0F1A2E" stroke="#1A2744" stroke-width="1.5"/>
+    <path d="M 20 35 Q 10 35 10 28 Q 10 22 18 20 Q 18 12 30 12 Q 42 12 44 20 Q 55 20 55 28 Q 55 35 45 35 Z" fill="none" stroke="#A0AEC0" stroke-width="1.5"/>
+    <text x="40" y="48" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="8">Azure</text>
+  </g>
+
+  <!-- GCP Cloud -->
+  <g transform="translate(400, 60)">
+    <rect x="0" y="0" width="80" height="50" rx="8" fill="#0F1A2E" stroke="#1A2744" stroke-width="1.5"/>
+    <path d="M 20 35 Q 10 35 10 28 Q 10 22 18 20 Q 18 12 30 12 Q 42 12 44 20 Q 55 20 55 28 Q 55 35 45 35 Z" fill="none" stroke="#A0AEC0" stroke-width="1.5"/>
+    <text x="40" y="48" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="8">GCP</text>
+  </g>
+
+  <!-- Connection lines from clouds to FRIDA -->
+  <g stroke="#00E5B0" stroke-width="1.5" opacity="0.5">
+    <path d="M 160 110 Q 200 160 265 185" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" values="8;0" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 300 90 L 300 170" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" values="8;0" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 440 110 Q 400 160 335 185" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" values="8;0" dur="1.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Central FRIDA Hexagon -->
+  <g transform="translate(300, 225)">
+    <!-- Glow effect -->
+    <polygon points="0,-80 69,-40 69,40 0,80 -69,40 -69,-40" fill="url(#hexGlow)" opacity="0.5"/>
+
+    <!-- Outer hexagon -->
+    <polygon points="0,-70 60,-35 60,35 0,70 -60,35 -60,-35" fill="#0F1A2E" stroke="#00E5B0" stroke-width="2"/>
+
+    <!-- Inner hexagon -->
+    <polygon points="0,-45 39,-22 39,22 0,45 -39,22 -39,-22" fill="#0B1426" stroke="#00E5B0" stroke-width="1.5" opacity="0.8"/>
+
+    <!-- Core circle -->
+    <circle cx="0" cy="0" r="25" fill="#0F1A2E" stroke="#00E5B0" stroke-width="2" filter="url(#coreGlow)"/>
+
+    <!-- FRIDA icon - orchestration symbol -->
+    <g stroke="#00E5B0" stroke-width="2" fill="none">
+      <!-- Central node -->
+      <circle cx="0" cy="0" r="6" fill="#00E5B0"/>
+      <!-- Orbital paths -->
+      <ellipse cx="0" cy="0" rx="15" ry="8" transform="rotate(0)"/>
+      <ellipse cx="0" cy="0" rx="15" ry="8" transform="rotate(60)"/>
+      <ellipse cx="0" cy="0" rx="15" ry="8" transform="rotate(-60)"/>
+    </g>
+
+    <!-- FRIDA label -->
+    <text x="0" y="100" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="16" font-weight="700">frIdA</text>
+    <text x="0" y="118" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">Multi-Cloud Orchestrator</text>
+  </g>
+
+  <!-- Data flow indicators on hexagon -->
+  <g transform="translate(300, 225)">
+    <!-- Input arrows -->
+    <g fill="#00E5B0" opacity="0.7">
+      <polygon points="-50,-50 -40,-45 -45,-40" transform="rotate(30)"/>
+      <polygon points="50,-50 40,-45 45,-40" transform="rotate(-30)"/>
+    </g>
+    <!-- Output arrows -->
+    <g fill="#00E5B0" opacity="0.7">
+      <polygon points="-50,50 -40,45 -45,40" transform="rotate(-30)"/>
+      <polygon points="50,50 40,45 45,40" transform="rotate(30)"/>
+    </g>
+  </g>
+
+  <!-- Output destinations (bottom) -->
+  <!-- On-Premise Server -->
+  <g transform="translate(80, 340)">
+    <rect x="0" y="0" width="90" height="70" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1.5"/>
+    <!-- Server rack icon -->
+    <rect x="15" y="12" width="60" height="15" rx="2" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+    <line x1="20" y1="19" x2="25" y2="19" stroke="#00E5B0" stroke-width="2"/>
+    <rect x="15" y="32" width="60" height="15" rx="2" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+    <line x1="20" y1="39" x2="25" y2="39" stroke="#00E5B0" stroke-width="2"/>
+    <text x="45" y="60" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="8">On-Premise</text>
+  </g>
+
+  <!-- Edge Location -->
+  <g transform="translate(255, 360)">
+    <rect x="0" y="0" width="90" height="70" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1.5"/>
+    <!-- Edge node icon -->
+    <g transform="translate(45, 25)">
+      <polygon points="0,-15 13,-7 13,7 0,15 -13,7 -13,-7" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="5" fill="#00E5B0" opacity="0.5"/>
+    </g>
+    <text x="45" y="60" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="8">Edge</text>
+  </g>
+
+  <!-- Private Cloud -->
+  <g transform="translate(430, 340)">
+    <rect x="0" y="0" width="90" height="70" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1.5"/>
+    <!-- Private cloud with lock -->
+    <path d="M 25 40 Q 15 40 15 33 Q 15 27 23 25 Q 23 17 35 17 Q 47 17 49 25 Q 60 25 60 33 Q 60 40 50 40 Z" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+    <!-- Lock icon -->
+    <rect x="30" y="30" width="10" height="8" rx="1" fill="#00E5B0"/>
+    <path d="M 32 30 L 32 27 Q 32 24 35 24 Q 38 24 38 27 L 38 30" stroke="#00E5B0" stroke-width="1.5" fill="none"/>
+    <text x="45" y="60" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="8">Private Cloud</text>
+  </g>
+
+  <!-- Connection lines from FRIDA to outputs -->
+  <g stroke="#00E5B0" stroke-width="1.5" opacity="0.5">
+    <path d="M 240 295 Q 180 320 125 340" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" values="0;8" dur="1.5s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 300 305 L 300 360" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" values="0;8" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 360 295 Q 420 320 475 340" stroke-dasharray="4 4">
+      <animate attributeName="stroke-dashoffset" values="0;8" dur="1.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Status indicators -->
+  <g transform="translate(530, 130)">
+    <rect x="0" y="0" width="60" height="80" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <text x="30" y="18" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="8" font-weight="500">Status</text>
+    <!-- Green status dots -->
+    <g transform="translate(10, 28)">
+      <circle cx="6" cy="6" r="4" fill="#00E5B0"/>
+      <text x="16" y="10" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="7">AWS</text>
+    </g>
+    <g transform="translate(10, 44)">
+      <circle cx="6" cy="6" r="4" fill="#00E5B0"/>
+      <text x="16" y="10" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="7">Azure</text>
+    </g>
+    <g transform="translate(10, 60)">
+      <circle cx="6" cy="6" r="4" fill="#00E5B0"/>
+      <text x="16" y="10" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="7">GCP</text>
+    </g>
+  </g>
+
+  <!-- Data flow metrics -->
+  <g transform="translate(10, 200)">
+    <rect x="0" y="0" width="70" height="50" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <text x="35" y="18" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="8">Requests</text>
+    <text x="35" y="38" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="16" font-weight="600">24K/s</text>
+  </g>
+</svg>

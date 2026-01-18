@@ -92,3 +92,40 @@ Cada aprendizaje previene errores futuros.
 **Causa**: DOMAIN.md de Enterprise dice explícitamente "NO enfatizar soberanía"
 **Principio**: Un landing = un driver. No mezclar mensajes de diferentes segmentos.
 **Acción**: Reemplazado por "Observabilidad completa con métricas directas a tus KPIs"
+
+---
+
+## [2026-01-17] - Navegación consistente es crítica en sitios multi-página
+
+**Contexto**: v003 tenía páginas aisladas (Home, Financial Services, Gobierno) sin navegación entre ellas
+**Error**: Usuario podía llegar a /financial-services/ pero no tenía forma de regresar a Home o explorar Gobierno
+**Causa**: Specs no incluían requisito de navegación global; cada página se generó como entidad aislada
+**Principio**: TODO sitio multi-página DEBE tener navegación global desde v1, no como afterthought
+**Acción**:
+- Agregar "Navegación Global" como sección obligatoria en PRD.md
+- Validar existencia y consistencia de nav en ux-reviewer (nuevo criterio)
+- Usar links relativos si no hay servidor (`../home/index.html` vs `/home/`)
+- Estructura de directorios debe reflejar branding (enterprise → financial-services)
+
+**Implementación en v004:**
+```html
+<!-- Nav idéntico en 3 páginas -->
+<nav>
+  <a href="../home/index.html">Logo → Home</a>
+  <a href="../home/index.html">Home</a>
+  <div class="dropdown">
+    <button>Industrias ▼</button>
+    <div>
+      <a href="../financial-services/index.html">Financial Services</a>
+      <a href="../gobierno/index.html">Gobierno</a>
+    </div>
+  </div>
+  <a href="#" class="cta">Agenda demo</a>
+</nav>
+```
+
+**Validación:** ux-reviewer ahora debe verificar:
+- Nav presente en todas las páginas
+- Links funcionan (relativos o absolutos según contexto)
+- Dropdown accesible por teclado
+- Active state visible en página actual

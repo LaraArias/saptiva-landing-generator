@@ -1,0 +1,56 @@
+version: "003"
+vertical: enterprise
+date: "2026-01-14"
+status: approved
+
+output:
+  file: /output/enterprise/index.html
+  assets_dir: /output/enterprise/assets/
+
+assets_created:
+  - hero-wow.svg          # Hero principal - transformación POC→Producción
+  - ragster-v2.svg        # RAG concept - documentos→cerebro→respuesta
+  - octavios-v2.svg       # Copiloto - humano+IA colaborando
+  - frida-v2.svg          # Orquestador - hexágono multi-cloud
+  - solucion-v2.svg       # Dashboard KPIs
+
+changes_from_v002:
+  - type: assets
+    description: "Todos los assets creados por graphic-designer (MCP-Asset)"
+    details:
+      - Hero wow factor con transformación visual caos→orden
+      - Assets de productos con elementos grandes y alto contraste
+      - Stroke grueso (3-5px) para visibilidad
+      - Paleta consistente teal sobre navy
+
+  - type: copy
+    description: "Copy revisado con Saptiva KAL"
+    changes:
+      - "Hero: 'IA a producción' → 'IA en producción'"
+      - "Removido mensaje de cumplimiento del hero (driver gobierno)"
+      - "Enfocado en KPIs y velocidad (driver enterprise)"
+
+  - type: layout
+    description: "Sección Solución compactada"
+    changes:
+      - "Reducido de 4 items a 3"
+      - "Eliminado 'vs. Costos crecientes'"
+      - "Espaciado reducido para caber en viewport"
+
+  - type: accessibility
+    description: "WCAG 2.1 AA compliance"
+    changes:
+      - "Skip link agregado"
+      - "Main element con id"
+      - "Lazy loading en imágenes"
+
+validation_scores:
+  technical: 9/10
+  ux: 17/20
+  outcome: aligned
+
+blocking_issues: []
+
+next_steps:
+  - Pendiente logo Saptiva para fondo oscuro (assets/logo-dark.png)
+  - Opcional: hamburger menu mobile

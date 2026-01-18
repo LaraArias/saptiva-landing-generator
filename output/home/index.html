@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Saptiva - El sistema operativo de IA para LATAM. Plataforma enterprise para llevar IA a producción con control total.">
+  <meta name="keywords" content="IA enterprise, plataforma IA, IA LATAM, inteligencia artificial empresarial">
+  <meta property="og:title" content="Saptiva - El Sistema Operativo de IA para LATAM">
+  <meta property="og:description" content="Lleva IA a producción en semanas, no meses. Control total sobre tus datos y tu infraestructura.">
+  <meta property="og:type" content="website">
+  <title>Saptiva - El Sistema Operativo de IA para LATAM</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://calendly.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2AF2CE;
+      --primary-hover: #20D4B4;
+      --primary-dark: #1AB89C;
+      --bg-dark: #0B1426;
+      --bg-dark-card: #0F1A2E;
+      --bg-light: #F5F7FA;
+      --bg-white: #FFFFFF;
+      --text-dark: #0B1426;
+      --text-gray: #4A5568;
+      --text-white: #FFFFFF;
+      --text-muted: #A0AEC0;
+      --border-dark: #1A2744;
+      --border-light: #E2E8F0;
+      --icon-box-bg: #E6FFF9;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-family);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background: var(--bg-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      left: 16px;
+      background: var(--primary);
+      color: var(--bg-dark);
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 500;
+      z-index: 200;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: 16px; }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .accent { color: var(--primary); }
+    .text-center { text-align: center; }
+
+    /* Nav */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(11, 20, 38, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(26, 39, 68, 0.5);
+    }
+    .nav-logo { height: 32px; display: flex; align-items: center; }
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+    .nav-link {
+      color: var(--text-white);
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      padding: 8px 0;
+    }
+    .nav-link:hover { color: var(--primary); }
+    .nav-cta { display: flex; gap: 16px; }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle { display: flex; align-items: center; gap: 4px; }
+    .nav-dropdown-toggle svg { transition: transform 0.2s ease; }
+    .nav-dropdown:hover .nav-dropdown-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+      padding: 8px 0;
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: all 0.2s ease;
+      list-style: none;
+      margin-top: 8px;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-dropdown-menu li a {
+      display: block;
+      padding: 10px 16px;
+      color: var(--text-white);
+      font-size: 14px;
+      transition: background 0.2s ease;
+    }
+    .nav-dropdown-menu li a:hover { background: rgba(0, 229, 176, 0.1); color: var(--primary); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+    }
+    .btn-primary { background: var(--primary); color: var(--bg-dark); }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+    .btn-secondary:hover { background: rgba(0, 229, 176, 0.1); }
+
+    /* Sections */
+    .section { padding: 100px 0; }
+    .section-dark { background: var(--bg-dark); color: var(--text-white); }
+    .section-light { background: var(--bg-light); color: var(--text-dark); }
+    .section-title { font-size: 40px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+    .section-subtitle { font-size: 18px; color: var(--text-muted); max-width: 700px; line-height: 1.7; }
+    .section-light .section-subtitle { color: var(--text-gray); }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26,39,68,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,39,68,0.3) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .hero-content { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .hero-title { font-size: 64px; font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+    .hero-subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 40px; line-height: 1.7; }
+    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* Industries */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .industry-card {
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 40px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      display: block;
+    }
+    .industry-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+    .industry-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      background: rgba(0, 229, 176, 0.1);
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .industry-card h3 { font-size: 28px; font-weight: 700; color: var(--text-white); margin-bottom: 12px; }
+    .industry-card p { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    .industry-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-weight: 500;
+      font-size: 15px;
+    }
+    .industry-link svg { width: 20px; height: 20px; transition: transform 0.2s ease; }
+    .industry-card:hover .industry-link svg { transform: translateX(4px); }
+
+    /* Control Cards */
+    .control-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .control-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .control-card .icon-box {
+      width: 56px;
+      height: 56px;
+      background: var(--icon-box-bg);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .control-card .icon-box svg { width: 28px; height: 28px; stroke: var(--primary-dark); stroke-width: 1.5; fill: none; }
+    .control-card h3 { color: var(--primary-dark); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+    .control-card p { color: var(--text-gray); font-size: 15px; line-height: 1.6; }
+
+    /* CTA */
+    .cta-final {
+      text-align: center;
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-final::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26,39,68,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,39,68,0.3) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .cta-final .container { position: relative; z-index: 1; }
+    .cta-final .section-title { max-width: 900px; margin: 0 auto 16px; }
+    .cta-final .section-subtitle { max-width: 700px; margin: 0 auto 40px; }
+    .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* Footer */
+    .footer { background: var(--bg-dark); border-top: 1px solid var(--border-dark); padding: 32px 0; text-align: center; }
+    .footer p { color: var(--text-muted); font-size: 14px; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-title { font-size: 48px; }
+      .section-title { font-size: 32px; }
+      .industries-grid { grid-template-columns: 1fr; }
+      .control-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero-title { font-size: 36px; }
+      .hero-subtitle { font-size: 17px; }
+      .section { padding: 60px 0; }
+      .hero-cta, .cta-buttons { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <nav class="nav" role="navigation" aria-label="Navegación principal">
+    <a href="../home/index.html" class="nav-logo" aria-label="Saptiva - Inicio">
+      <img src="assets/saptiva-logo.png" alt="Saptiva AI" style="height: 28px; width: auto;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="../home/index.html" class="nav-link">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="#" class="nav-link nav-dropdown-toggle">Industrias <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="../financial-services/index.html">Financial Services</a></li>
+          <li><a href="../gobierno/index.html">Gobierno</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://calendly.com/saptiva/demo" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+        Agenda una demo
+      </a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero section-dark" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content">
+          <h1 id="hero-title" class="hero-title">
+            El sistema operativo de <span class="accent">IA para LATAM</span>
+          </h1>
+          <p class="hero-subtitle">
+            Lleva casos de uso de IA a producción en semanas, no meses. Con control total sobre tus datos y tu infraestructura.
+          </p>
+          <div class="hero-cta">
+            <a href="https://calendly.com/saptiva/demo" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              Agenda una demo
+            </a>
+            <a href="#industrias" class="btn btn-secondary">
+              Ver industrias
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section id="industrias" class="section section-dark" aria-labelledby="industrias-title">
+      <div class="container">
+        <h2 id="industrias-title" class="section-title text-center">
+          Soluciones por <span class="accent">industria</span>
+        </h2>
+        <p class="section-subtitle text-center" style="margin: 0 auto;">
+          Cada industria tiene necesidades distintas. Conoce cómo ayudamos a cada una.
+        </p>
+
+        <div class="industries-grid">
+          <a href="../financial-services/index.html" class="industry-card">
+            <span class="industry-tag">Servicios Financieros</span>
+            <h3>Resultados en 2 semanas</h3>
+            <p>Soluciones plug and play que ya funcionan en otras instituciones. Resultados antes del siguiente comité, no planes de 12 meses.</p>
+            <span class="industry-link">
+              Explorar soluciones
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+
+          <a href="../gobierno/index.html" class="industry-card">
+            <span class="industry-tag">Gobierno</span>
+            <h3>IA Soberana</h3>
+            <p>Control total sobre tus datos e infraestructura. Cumplimiento regulatorio garantizado. Sin dependencia de proveedores extranjeros.</p>
+            <span class="industry-link">
+              Explorar soluciones
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Control -->
+    <section id="control" class="section section-light" aria-labelledby="control-title">
+      <div class="container">
+        <h2 id="control-title" class="section-title text-center">
+          IA en <span class="accent">tus términos</span>
+        </h2>
+        <p class="section-subtitle text-center" style="margin: 0 auto;">
+          Control total sobre tus datos y tu infraestructura.
+        </p>
+
+        <div class="control-grid">
+          <article class="control-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Tus Datos</h3>
+            <p>Residencia local garantizada. Tus datos nunca salen de tu jurisdicción. Cumplimiento regulatorio desde el día uno.</p>
+          </article>
+
+          <article class="control-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Tu Infraestructura</h3>
+            <p>Cloud, on-prem o híbrido. Multinube sin lock-in. Tú decides dónde corre cada carga de trabajo.</p>
+          </article>
+
+          <article class="control-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+            </div>
+            <h3>Tu Independencia</h3>
+            <p>Sin dependencia de vendor. Observabilidad completa. Acceso a todos tus modelos y datos. Migra cuando quieras.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="cta-final section-dark" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title" class="section-title">
+          IA en producción, <span class="accent">en tus términos</span>
+        </h2>
+        <p class="section-subtitle">
+          Agenda una llamada con nuestro equipo y descubre cómo podemos ayudarte.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://calendly.com/saptiva/demo" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            Agenda una demo
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; 2026 Saptiva. El sistema operativo de IA para LATAM.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

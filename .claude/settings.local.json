@@ -3,7 +3,37 @@
     "allow": [
       "mcp__PDF_Tools_-_Analyze__Extract__Fill__Compare__read_pdf_content",
       "mcp__Control_Chrome__list_tabs",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "mcp__saptiva__saptiva_list_models",
+      "mcp__PDF_Tools_-_Analyze__Extract__Fill__Compare__list_profiles",
+      "mcp__saptiva__saptiva_chat",
+      "mcp__saptiva__saptiva_reason",
+      "mcp__saptiva__saptiva_embed",
+      "mcp__asset__design",
+      "Bash(echo $SAPTIVA_API_KEY)",
+      "mcp__Control_Chrome__open_url",
+      "mcp__Control_Chrome__reload_tab",
+      "Bash(ls:*)",
+      "Bash(open:*)",
+      "Bash(osascript:*)",
+      "Bash(git init:*)",
+      "Bash(gh repo create:*)",
+      "Bash(gh api:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "Bash(tidy:*)",
+      "Bash(test:*)",
+      "mcp__Control_Chrome__get_current_tab",
+      "Bash(chmod:*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "command": ".claude/hooks/stop.sh"
+      }
     ]
   }
 }

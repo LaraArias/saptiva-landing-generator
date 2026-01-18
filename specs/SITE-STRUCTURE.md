@@ -1,20 +1,46 @@
 # Estructura del Sitio Saptiva
 
+> Inspiración: [meetgail.com](https://www.meetgail.com/)
+
 ## Navegación
 
 ```
-NAVBAR: [Logo Saptiva] [Home] [Industria ▼] [CTA]
+NAVBAR: [Logo Saptiva] [Home] [Industria ▼] [Agenda Demo]
                               ├── Servicios Financieros
                               └── Gobierno
 ```
+
+---
 
 ## Páginas
 
 ### 1. Home (`/`)
 - **Propósito:** Qué es Saptiva (El sistema operativo de IA para LATAM)
-- **Driver:** General - presentar la plataforma
+- **Driver:** Exploración → Conversión
 - **Audiencia:** Todos los visitantes
 - **Output:** `/output/home/index.html`
+
+#### Secciones de Home
+```
+1. Hero            → Posicionamiento + verticales destacadas
+2. Social Proof    → Logos de clientes/partners
+3. Propuesta Valor → 3 pilares (Infraestructura, Modelos, Control)
+4. Comparativa     → Saptiva vs IA Genérica
+5. Casos de Uso    → Cards por industria (→ verticales)
+6. Métricas        → Números de impacto
+7. Testimonios     → Social proof con voz de clientes
+8. CTA Final       → Conversión de cierre
+9. Footer          → Navegación secundaria
+```
+
+#### Elementos Clave (inspirados en Gail)
+| Elemento | Implementación |
+|----------|----------------|
+| Hero con verticales | [SERVICIOS FINANCIEROS] [GOBIERNO] como badges |
+| Social proof inmediato | Logos después del hero |
+| Comparativa explícita | Tabla "Saptiva vs IA Genérica" |
+| Métricas cuantificadas | "2 semanas", "50%+", "99.9%", "100%" |
+| CTAs duales | "Agenda demo" + "Descarga whitepaper" |
 
 ### 2. Servicios Financieros (`/financial-services`)
 - **Propósito:** Landing específica para banca/fintech
@@ -33,14 +59,12 @@ NAVBAR: [Logo Saptiva] [Home] [Industria ▼] [CTA]
 ```
 /specs/verticals/
 ├── home/
-│   ├── config.yaml
-│   └── sections.md
+│   ├── sections.md      ← 9 secciones definidas
+│   └── cta-strategy.md  ← Estrategia de conversión
 ├── financial-services/
-│   ├── config.yaml
 │   ├── sections.md
 │   └── cta-strategy.md
 └── gobierno/
-    ├── config.yaml
     ├── sections.md
     └── cta-strategy.md
 ```
@@ -57,15 +81,16 @@ NAVBAR: [Logo Saptiva] [Home] [Industria ▼] [CTA]
     └── value-props.md
 ```
 
-## Diferenciación por Vertical
+## Diferenciación por Página
 
-| Aspecto | Financial Services | Gobierno |
-|---------|-------------------|----------|
-| **Driver** | Time to Value | IA Soberana |
-| **Métrica clave** | 2 semanas a producción | 7 requisitos de soberanía |
-| **Tono** | Ejecutivo, ROI, board | Institucional, seguridad, control |
-| **CTA** | "Acelera tu time-to-value" | "Agenda una sesión de arquitectura" |
-| **Evitar** | Soberanía, jurisdicción | Velocidad como driver, jerga startup |
+| Aspecto | Home | Financial Services | Gobierno |
+|---------|------|-------------------|----------|
+| **Driver** | Exploración | Time to Value | IA Soberana |
+| **Métrica clave** | - | 2 semanas a producción | 7 requisitos de soberanía |
+| **Tono** | Accesible, general | Ejecutivo, ROI, board | Institucional, seguridad |
+| **CTA Principal** | "Agenda una demo" | "Empieza en 2 semanas" | "Agenda sesión de arquitectura" |
+| **Secciones** | 9 | 5 | 6 |
+| **Enfoque** | Qué es Saptiva | Por qué Saptiva (velocidad) | Por qué Saptiva (control) |
 
 ## Flujo de Generación
 

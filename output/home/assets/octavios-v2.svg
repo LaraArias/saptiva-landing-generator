@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#0B1426"/>
+
+  <!-- Left: Human silhouette with headset -->
+  <g transform="translate(80, 70)">
+    <!-- Head -->
+    <circle cx="40" cy="35" r="32" fill="#1A2744" stroke="#00E5B0" stroke-width="4"/>
+    <!-- Face suggestion -->
+    <circle cx="30" cy="30" r="4" fill="#00E5B0"/>
+    <circle cx="50" cy="30" r="4" fill="#00E5B0"/>
+    <path d="M 32 45 Q 40 52 48 45" stroke="#00E5B0" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Headset -->
+    <path d="M 8 30 Q 8 0 40 0 Q 72 0 72 30" stroke="#00FFD0" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <rect x="0" y="25" width="12" height="25" rx="4" fill="#00FFD0"/>
+    <rect x="68" y="25" width="12" height="25" rx="4" fill="#00FFD0"/>
+    <!-- Mic -->
+    <path d="M 0 50 Q -10 60 5 70" stroke="#00FFD0" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="8" cy="75" r="6" fill="#00FFD0"/>
+
+    <!-- Shoulders -->
+    <path d="M 0 75 Q -20 90 -20 130 L 100 130 Q 100 90 80 75" fill="#1A2744" stroke="#00E5B0" stroke-width="4"/>
+  </g>
+
+  <!-- Center: Chat bubbles between human and AI -->
+  <g transform="translate(175, 90)">
+    <!-- Human message bubble -->
+    <rect x="0" y="0" width="50" height="30" rx="8" fill="#1A2744" stroke="#00E5B0" stroke-width="3"/>
+    <line x1="10" y1="15" x2="40" y2="15" stroke="#00E5B0" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- AI response bubble -->
+    <rect x="10" y="50" width="50" height="30" rx="8" fill="#0F1C32" stroke="#00FFD0" stroke-width="3"/>
+    <line x1="20" y1="65" x2="50" y2="65" stroke="#00FFD0" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Connection dots -->
+    <circle cx="30" cy="40" r="4" fill="#00E5B0"/>
+    <circle cx="30" cy="90" r="4" fill="#00FFD0"/>
+  </g>
+
+  <!-- Right: Large AI Hexagon -->
+  <g transform="translate(300, 130)">
+    <!-- Outer glow -->
+    <polygon points="0,-60 52,-30 52,30 0,60 -52,30 -52,-30" fill="none" stroke="#00E5B0" stroke-width="2" opacity="0.4"/>
+    <!-- Main hexagon -->
+    <polygon points="0,-50 43,-25 43,25 0,50 -43,25 -43,-25" fill="#0F1C32" stroke="#00FFD0" stroke-width="4"/>
+
+    <!-- AI Symbol inside - brain/circuit -->
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#00FFD0" stroke-width="3"/>
+    <circle cx="0" cy="-10" r="5" fill="#00FFD0"/>
+    <circle cx="-10" cy="8" r="5" fill="#00FFD0"/>
+    <circle cx="10" cy="8" r="5" fill="#00FFD0"/>
+    <line x1="0" y1="-5" x2="-7" y2="4" stroke="#00FFD0" stroke-width="2"/>
+    <line x1="0" y1="-5" x2="7" y2="4" stroke="#00FFD0" stroke-width="2"/>
+    <line x1="-5" y1="8" x2="5" y2="8" stroke="#00FFD0" stroke-width="2"/>
+
+    <!-- Pulse rings -->
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#00E5B0" stroke-width="2" opacity="0.5"/>
+  </g>
+
+  <!-- Bidirectional arrows -->
+  <g transform="translate(165, 140)">
+    <path d="M 0 0 L 30 -15" stroke="#00FFD0" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="35,-18 22,-22 25,-12" fill="#00FFD0"/>
+  </g>
+  <g transform="translate(165, 160)">
+    <path d="M 30 15 L 0 0" stroke="#00E5B0" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="-5,0 8,-4 5,6" fill="#00E5B0"/>
+  </g>
+
+  <!-- Label -->
+  <text x="200" y="270" text-anchor="middle" fill="#00FFD0" font-family="system-ui, sans-serif" font-size="18" font-weight="bold">Octavios</text>
+</svg>

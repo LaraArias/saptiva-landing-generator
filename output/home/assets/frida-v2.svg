@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#0B1426"/>
+
+  <!-- Top: 3 Cloud Icons -->
+  <!-- Cloud 1 (AWS style) -->
+  <g transform="translate(70, 40)">
+    <path d="M 15 45 Q 0 45 0 30 Q 0 15 20 15 Q 25 0 45 0 Q 65 0 65 20 Q 80 20 80 35 Q 80 50 60 50 L 15 50 Q 0 50 0 35"
+          fill="#1A2744" stroke="#00E5B0" stroke-width="3"/>
+    <text x="40" y="35" text-anchor="middle" fill="#00E5B0" font-family="system-ui" font-size="12" font-weight="bold">AWS</text>
+  </g>
+
+  <!-- Cloud 2 (Azure style) -->
+  <g transform="translate(160, 30)">
+    <path d="M 15 55 Q 0 55 0 40 Q 0 20 25 20 Q 30 0 55 0 Q 80 0 80 25 Q 95 25 95 42 Q 95 60 75 60 L 15 60 Q 0 60 0 45"
+          fill="#1A2744" stroke="#00FFD0" stroke-width="4"/>
+    <text x="48" y="42" text-anchor="middle" fill="#00FFD0" font-family="system-ui" font-size="12" font-weight="bold">Azure</text>
+  </g>
+
+  <!-- Cloud 3 (GCP style) -->
+  <g transform="translate(270, 40)">
+    <path d="M 15 45 Q 0 45 0 30 Q 0 15 20 15 Q 25 0 45 0 Q 65 0 65 20 Q 80 20 80 35 Q 80 50 60 50 L 15 50 Q 0 50 0 35"
+          fill="#1A2744" stroke="#00E5B0" stroke-width="3"/>
+    <text x="40" y="35" text-anchor="middle" fill="#00E5B0" font-family="system-ui" font-size="12" font-weight="bold">GCP</text>
+  </g>
+
+  <!-- Connection Lines from clouds to center -->
+  <line x1="110" y1="95" x2="170" y2="140" stroke="#00E5B0" stroke-width="4" stroke-linecap="round"/>
+  <line x1="200" y1="95" x2="200" y2="135" stroke="#00FFD0" stroke-width="4" stroke-linecap="round"/>
+  <line x1="290" y1="95" x2="230" y2="140" stroke="#00E5B0" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Arrows pointing down -->
+  <polygon points="175,145 168,132 182,132" fill="#00E5B0"/>
+  <polygon points="200,140 193,127 207,127" fill="#00FFD0"/>
+  <polygon points="225,145 218,132 232,132" fill="#00E5B0"/>
+
+  <!-- Center: Large FRIDA Hexagon -->
+  <g transform="translate(200, 190)">
+    <!-- Outer glow ring -->
+    <polygon points="0,-65 56,-32 56,32 0,65 -56,32 -56,-32" fill="none" stroke="#00E5B0" stroke-width="2" opacity="0.3"/>
+    <!-- Main hexagon -->
+    <polygon points="0,-55 48,-27 48,27 0,55 -48,27 -48,-27" fill="#0F1C32" stroke="#00FFD0" stroke-width="5"/>
+
+    <!-- FRIDA text -->
+    <text x="0" y="8" text-anchor="middle" fill="#00FFD0" font-family="system-ui, sans-serif" font-size="22" font-weight="bold">FRIDA</text>
+
+    <!-- Control icon (settings gear simplified) -->
+    <circle cx="0" cy="-25" r="10" fill="none" stroke="#00FFD0" stroke-width="3"/>
+    <circle cx="0" cy="-25" r="4" fill="#00FFD0"/>
+  </g>
+
+  <!-- Bottom status indicators -->
+  <g transform="translate(100, 260)">
+    <circle cx="0" cy="0" r="6" fill="#00FFD0"/>
+    <text x="15" y="5" fill="#A0AEC0" font-family="system-ui" font-size="12">Unified Control</text>
+  </g>
+  <g transform="translate(240, 260)">
+    <circle cx="0" cy="0" r="6" fill="#00E5B0"/>
+    <text x="15" y="5" fill="#A0AEC0" font-family="system-ui" font-size="12">Multi-Cloud</text>
+  </g>
+</svg>

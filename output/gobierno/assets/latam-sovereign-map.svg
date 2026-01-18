@@ -1,0 +1,309 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" width="600" height="700">
+  <defs>
+    <!-- Isometric cube template -->
+    <g id="cube-primary">
+      <!-- Top face (brightest) -->
+      <polygon points="0,-8 12,0 0,8 -12,0" fill="#00FFD0"/>
+      <!-- Right face (medium) -->
+      <polygon points="0,8 12,0 12,12 0,20" fill="#00E5B0"/>
+      <!-- Left face (darkest) -->
+      <polygon points="0,8 -12,0 -12,12 0,20" fill="#00A896"/>
+    </g>
+
+    <g id="cube-small">
+      <!-- Top face (brightest) -->
+      <polygon points="0,-4 6,0 0,4 -6,0" fill="#00FFD0"/>
+      <!-- Right face (medium) -->
+      <polygon points="0,4 6,0 6,6 0,10" fill="#00E5B0"/>
+      <!-- Left face (darkest) -->
+      <polygon points="0,4 -6,0 -6,6 0,10" fill="#00A896"/>
+    </g>
+
+    <g id="cube-tiny">
+      <!-- Top face (brightest) -->
+      <polygon points="0,-3 4,0 0,3 -4,0" fill="#00FFD0" opacity="0.8"/>
+      <!-- Right face (medium) -->
+      <polygon points="0,3 4,0 4,4 0,7" fill="#00E5B0" opacity="0.8"/>
+      <!-- Left face (darkest) -->
+      <polygon points="0,3 -4,0 -4,4 0,7" fill="#00A896" opacity="0.8"/>
+    </g>
+
+    <!-- Floating cube (muted colors) -->
+    <g id="cube-float">
+      <polygon points="0,-4 6,0 0,4 -6,0" fill="#3D4F6F"/>
+      <polygon points="0,4 6,0 6,6 0,10" fill="#2D3748"/>
+      <polygon points="0,4 -6,0 -6,6 0,10" fill="#1A2744"/>
+    </g>
+
+    <g id="cube-float-sm">
+      <polygon points="0,-3 4,0 0,3 -4,0" fill="#3D4F6F"/>
+      <polygon points="0,3 4,0 4,4 0,7" fill="#2D3748"/>
+      <polygon points="0,3 -4,0 -4,4 0,7" fill="#1A2744"/>
+    </g>
+
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Grid pattern -->
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1A2744" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="700" fill="#0B1426"/>
+  <rect width="600" height="700" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- ========== FLOATING CUBES (Background particles) ========== -->
+  <!-- Top left area -->
+  <use href="#cube-float" transform="translate(80, 120)"/>
+  <use href="#cube-float-sm" transform="translate(45, 180)"/>
+  <use href="#cube-float" transform="translate(110, 85)"/>
+  <use href="#cube-float-sm" transform="translate(65, 250)"/>
+
+  <!-- Top right area -->
+  <use href="#cube-float" transform="translate(520, 100)"/>
+  <use href="#cube-float-sm" transform="translate(550, 160)"/>
+  <use href="#cube-float" transform="translate(480, 140)"/>
+
+  <!-- Left side -->
+  <use href="#cube-float-sm" transform="translate(40, 350)"/>
+  <use href="#cube-float" transform="translate(70, 420)"/>
+  <use href="#cube-float-sm" transform="translate(55, 500)"/>
+
+  <!-- Right side -->
+  <use href="#cube-float" transform="translate(540, 280)"/>
+  <use href="#cube-float-sm" transform="translate(560, 350)"/>
+  <use href="#cube-float" transform="translate(530, 450)"/>
+  <use href="#cube-float-sm" transform="translate(550, 520)"/>
+
+  <!-- Bottom area -->
+  <use href="#cube-float" transform="translate(180, 650)"/>
+  <use href="#cube-float-sm" transform="translate(420, 640)"/>
+
+  <!-- ========== MEXICO (Top section) ========== -->
+  <g transform="translate(200, 80)" filter="url(#glow)">
+    <!-- Mexico - Baja California -->
+    <use href="#cube-primary" transform="translate(0, 40)"/>
+    <use href="#cube-primary" transform="translate(0, 60)"/>
+    <use href="#cube-primary" transform="translate(12, 68)"/>
+
+    <!-- Mexico - Main body row 1 -->
+    <use href="#cube-primary" transform="translate(36, 32)"/>
+    <use href="#cube-primary" transform="translate(48, 40)"/>
+    <use href="#cube-primary" transform="translate(60, 48)"/>
+    <use href="#cube-primary" transform="translate(72, 56)"/>
+    <use href="#cube-primary" transform="translate(84, 64)"/>
+    <use href="#cube-primary" transform="translate(96, 72)"/>
+
+    <!-- Mexico - Main body row 2 -->
+    <use href="#cube-primary" transform="translate(24, 48)"/>
+    <use href="#cube-primary" transform="translate(36, 56)"/>
+    <use href="#cube-primary" transform="translate(48, 64)"/>
+    <use href="#cube-primary" transform="translate(60, 72)"/>
+    <use href="#cube-primary" transform="translate(72, 80)"/>
+    <use href="#cube-primary" transform="translate(84, 88)"/>
+
+    <!-- Mexico - Southern expansion (Yucatan direction) -->
+    <use href="#cube-primary" transform="translate(108, 80)"/>
+    <use href="#cube-primary" transform="translate(120, 88)"/>
+    <use href="#cube-primary" transform="translate(132, 96)"/>
+    <use href="#cube-primary" transform="translate(144, 104)"/>
+
+    <!-- Mexico - Height layer -->
+    <use href="#cube-primary" transform="translate(60, 44)"/>
+    <use href="#cube-primary" transform="translate(72, 52)"/>
+    <use href="#cube-primary" transform="translate(48, 36)"/>
+  </g>
+
+  <!-- ========== CENTRAL AMERICA ========== -->
+  <g transform="translate(320, 180)" filter="url(#glow)">
+    <!-- Guatemala/Honduras area -->
+    <use href="#cube-primary" transform="translate(0, 0)"/>
+    <use href="#cube-primary" transform="translate(12, 8)"/>
+    <use href="#cube-primary" transform="translate(24, 16)"/>
+
+    <!-- Nicaragua/Costa Rica -->
+    <use href="#cube-primary" transform="translate(36, 24)"/>
+    <use href="#cube-primary" transform="translate(48, 32)"/>
+
+    <!-- Panama -->
+    <use href="#cube-primary" transform="translate(60, 40)"/>
+    <use href="#cube-primary" transform="translate(72, 48)"/>
+    <use href="#cube-primary" transform="translate(84, 56)"/>
+  </g>
+
+  <!-- ========== SOUTH AMERICA ========== -->
+  <g transform="translate(300, 260)" filter="url(#glow)">
+    <!-- Colombia/Venezuela (Northern SA) -->
+    <!-- Row 1 -->
+    <use href="#cube-primary" transform="translate(48, 0)"/>
+    <use href="#cube-primary" transform="translate(60, 8)"/>
+    <use href="#cube-primary" transform="translate(72, 16)"/>
+    <use href="#cube-primary" transform="translate(84, 24)"/>
+    <use href="#cube-primary" transform="translate(96, 32)"/>
+    <use href="#cube-primary" transform="translate(108, 40)"/>
+    <use href="#cube-primary" transform="translate(120, 48)"/>
+
+    <!-- Row 2 -->
+    <use href="#cube-primary" transform="translate(36, 16)"/>
+    <use href="#cube-primary" transform="translate(48, 24)"/>
+    <use href="#cube-primary" transform="translate(60, 32)"/>
+    <use href="#cube-primary" transform="translate(72, 40)"/>
+    <use href="#cube-primary" transform="translate(84, 48)"/>
+    <use href="#cube-primary" transform="translate(96, 56)"/>
+
+    <!-- Ecuador/Peru area -->
+    <!-- Row 3 -->
+    <use href="#cube-primary" transform="translate(24, 40)"/>
+    <use href="#cube-primary" transform="translate(36, 48)"/>
+    <use href="#cube-primary" transform="translate(48, 56)"/>
+    <use href="#cube-primary" transform="translate(60, 64)"/>
+    <use href="#cube-primary" transform="translate(72, 72)"/>
+    <use href="#cube-primary" transform="translate(84, 80)"/>
+
+    <!-- Row 4 -->
+    <use href="#cube-primary" transform="translate(12, 64)"/>
+    <use href="#cube-primary" transform="translate(24, 72)"/>
+    <use href="#cube-primary" transform="translate(36, 80)"/>
+    <use href="#cube-primary" transform="translate(48, 88)"/>
+    <use href="#cube-primary" transform="translate(60, 96)"/>
+    <use href="#cube-primary" transform="translate(72, 104)"/>
+
+    <!-- Brazil expansion (widest part) -->
+    <!-- Row 5 -->
+    <use href="#cube-primary" transform="translate(0, 88)"/>
+    <use href="#cube-primary" transform="translate(12, 96)"/>
+    <use href="#cube-primary" transform="translate(24, 104)"/>
+    <use href="#cube-primary" transform="translate(36, 112)"/>
+    <use href="#cube-primary" transform="translate(48, 120)"/>
+    <use href="#cube-primary" transform="translate(60, 128)"/>
+    <use href="#cube-primary" transform="translate(72, 136)"/>
+    <use href="#cube-primary" transform="translate(84, 144)"/>
+    <use href="#cube-primary" transform="translate(96, 152)"/>
+    <use href="#cube-primary" transform="translate(108, 160)"/>
+    <use href="#cube-primary" transform="translate(120, 168)"/>
+
+    <!-- Row 6 (Brazil) -->
+    <use href="#cube-primary" transform="translate(-12, 112)"/>
+    <use href="#cube-primary" transform="translate(0, 120)"/>
+    <use href="#cube-primary" transform="translate(12, 128)"/>
+    <use href="#cube-primary" transform="translate(24, 136)"/>
+    <use href="#cube-primary" transform="translate(36, 144)"/>
+    <use href="#cube-primary" transform="translate(48, 152)"/>
+    <use href="#cube-primary" transform="translate(60, 160)"/>
+    <use href="#cube-primary" transform="translate(72, 168)"/>
+    <use href="#cube-primary" transform="translate(84, 176)"/>
+    <use href="#cube-primary" transform="translate(96, 184)"/>
+    <use href="#cube-primary" transform="translate(108, 192)"/>
+
+    <!-- Row 7 (Bolivia/Paraguay/Brazil) -->
+    <use href="#cube-primary" transform="translate(-24, 136)"/>
+    <use href="#cube-primary" transform="translate(-12, 144)"/>
+    <use href="#cube-primary" transform="translate(0, 152)"/>
+    <use href="#cube-primary" transform="translate(12, 160)"/>
+    <use href="#cube-primary" transform="translate(24, 168)"/>
+    <use href="#cube-primary" transform="translate(36, 176)"/>
+    <use href="#cube-primary" transform="translate(48, 184)"/>
+    <use href="#cube-primary" transform="translate(60, 192)"/>
+    <use href="#cube-primary" transform="translate(72, 200)"/>
+    <use href="#cube-primary" transform="translate(84, 208)"/>
+
+    <!-- Row 8 (Argentina/Uruguay width) -->
+    <use href="#cube-primary" transform="translate(-36, 168)"/>
+    <use href="#cube-primary" transform="translate(-24, 176)"/>
+    <use href="#cube-primary" transform="translate(-12, 184)"/>
+    <use href="#cube-primary" transform="translate(0, 192)"/>
+    <use href="#cube-primary" transform="translate(12, 200)"/>
+    <use href="#cube-primary" transform="translate(24, 208)"/>
+    <use href="#cube-primary" transform="translate(36, 216)"/>
+    <use href="#cube-primary" transform="translate(48, 224)"/>
+    <use href="#cube-primary" transform="translate(60, 232)"/>
+
+    <!-- Row 9 (Argentina narrowing) -->
+    <use href="#cube-primary" transform="translate(-48, 200)"/>
+    <use href="#cube-primary" transform="translate(-36, 208)"/>
+    <use href="#cube-primary" transform="translate(-24, 216)"/>
+    <use href="#cube-primary" transform="translate(-12, 224)"/>
+    <use href="#cube-primary" transform="translate(0, 232)"/>
+    <use href="#cube-primary" transform="translate(12, 240)"/>
+    <use href="#cube-primary" transform="translate(24, 248)"/>
+
+    <!-- Row 10 (Argentina/Chile) -->
+    <use href="#cube-primary" transform="translate(-60, 232)"/>
+    <use href="#cube-primary" transform="translate(-48, 240)"/>
+    <use href="#cube-primary" transform="translate(-36, 248)"/>
+    <use href="#cube-primary" transform="translate(-24, 256)"/>
+    <use href="#cube-primary" transform="translate(-12, 264)"/>
+    <use href="#cube-primary" transform="translate(0, 272)"/>
+
+    <!-- Row 11 (Patagonia) -->
+    <use href="#cube-primary" transform="translate(-72, 264)"/>
+    <use href="#cube-primary" transform="translate(-60, 272)"/>
+    <use href="#cube-primary" transform="translate(-48, 280)"/>
+    <use href="#cube-primary" transform="translate(-36, 288)"/>
+    <use href="#cube-primary" transform="translate(-24, 296)"/>
+
+    <!-- Row 12 (Tierra del Fuego) -->
+    <use href="#cube-primary" transform="translate(-72, 296)"/>
+    <use href="#cube-primary" transform="translate(-60, 304)"/>
+    <use href="#cube-primary" transform="translate(-48, 312)"/>
+
+    <!-- Height variations for 3D effect -->
+    <!-- Brazil highlands -->
+    <use href="#cube-primary" transform="translate(48, 116)"/>
+    <use href="#cube-primary" transform="translate(60, 124)"/>
+    <use href="#cube-primary" transform="translate(72, 132)"/>
+    <use href="#cube-primary" transform="translate(36, 140)"/>
+
+    <!-- Andes effect -->
+    <use href="#cube-primary" transform="translate(-24, 132)"/>
+    <use href="#cube-primary" transform="translate(-36, 164)"/>
+    <use href="#cube-primary" transform="translate(-48, 196)"/>
+    <use href="#cube-primary" transform="translate(-60, 228)"/>
+    <use href="#cube-primary" transform="translate(-72, 260)"/>
+  </g>
+
+  <!-- ========== ADDITIONAL FLOATING CUBES (Foreground accents) ========== -->
+  <!-- Near Mexico -->
+  <use href="#cube-tiny" transform="translate(180, 150)"/>
+  <use href="#cube-tiny" transform="translate(390, 130)"/>
+  <use href="#cube-tiny" transform="translate(155, 200)"/>
+
+  <!-- Near Central America -->
+  <use href="#cube-tiny" transform="translate(450, 230)"/>
+  <use href="#cube-tiny" transform="translate(290, 250)"/>
+
+  <!-- Near South America -->
+  <use href="#cube-tiny" transform="translate(480, 320)"/>
+  <use href="#cube-tiny" transform="translate(460, 400)"/>
+  <use href="#cube-tiny" transform="translate(420, 500)"/>
+  <use href="#cube-tiny" transform="translate(210, 450)"/>
+  <use href="#cube-tiny" transform="translate(190, 520)"/>
+  <use href="#cube-tiny" transform="translate(170, 590)"/>
+
+  <!-- Data points (small glowing dots) -->
+  <g fill="#00FFD0" opacity="0.6">
+    <circle cx="310" cy="140" r="2"/>
+    <circle cx="380" cy="200" r="2"/>
+    <circle cx="420" cy="300" r="2"/>
+    <circle cx="380" cy="420" r="2"/>
+    <circle cx="320" cy="500" r="2"/>
+    <circle cx="280" cy="560" r="2"/>
+    <circle cx="250" cy="400" r="2"/>
+  </g>
+
+  <!-- Connection lines (subtle data flow) -->
+  <g stroke="#00E5B0" stroke-width="0.5" opacity="0.3" fill="none">
+    <path d="M310,140 Q360,170 380,200"/>
+    <path d="M380,200 Q400,250 420,300"/>
+    <path d="M420,300 Q400,360 380,420"/>
+    <path d="M380,420 Q350,460 320,500"/>
+  </g>
+</svg>

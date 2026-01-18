@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" fill="none">
+  <defs>
+    <pattern id="gridPattern" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#1A2744" stroke-width="0.5"/>
+    </pattern>
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00E5B0" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#00E5B0" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="450" fill="#0B1426"/>
+  <rect width="600" height="450" fill="url(#gridPattern)" opacity="0.5"/>
+
+  <!-- Human operator (left side) -->
+  <g transform="translate(120, 180)">
+    <!-- Human silhouette - head -->
+    <circle cx="0" cy="-40" r="28" fill="#0F1A2E" stroke="#A0AEC0" stroke-width="2"/>
+    <!-- Face features -->
+    <circle cx="-8" cy="-45" r="3" fill="#A0AEC0" opacity="0.6"/>
+    <circle cx="8" cy="-45" r="3" fill="#A0AEC0" opacity="0.6"/>
+    <path d="M -6 -32 Q 0 -26 6 -32" stroke="#A0AEC0" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+    <!-- Body/shoulders -->
+    <path d="M -40 20 Q -40 -10 0 -10 Q 40 -10 40 20 L 40 60 L -40 60 Z" fill="#0F1A2E" stroke="#A0AEC0" stroke-width="2"/>
+
+    <!-- Headset -->
+    <path d="M -32 -50 Q -38 -70 -20 -75 Q 0 -80 20 -75 Q 38 -70 32 -50" stroke="#00E5B0" stroke-width="2.5" fill="none"/>
+    <rect x="-38" y="-55" width="12" height="20" rx="4" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+    <rect x="26" y="-55" width="12" height="20" rx="4" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+    <!-- Microphone -->
+    <path d="M -32 -40 Q -45 -30 -40 -15" stroke="#00E5B0" stroke-width="1.5" fill="none"/>
+    <ellipse cx="-40" cy="-12" rx="5" ry="8" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+
+    <!-- Label -->
+    <text x="0" y="90" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="12">Agent</text>
+  </g>
+
+  <!-- AI Copilot (right side) -->
+  <g transform="translate(480, 180)">
+    <!-- AI head - hexagonal shape -->
+    <polygon points="0,-45 25,-30 25,0 0,15 -25,0 -25,-30" fill="#0F1A2E" stroke="#00E5B0" stroke-width="2"/>
+    <!-- AI "eye" -->
+    <circle cx="0" cy="-20" r="12" fill="none" stroke="#00E5B0" stroke-width="2"/>
+    <circle cx="0" cy="-20" r="5" fill="#00E5B0" filter="url(#softGlow)"/>
+
+    <!-- AI body - circuit pattern -->
+    <rect x="-30" y="20" width="60" height="50" rx="6" fill="#0F1A2E" stroke="#00E5B0" stroke-width="2"/>
+    <!-- Circuit lines inside -->
+    <g stroke="#00E5B0" stroke-width="1" opacity="0.5">
+      <line x1="-20" y1="35" x2="0" y2="35"/>
+      <line x1="0" y1="35" x2="0" y2="50"/>
+      <line x1="0" y1="50" x2="20" y2="50"/>
+      <circle cx="-20" cy="35" r="2" fill="#00E5B0"/>
+      <circle cx="0" cy="35" r="2" fill="#00E5B0"/>
+      <circle cx="20" cy="50" r="2" fill="#00E5B0"/>
+    </g>
+
+    <!-- Antenna/signal -->
+    <line x1="0" y1="-45" x2="0" y2="-60" stroke="#00E5B0" stroke-width="2"/>
+    <circle cx="0" cy="-65" r="5" fill="#00E5B0" filter="url(#softGlow)"/>
+
+    <!-- Label -->
+    <text x="0" y="95" text-anchor="middle" fill="#00E5B0" font-family="Inter, sans-serif" font-size="12" font-weight="600">OCTAVIOS</text>
+    <text x="0" y="112" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="10">AI Copilot</text>
+  </g>
+
+  <!-- Connection between human and AI -->
+  <g transform="translate(200, 180)">
+    <!-- Collaboration line -->
+    <line x1="0" y1="0" x2="230" y2="0" stroke="#00E5B0" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.5"/>
+
+    <!-- Bidirectional arrows -->
+    <g fill="#00E5B0" opacity="0.7">
+      <polygon points="80,-8 95,0 80,8"/>
+      <polygon points="150,8 135,0 150,-8"/>
+    </g>
+
+    <!-- Handshake/collaboration symbol in center -->
+    <g transform="translate(115, 0)">
+      <circle cx="0" cy="0" r="20" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+      <path d="M -8 3 L 0 -5 L 8 3" stroke="#00E5B0" stroke-width="2" fill="none"/>
+      <path d="M -8 -3 L 0 5 L 8 -3" stroke="#00E5B0" stroke-width="2" fill="none"/>
+    </g>
+  </g>
+
+  <!-- Chat bubbles floating around -->
+  <!-- Customer query bubble -->
+  <g transform="translate(80, 80)">
+    <rect x="0" y="0" width="100" height="45" rx="8" fill="#1A2744" stroke="#2D3748" stroke-width="1"/>
+    <polygon points="20,45 30,55 40,45" fill="#1A2744"/>
+    <rect x="12" y="12" width="76" height="4" rx="2" fill="#A0AEC0" opacity="0.4"/>
+    <rect x="12" y="22" width="60" height="4" rx="2" fill="#A0AEC0" opacity="0.3"/>
+    <rect x="12" y="32" width="40" height="4" rx="2" fill="#A0AEC0" opacity="0.3"/>
+    <text x="50" y="-8" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="9">Customer</text>
+  </g>
+
+  <!-- AI suggestion bubble -->
+  <g transform="translate(420, 60)">
+    <rect x="0" y="0" width="120" height="55" rx="8" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+    <polygon points="100,55 110,65 90,55" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+    <!-- Lightbulb icon -->
+    <g transform="translate(15, 15)">
+      <circle cx="8" cy="8" r="8" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+      <path d="M 5 18 L 11 18" stroke="#00E5B0" stroke-width="1.5"/>
+      <path d="M 6 21 L 10 21" stroke="#00E5B0" stroke-width="1.5"/>
+    </g>
+    <text x="40" y="22" fill="#00E5B0" font-family="Inter, sans-serif" font-size="9" font-weight="500">Suggestion:</text>
+    <rect x="40" y="28" width="65" height="4" rx="2" fill="#00E5B0" opacity="0.4"/>
+    <rect x="40" y="38" width="50" height="4" rx="2" fill="#00E5B0" opacity="0.3"/>
+  </g>
+
+  <!-- Response bubble from agent -->
+  <g transform="translate(70, 320)">
+    <rect x="0" y="0" width="140" height="50" rx="8" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+    <polygon points="120,0 130,-10 140,0" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+    <!-- Checkmark -->
+    <g transform="translate(12, 12)">
+      <circle cx="10" cy="10" r="10" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+      <path d="M 5 10 L 9 14 L 16 6" stroke="#00E5B0" stroke-width="2" fill="none"/>
+    </g>
+    <rect x="40" y="14" width="85" height="4" rx="2" fill="#00E5B0" opacity="0.5"/>
+    <rect x="40" y="24" width="70" height="4" rx="2" fill="#00E5B0" opacity="0.4"/>
+    <rect x="40" y="34" width="55" height="4" rx="2" fill="#00E5B0" opacity="0.3"/>
+  </g>
+
+  <!-- Real-time recommendations floating -->
+  <g transform="translate(350, 320)">
+    <rect x="0" y="0" width="180" height="70" rx="8" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <text x="15" y="20" fill="#00E5B0" font-family="Inter, sans-serif" font-size="10" font-weight="600">Recommended Actions</text>
+    <!-- Action items -->
+    <g transform="translate(15, 32)">
+      <circle cx="5" cy="5" r="5" fill="#00E5B0" opacity="0.3"/>
+      <text x="15" y="8" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="9">Offer discount code</text>
+    </g>
+    <g transform="translate(15, 48)">
+      <circle cx="5" cy="5" r="5" fill="#00E5B0" opacity="0.2"/>
+      <text x="15" y="8" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="9">Schedule follow-up</text>
+    </g>
+  </g>
+
+  <!-- Knowledge base connection -->
+  <g transform="translate(530, 320)">
+    <rect x="0" y="0" width="50" height="60" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <!-- Database icon -->
+    <ellipse cx="25" cy="15" rx="15" ry="6" fill="none" stroke="#00E5B0" stroke-width="1.5"/>
+    <path d="M 10 15 L 10 40 Q 10 48 25 48 Q 40 48 40 40 L 40 15" stroke="#00E5B0" stroke-width="1.5" fill="none"/>
+    <ellipse cx="25" cy="27" rx="15" ry="5" fill="none" stroke="#00E5B0" stroke-width="1" opacity="0.5"/>
+    <text x="25" y="70" text-anchor="middle" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="8">KB</text>
+
+    <!-- Connection line to AI -->
+    <line x1="-20" y1="30" x2="0" y2="30" stroke="#00E5B0" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+  </g>
+
+  <!-- Signal waves from AI -->
+  <g transform="translate(480, 100)" opacity="0.4">
+    <path d="M -30 0 Q -20 -10 -10 0 Q 0 10 10 0 Q 20 -10 30 0" stroke="#00E5B0" stroke-width="1.5" fill="none"/>
+    <path d="M -25 -15 Q -15 -25 -5 -15 Q 5 -5 15 -15 Q 25 -25 35 -15" stroke="#00E5B0" stroke-width="1" fill="none" opacity="0.6"/>
+  </g>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#0B1426"/>
+
+  <!-- Dashboard frame -->
+  <rect x="30" y="30" width="340" height="220" rx="12" fill="#0F1C32" stroke="#1A2744" stroke-width="3"/>
+
+  <!-- Top bar -->
+  <rect x="30" y="30" width="340" height="35" rx="12" fill="#1A2744"/>
+  <circle cx="55" cy="47" r="6" fill="#00E5B0"/>
+  <circle cx="75" cy="47" r="6" fill="#00FFD0"/>
+  <circle cx="95" cy="47" r="6" fill="#00E5B0" opacity="0.5"/>
+
+  <!-- Left metric card: Time reduction -->
+  <g transform="translate(50, 85)">
+    <rect x="0" y="0" width="140" height="80" rx="8" fill="#0B1426" stroke="#00E5B0" stroke-width="3"/>
+    <text x="70" y="35" text-anchor="middle" fill="#00FFD0" font-family="system-ui, sans-serif" font-size="32" font-weight="bold">2 sem</text>
+    <text x="70" y="60" text-anchor="middle" fill="#A0AEC0" font-family="system-ui, sans-serif" font-size="14">vs 6 meses</text>
+    <!-- Down arrow indicating reduction -->
+    <path d="M 120 20 L 130 10 L 130 15 L 140 15 L 140 25 L 130 25 L 130 30 Z" fill="#00FFD0" transform="rotate(90, 130, 20)"/>
+  </g>
+
+  <!-- Right metric card: Efficiency gain -->
+  <g transform="translate(210, 85)">
+    <rect x="0" y="0" width="140" height="80" rx="8" fill="#0B1426" stroke="#00FFD0" stroke-width="4"/>
+    <text x="70" y="35" text-anchor="middle" fill="#00FFD0" font-family="system-ui, sans-serif" font-size="36" font-weight="bold">+40%</text>
+    <text x="70" y="60" text-anchor="middle" fill="#A0AEC0" font-family="system-ui, sans-serif" font-size="14">Eficiencia</text>
+    <!-- Up arrow -->
+    <polygon points="125,65 115,75 120,75 120,85 130,85 130,75 135,75" fill="#00FFD0"/>
+  </g>
+
+  <!-- Bottom: Growth chart -->
+  <g transform="translate(50, 180)">
+    <!-- Chart background -->
+    <rect x="0" y="0" width="300" height="60" rx="6" fill="#0B1426" stroke="#1A2744" stroke-width="2"/>
+
+    <!-- Grid lines -->
+    <line x1="0" y1="20" x2="300" y2="20" stroke="#1A2744" stroke-width="1"/>
+    <line x1="0" y1="40" x2="300" y2="40" stroke="#1A2744" stroke-width="1"/>
+
+    <!-- Growth line - bold and clear -->
+    <polyline points="20,50 80,45 140,35 200,25 260,12 290,8"
+              fill="none" stroke="#00FFD0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Glow effect under line -->
+    <polyline points="20,50 80,45 140,35 200,25 260,12 290,8"
+              fill="none" stroke="#00FFD0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.2"/>
+
+    <!-- End point highlight -->
+    <circle cx="290" cy="8" r="8" fill="#00FFD0"/>
+    <circle cx="290" cy="8" r="12" fill="none" stroke="#00FFD0" stroke-width="2" opacity="0.5"/>
+  </g>
+
+  <!-- Label -->
+  <text x="200" y="275" text-anchor="middle" fill="#00FFD0" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">Resultados Medibles</text>
+</svg>

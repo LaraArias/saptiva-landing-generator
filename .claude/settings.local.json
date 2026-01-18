@@ -29,7 +29,8 @@
       "Bash(chmod:*)",
       "Bash(gh repo edit:*)",
       "Bash(git push)",
-      "Bash(gh run list:*)"
+      "Bash(gh run list:*)",
+      "Bash(git rm:*)"
     ]
   },
   "hooks": {

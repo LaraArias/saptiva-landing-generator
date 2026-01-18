@@ -1,0 +1,141 @@
+<svg viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes sutiles -->
+    <linearGradient id="tealGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5B0" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00E5B0" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#00E5B0" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="tealFade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5B0" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#00E5B0" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="verticalGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00E5B0" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00E5B0" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#00E5B0" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Glow filter para nodos -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Lineas de flujo horizontales - representan velocidad y datos -->
+  <g opacity="0.15">
+    <line x1="0" y1="120" x2="600" y2="120" stroke="#00E5B0" stroke-width="1"/>
+    <line x1="0" y1="200" x2="600" y2="200" stroke="#00E5B0" stroke-width="1"/>
+    <line x1="0" y1="280" x2="600" y2="280" stroke="#00E5B0" stroke-width="1"/>
+    <line x1="0" y1="360" x2="600" y2="360" stroke="#00E5B0" stroke-width="1"/>
+  </g>
+
+  <!-- Lineas de flujo principales con gradiente -->
+  <g opacity="0.6">
+    <path d="M 0 160 Q 150 160 200 200 T 400 200 T 600 180"
+          stroke="url(#tealGlow)" stroke-width="1.5" fill="none"/>
+    <path d="M 0 240 Q 100 240 180 280 T 380 260 T 600 280"
+          stroke="url(#tealGlow)" stroke-width="1.5" fill="none"/>
+    <path d="M 0 320 Q 200 320 280 340 T 480 320 T 600 340"
+          stroke="url(#tealGlow)" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- Nodo central - representa el core AI -->
+  <g transform="translate(300, 250)">
+    <!-- Anillos concentricos sutiles -->
+    <circle cx="0" cy="0" r="80" stroke="#00E5B0" stroke-width="0.5" fill="none" opacity="0.1"/>
+    <circle cx="0" cy="0" r="60" stroke="#00E5B0" stroke-width="0.5" fill="none" opacity="0.15"/>
+    <circle cx="0" cy="0" r="40" stroke="#00E5B0" stroke-width="1" fill="none" opacity="0.2"/>
+
+    <!-- Nodo central con glow -->
+    <circle cx="0" cy="0" r="20" fill="#0F1A2E" stroke="#00E5B0" stroke-width="2" filter="url(#glow)"/>
+    <circle cx="0" cy="0" r="8" fill="#00E5B0" opacity="0.8"/>
+    <circle cx="0" cy="0" r="4" fill="#00FFD0"/>
+  </g>
+
+  <!-- Nodos secundarios conectados -->
+  <g filter="url(#glow)">
+    <!-- Nodo superior izquierdo -->
+    <circle cx="140" cy="140" r="6" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+    <circle cx="140" cy="140" r="2" fill="#00E5B0"/>
+
+    <!-- Nodo superior derecho -->
+    <circle cx="460" cy="160" r="6" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+    <circle cx="460" cy="160" r="2" fill="#00E5B0"/>
+
+    <!-- Nodo inferior izquierdo -->
+    <circle cx="120" cy="360" r="6" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+    <circle cx="120" cy="360" r="2" fill="#00E5B0"/>
+
+    <!-- Nodo inferior derecho -->
+    <circle cx="480" cy="340" r="6" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1.5"/>
+    <circle cx="480" cy="340" r="2" fill="#00E5B0"/>
+
+    <!-- Nodo derecho medio -->
+    <circle cx="520" cy="250" r="5" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1"/>
+    <circle cx="520" cy="250" r="2" fill="#00E5B0"/>
+
+    <!-- Nodo izquierdo medio -->
+    <circle cx="80" cy="250" r="5" fill="#0F1A2E" stroke="#00E5B0" stroke-width="1"/>
+    <circle cx="80" cy="250" r="2" fill="#00E5B0"/>
+  </g>
+
+  <!-- Conexiones elegantes desde nodos al centro -->
+  <g stroke="#00E5B0" fill="none" opacity="0.4">
+    <path d="M 140 140 Q 200 180 280 240" stroke-width="1"/>
+    <path d="M 460 160 Q 400 190 320 240" stroke-width="1"/>
+    <path d="M 120 360 Q 180 320 280 260" stroke-width="1"/>
+    <path d="M 480 340 Q 420 310 320 260" stroke-width="1"/>
+    <path d="M 80 250 L 280 250" stroke-width="1" stroke-dasharray="4,4"/>
+    <path d="M 520 250 L 320 250" stroke-width="1" stroke-dasharray="4,4"/>
+  </g>
+
+  <!-- Particulas de datos en movimiento -->
+  <g fill="#00E5B0">
+    <circle cx="180" cy="175" r="2" opacity="0.6"/>
+    <circle cx="400" cy="195" r="2" opacity="0.6"/>
+    <circle cx="160" cy="310" r="1.5" opacity="0.5"/>
+    <circle cx="440" cy="300" r="1.5" opacity="0.5"/>
+    <circle cx="200" cy="250" r="1.5" opacity="0.4"/>
+    <circle cx="400" cy="250" r="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Lineas de aceleracion horizontales - speed lines -->
+  <g opacity="0.3">
+    <rect x="50" y="100" width="80" height="1" fill="url(#tealGlow)"/>
+    <rect x="470" y="130" width="100" height="1" fill="url(#tealGlow)"/>
+    <rect x="30" y="400" width="60" height="1" fill="url(#tealGlow)"/>
+    <rect x="510" y="380" width="70" height="1" fill="url(#tealGlow)"/>
+  </g>
+
+  <!-- Detalles minimalistas adicionales -->
+  <g stroke="#00E5B0" stroke-width="0.5" opacity="0.2">
+    <!-- Grid sutil parcial -->
+    <line x1="300" y1="50" x2="300" y2="100" stroke-dasharray="2,4"/>
+    <line x1="300" y1="400" x2="300" y2="450" stroke-dasharray="2,4"/>
+  </g>
+
+  <!-- Puntos de data pequenos decorativos -->
+  <g fill="#00E5B0" opacity="0.3">
+    <circle cx="50" cy="180" r="1"/>
+    <circle cx="550" cy="200" r="1"/>
+    <circle cx="70" cy="300" r="1"/>
+    <circle cx="530" cy="310" r="1"/>
+    <circle cx="250" cy="100" r="1"/>
+    <circle cx="350" cy="400" r="1"/>
+  </g>
+</svg>

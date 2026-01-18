@@ -30,7 +30,8 @@
       "Bash(gh repo edit:*)",
       "Bash(git push)",
       "Bash(gh run list:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(grep:*)"
     ]
   },
   "hooks": {

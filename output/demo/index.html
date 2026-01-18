@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agenda una demo con Saptiva - El sistema operativo de IA para LATAM">
+  <title>Agenda una Demo - Saptiva</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2AF2CE;
+      --primary-hover: #20D4B4;
+      --bg-dark: #0B1426;
+      --bg-card: #F5F5F5;
+      --text-white: #FFFFFF;
+      --text-dark: #0B1426;
+      --text-muted: #6B7280;
+      --border-light: #E5E7EB;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-family);
+      background: var(--bg-dark);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Grid background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .left-content h1 {
+      font-size: clamp(48px, 6vw, 72px);
+      font-weight: 900;
+      color: var(--text-white);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+
+    .tagline {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 18px;
+      color: var(--text-white);
+      line-height: 1.6;
+      margin-bottom: 8px;
+      max-width: 500px;
+    }
+
+    .email {
+      font-size: 18px;
+      color: var(--text-white);
+      font-weight: 500;
+    }
+
+    /* Form card */
+    .form-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 48px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 16px;
+      font-family: var(--font-family);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      background: white;
+      color: var(--text-dark);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(42, 242, 206, 0.1);
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-muted);
+    }
+
+    /* Phone input with flag */
+    .phone-input-wrapper {
+      display: flex;
+      gap: 8px;
+    }
+
+    .country-select {
+      width: 90px;
+      padding: 14px 12px;
+      font-size: 16px;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      background: white;
+      cursor: pointer;
+    }
+
+    .phone-input-wrapper input {
+      flex: 1;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: var(--font-family);
+      background: var(--primary);
+      color: var(--text-dark);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+      margin-top: 16px;
+    }
+
+    .btn-submit:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98);
+    }
+
+    /* Success state */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .success-message svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 24px;
+      color: var(--primary);
+    }
+
+    .success-message h2 {
+      font-size: 24px;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .success-message p {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .form-content.hide {
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        text-align: center;
+      }
+
+      .left-content {
+        order: 1;
+      }
+
+      .form-card {
+        order: 2;
+      }
+
+      .description {
+        margin: 0 auto 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .form-card {
+        padding: 32px 24px;
+      }
+
+      .phone-input-wrapper {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .country-select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-content">
+      <h1>We are ready to assist you</h1>
+      <p class="tagline">Let's talk AI.</p>
+      <p class="description">
+        Whether you're building, scaling, or integrating AI, we'd love to help. Drop us a message and let's explore what's possible.
+      </p>
+      <p class="email">hi@saptiva.com</p>
+    </div>
+
+    <div class="form-card">
+      <form id="demo-form" class="form-content">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="lastname">Last name</label>
+          <input type="text" id="lastname" name="lastname" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Business Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+          <div class="phone-input-wrapper">
+            <select class="country-select" id="country-code" name="country_code">
+              <option value="+52">🇲🇽 +52</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+57">🇨🇴 +57</option>
+              <option value="+56">🇨🇱 +56</option>
+              <option value="+54">🇦🇷 +54</option>
+              <option value="+55">🇧🇷 +55</option>
+              <option value="+51">🇵🇪 +51</option>
+            </select>
+            <input type="tel" id="phone" name="phone" placeholder="(55) 1234-5678">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" name="company" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Send</button>
+      </form>
+
+      <div class="success-message" id="success-message">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        <h2>Mensaje enviado</h2>
+        <p>Nos pondremos en contacto contigo pronto.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('demo-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Collect form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+
+      // Here you would send to your backend/webhook
+      console.log('Form submitted:', data);
+
+      // Show success message
+      document.querySelector('.form-content').classList.add('hide');
+      document.getElementById('success-message').classList.add('show');
+    });
+  </script>
+</body>
+</html>

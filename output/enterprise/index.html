@@ -790,6 +790,170 @@
       }
     }
 
+    /* Social Proof Bar */
+    .social-proof {
+      background: var(--bg-dark-card);
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 40px 0;
+    }
+
+    .proof-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .proof-item {
+      text-align: center;
+    }
+
+    .proof-number {
+      display: block;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .proof-label {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .proof-divider {
+      width: 1px;
+      height: 48px;
+      background: var(--border-dark);
+    }
+
+    @media (max-width: 768px) {
+      .proof-grid {
+        gap: 24px;
+      }
+
+      .proof-divider {
+        display: none;
+      }
+
+      .proof-item {
+        flex: 1 1 45%;
+      }
+
+      .proof-number {
+        font-size: 24px;
+      }
+    }
+
+    /* Resultados Section */
+    .resultados {
+      padding: 100px 0;
+      background: var(--bg-dark);
+    }
+
+    .resultados-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .resultados-content h3 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 16px;
+    }
+
+    .resultados-content p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .resultados-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .metric-item {
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .metric-value {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .metric-label {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .resultados-quote {
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 40px;
+      position: relative;
+    }
+
+    .resultados-quote::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 24px;
+      font-size: 64px;
+      color: var(--primary);
+      opacity: 0.3;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .resultados-quote blockquote {
+      font-size: 18px;
+      color: var(--text-white);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .resultados-quote cite {
+      display: block;
+      font-style: normal;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .resultados-quote cite strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    @media (max-width: 1024px) {
+      .resultados-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .resultados-metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* Footer */
     .footer {
       background: var(--bg-dark);
@@ -957,10 +1121,40 @@
               <a href="https://calendly.com/saptiva/demo" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
                 Acelera tu time-to-value
               </a>
+              <a href="#resultados" class="btn btn-secondary">
+                Ver resultados
+              </a>
             </div>
           </div>
           <div class="hero-visual">
             <img src="assets/hero-visual.svg" alt="Plataforma de IA Saptiva" loading="eager">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <section class="social-proof" aria-label="Métricas de confianza">
+      <div class="container">
+        <div class="proof-grid">
+          <div class="proof-item">
+            <span class="proof-number">9+</span>
+            <span class="proof-label">Empresas en producción</span>
+          </div>
+          <div class="proof-divider" aria-hidden="true"></div>
+          <div class="proof-item">
+            <span class="proof-number">2 semanas</span>
+            <span class="proof-label">De kickoff a valor medible</span>
+          </div>
+          <div class="proof-divider" aria-hidden="true"></div>
+          <div class="proof-item">
+            <span class="proof-number">100%</span>
+            <span class="proof-label">Datos en tu jurisdicción</span>
+          </div>
+          <div class="proof-divider" aria-hidden="true"></div>
+          <div class="proof-item">
+            <span class="proof-number">0</span>
+            <span class="proof-label">Vendor lock-in</span>
           </div>
         </div>
       </div>
@@ -1185,6 +1379,55 @@
       </div>
     </section>
 
+    <!-- Resultados Section -->
+    <section id="resultados" class="resultados section-dark" aria-labelledby="resultados-title">
+      <div class="container">
+        <h2 id="resultados-title" class="section-title text-center">
+          Resultados <span class="accent">verificables</span>
+        </h2>
+        <p class="section-subtitle text-center" style="margin: 0 auto;">
+          Métricas reales de implementaciones en producción con instituciones financieras.
+        </p>
+
+        <div class="resultados-grid">
+          <div class="resultados-content">
+            <h3>Instituciones financieras que ya operan con Saptiva</h3>
+            <p>
+              Desde bancos regionales hasta fintechs de alto crecimiento, nuestros clientes ejecutan IA en producción con control total sobre sus datos y compliance garantizado desde el día uno.
+            </p>
+            <div class="resultados-metrics">
+              <div class="metric-item">
+                <span class="metric-value">85%</span>
+                <span class="metric-label">Reducción en tiempo de respuesta</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value">40%</span>
+                <span class="metric-label">Ahorro en costos operativos</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value">&lt;48h</span>
+                <span class="metric-label">Primera inferencia en producción</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-value">100%</span>
+                <span class="metric-label">Compliance regulatorio</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="resultados-quote">
+            <blockquote>
+              Pasamos de tener un roadmap de IA de 12 meses a tener resultados medibles en 3 semanas. La diferencia fue tener una plataforma que ya funciona, no un proyecto que construir desde cero.
+            </blockquote>
+            <cite>
+              <strong>Director de Transformación Digital</strong><br>
+              Institución Financiera en México
+            </cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Final Section -->
     <section id="cta" class="cta-final section-dark" aria-labelledby="cta-title">
       <div class="container">
@@ -1197,6 +1440,9 @@
         <div class="cta-buttons">
           <a href="https://calendly.com/saptiva/demo" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
             Acelera tu time-to-value
+          </a>
+          <a href="#resultados" class="btn btn-secondary">
+            Ver resultados de clientes
           </a>
         </div>
       </div>

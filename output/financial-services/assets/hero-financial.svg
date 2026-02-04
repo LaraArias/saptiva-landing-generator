@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="500" height="400">
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1A2744" stroke-width="0.5"/>
+    </pattern>
+
+    <!-- Isometric cube faces -->
+    <linearGradient id="cubeTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3ECEB0"/>
+      <stop offset="100%" style="stop-color:#2AB89C"/>
+    </linearGradient>
+    <linearGradient id="cubeRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2AB89C"/>
+      <stop offset="100%" style="stop-color:#1A9A80"/>
+    </linearGradient>
+    <linearGradient id="cubeLeft" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A8A70"/>
+      <stop offset="100%" style="stop-color:#147A60"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="400" fill="#0B1426"/>
+  <rect width="500" height="400" fill="url(#grid)" opacity="0.4"/>
+
+  <!-- Cube 1 (back-left) -->
+  <g transform="translate(100, 100)">
+    <!-- Top face -->
+    <polygon points="50,0 100,25 50,50 0,25" fill="url(#cubeTop)"/>
+    <!-- Right face -->
+    <polygon points="100,25 100,95 50,120 50,50" fill="url(#cubeRight)"/>
+    <!-- Left face -->
+    <polygon points="0,25 50,50 50,120 0,95" fill="url(#cubeLeft)"/>
+    <!-- Icon connector -->
+    <line x1="50" y1="0" x2="50" y2="-25" stroke="#2AF2CE" stroke-width="2"/>
+    <circle cx="50" cy="-25" r="3" fill="#2AF2CE"/>
+    <!-- Icon circle -->
+    <circle cx="50" cy="-50" r="22" fill="#0B1426" stroke="#2AF2CE" stroke-width="2"/>
+    <!-- Document icon -->
+    <g transform="translate(50, -50)" stroke="#2AF2CE" stroke-width="1.5" fill="none">
+      <path d="M-8,-10 L-8,10 L8,10 L8,-4 L2,-10 L-8,-10"/>
+      <path d="M2,-10 L2,-4 L8,-4"/>
+    </g>
+  </g>
+
+  <!-- Cube 2 -->
+  <g transform="translate(175, 150)">
+    <!-- Top face -->
+    <polygon points="50,0 100,25 50,50 0,25" fill="url(#cubeTop)"/>
+    <!-- Right face -->
+    <polygon points="100,25 100,95 50,120 50,50" fill="url(#cubeRight)"/>
+    <!-- Left face -->
+    <polygon points="0,25 50,50 50,120 0,95" fill="url(#cubeLeft)"/>
+    <!-- Icon connector -->
+    <line x1="50" y1="0" x2="50" y2="-25" stroke="#2AF2CE" stroke-width="2"/>
+    <circle cx="50" cy="-25" r="3" fill="#2AF2CE"/>
+    <!-- Icon circle -->
+    <circle cx="50" cy="-50" r="22" fill="#0B1426" stroke="#2AF2CE" stroke-width="2"/>
+    <!-- Search icon -->
+    <g transform="translate(50, -50)" stroke="#2AF2CE" stroke-width="1.5" fill="none">
+      <circle cx="-2" cy="-2" r="7"/>
+      <line x1="3" y1="3" x2="9" y2="9"/>
+    </g>
+  </g>
+
+  <!-- Cube 3 -->
+  <g transform="translate(250, 200)">
+    <!-- Top face -->
+    <polygon points="50,0 100,25 50,50 0,25" fill="url(#cubeTop)"/>
+    <!-- Right face -->
+    <polygon points="100,25 100,95 50,120 50,50" fill="url(#cubeRight)"/>
+    <!-- Left face -->
+    <polygon points="0,25 50,50 50,120 0,95" fill="url(#cubeLeft)"/>
+    <!-- Icon connector -->
+    <line x1="50" y1="0" x2="50" y2="-25" stroke="#2AF2CE" stroke-width="2"/>
+    <circle cx="50" cy="-25" r="3" fill="#2AF2CE"/>
+    <!-- Icon circle -->
+    <circle cx="50" cy="-50" r="22" fill="#0B1426" stroke="#2AF2CE" stroke-width="2"/>
+    <!-- Connection/Network icon -->
+    <g transform="translate(50, -50)" stroke="#2AF2CE" stroke-width="1.5" fill="#2AF2CE">
+      <circle cx="0" cy="-6" r="3"/>
+      <circle cx="-7" cy="5" r="3"/>
+      <circle cx="7" cy="5" r="3"/>
+      <line x1="0" y1="-3" x2="-5" y2="3" stroke="#2AF2CE" stroke-width="1.5"/>
+      <line x1="0" y1="-3" x2="5" y2="3" stroke="#2AF2CE" stroke-width="1.5"/>
+      <line x1="-4" y1="5" x2="4" y2="5" stroke="#2AF2CE" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <!-- Cube 4 (front-right) -->
+  <g transform="translate(325, 250)">
+    <!-- Top face -->
+    <polygon points="50,0 100,25 50,50 0,25" fill="url(#cubeTop)"/>
+    <!-- Right face -->
+    <polygon points="100,25 100,95 50,120 50,50" fill="url(#cubeRight)"/>
+    <!-- Left face -->
+    <polygon points="0,25 50,50 50,120 0,95" fill="url(#cubeLeft)"/>
+    <!-- Icon connector -->
+    <line x1="50" y1="0" x2="50" y2="-25" stroke="#2AF2CE" stroke-width="2"/>
+    <circle cx="50" cy="-25" r="3" fill="#2AF2CE"/>
+    <!-- Icon circle -->
+    <circle cx="50" cy="-50" r="22" fill="#0B1426" stroke="#2AF2CE" stroke-width="2"/>
+    <!-- Chat/Message icon -->
+    <g transform="translate(50, -50)" stroke="#2AF2CE" stroke-width="1.5" fill="none">
+      <path d="M-10,-6 L-10,4 L-4,4 L0,8 L0,4 L10,4 L10,-6 Z"/>
+      <circle cx="-5" cy="-1" r="1.5" fill="#2AF2CE"/>
+      <circle cx="0" cy="-1" r="1.5" fill="#2AF2CE"/>
+      <circle cx="5" cy="-1" r="1.5" fill="#2AF2CE"/>
+    </g>
+  </g>
+</svg>

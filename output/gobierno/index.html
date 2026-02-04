@@ -12,7 +12,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://calendly.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -183,6 +182,21 @@
     .hero-visual { display: flex; justify-content: center; align-items: center; }
     .hero-visual img { max-width: 100%; width: 100%; }
 
+    /* Alert Banner */
+    .alert-banner {
+      background: rgba(42, 242, 206, 0.1);
+      border: 1px solid var(--primary);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .alert-banner svg { width: 24px; height: 24px; color: var(--primary); flex-shrink: 0; margin-top: 2px; }
+    .alert-banner p { font-size: 14px; color: var(--text-white); line-height: 1.5; }
+    .alert-banner strong { color: var(--primary); }
+
     /* Requisitos Grid */
     .requisitos-grid {
       display: grid;
@@ -198,7 +212,9 @@
       display: flex;
       gap: 16px;
       align-items: flex-start;
+      transition: border-color 0.2s ease;
     }
+    .requisito-card:hover { border-color: var(--primary); }
     .requisito-number {
       width: 40px;
       height: 40px;
@@ -214,6 +230,56 @@
     }
     .requisito-content h3 { font-size: 18px; font-weight: 600; color: var(--text-white); margin-bottom: 8px; }
     .requisito-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    /* Use Cases */
+    .usecases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .usecase-card {
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .usecase-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+    .usecase-image {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bg-dark-card) 0%, var(--bg-dark) 100%);
+      padding: 24px;
+      position: relative;
+    }
+    .usecase-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26,39,68,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,39,68,0.5) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .usecase-image svg { width: 64px; height: 64px; color: var(--primary); position: relative; z-index: 1; }
+    .usecase-content { padding: 24px; }
+    .usecase-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      background: rgba(0, 229, 176, 0.1);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .usecase-content h3 { font-size: 20px; font-weight: 600; color: var(--text-white); margin-bottom: 8px; }
+    .usecase-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
     /* Control Cards */
     .control-grid {
@@ -241,6 +307,34 @@
     .control-card .icon-box svg { width: 28px; height: 28px; stroke: var(--primary-dark); stroke-width: 1.5; fill: none; }
     .control-card h3 { color: var(--primary-dark); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
     .control-card p { color: var(--text-gray); font-size: 15px; line-height: 1.6; }
+
+    /* Map Section */
+    .map-section {
+      padding: 80px 0;
+      background: var(--bg-dark-card);
+    }
+    .map-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .map-content h2 { font-size: 36px; font-weight: 700; color: var(--text-white); margin-bottom: 16px; }
+    .map-content p { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
+    .map-features { list-style: none; }
+    .map-features li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 12px 16px;
+      background: rgba(0, 229, 176, 0.05);
+      border-radius: 8px;
+      border-left: 3px solid var(--primary);
+    }
+    .map-features li svg { width: 20px; height: 20px; color: var(--primary); flex-shrink: 0; }
+    .map-features li span { color: var(--text-white); font-size: 15px; }
+    .map-visual img { max-width: 100%; border-radius: 12px; }
 
     /* Solucion Cards */
     .solucion-grid {
@@ -318,7 +412,9 @@
       .hero-title { font-size: 44px; }
       .section-title { font-size: 32px; }
       .requisitos-grid { grid-template-columns: 1fr; }
+      .usecases-grid { grid-template-columns: 1fr; }
       .control-grid, .solucion-grid { grid-template-columns: 1fr; }
+      .map-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       .nav { padding: 16px 24px; }
@@ -330,6 +426,7 @@
       .section-title { font-size: 28px; }
       .hero-cta, .cta-buttons { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; justify-content: center; }
+      .alert-banner { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -352,8 +449,8 @@
       </li>
     </ul>
     <div class="nav-cta">
-      <a href="../demo/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-        Agenda una demo
+      <a href="../demo/" class="btn btn-primary">
+        Sesión de arquitectura
       </a>
     </div>
   </nav>
@@ -365,14 +462,20 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
+            <div class="alert-banner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <p>La <strong>CLOUD Act</strong> permite a EEUU exigir datos de empresas americanas sin importar dónde estén físicamente. Tus datos en AWS, Azure o GCP están sujetos a esta ley.</p>
+            </div>
             <h1 id="hero-title" class="hero-title">
               IA bajo <span class="accent">tu jurisdicción</span>
             </h1>
             <p class="hero-subtitle">
-              Control total sobre tus datos e infraestructura. Cumplimiento regulatorio garantizado. Sin dependencia de proveedores extranjeros.
+              La infraestructura de IA de una nación no puede depender de decisiones tomadas en otra jurisdicción. Control total sobre tus datos e infraestructura. Cumplimiento regulatorio garantizado. Sin dependencia de proveedores extranjeros.
             </p>
             <div class="hero-cta">
-              <a href="../demo/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              <a href="../demo/" class="btn btn-primary">
                 Sesión de arquitectura
               </a>
               <a href="#requisitos" class="btn btn-secondary">
@@ -381,8 +484,70 @@
             </div>
           </div>
           <div class="hero-visual">
-            <img src="assets/latam-map.png" alt="IA Soberana para Latinoamérica" loading="eager">
+            <img src="assets/latam-sovereign-map.svg" alt="IA Soberana para Latinoamérica" loading="eager">
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Casos de Uso -->
+    <section id="casos" class="section section-dark" style="background: var(--bg-dark-card);" aria-labelledby="casos-title">
+      <div class="container">
+        <h2 id="casos-title" class="section-title text-center">
+          Casos de uso para <span class="accent">gobierno</span>
+        </h2>
+        <p class="section-subtitle text-center" style="margin: 0 auto;">
+          Workflows de misión crítica en ambientes soberanos y seguros, sin exposición externa.
+        </p>
+
+        <div class="usecases-grid">
+          <article class="usecase-card">
+            <div class="usecase-image">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+            </div>
+            <div class="usecase-content">
+              <span class="usecase-tag">Legal & Documentos</span>
+              <h3>Inteligencia Documental</h3>
+              <p>Acelera revisión de contratos, clasificación y compliance usando modelos IA ajustados para jurisdicciones locales — todo dentro de tu infraestructura.</p>
+            </div>
+          </article>
+
+          <article class="usecase-card">
+            <div class="usecase-image">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="usecase-content">
+              <span class="usecase-tag">Servicios Ciudadanos</span>
+              <h3>Atención Automatizada</h3>
+              <p>Asistentes virtuales para servicios ciudadanos que operan 24/7 con datos que nunca salen de tu jurisdicción.</p>
+            </div>
+          </article>
+
+          <article class="usecase-card">
+            <div class="usecase-image">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18"/>
+                <path d="M9 21V9"/>
+              </svg>
+            </div>
+            <div class="usecase-content">
+              <span class="usecase-tag">Logística</span>
+              <h3>Gestión de Recursos</h3>
+              <p>Optimización de cadenas de suministro, inventarios y logística gubernamental con IA que opera en ambientes air-gapped.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -394,7 +559,7 @@
           Los <span class="accent">7 requisitos</span> de IA Soberana
         </h2>
         <p class="section-subtitle text-center" style="margin: 0 auto;">
-          Una plataforma que no cumpla estos requisitos puede ser útil, eficiente, o económica. No califica como IA Soberana.
+          Una plataforma que no cumpla estos requisitos puede ser útil, eficiente, o económica. No califica como IA Soberana. Saptiva cumple los siete.
         </p>
 
         <div class="requisitos-grid">
@@ -402,7 +567,7 @@
             <div class="requisito-number">1</div>
             <div class="requisito-content">
               <h3>Control plane local</h3>
-              <p>El cerebro que decide dónde corren las cargas debe estar bajo jurisdicción local. Sin excepciones.</p>
+              <p>El cerebro que decide dónde corren las cargas debe estar bajo jurisdicción local. Si está en EEUU, está sujeto a la CLOUD Act.</p>
             </div>
           </article>
 
@@ -410,7 +575,7 @@
             <div class="requisito-number">2</div>
             <div class="requisito-content">
               <h3>Data plane sin dependencia legal extranjera</h3>
-              <p>Tus datos protegidos de leyes como el CLOUD Act. Sin acceso de gobiernos extranjeros.</p>
+              <p>Tus datos protegidos de leyes como el CLOUD Act. Sin acceso de gobiernos extranjeros a tu información.</p>
             </div>
           </article>
 
@@ -418,7 +583,7 @@
             <div class="requisito-number">3</div>
             <div class="requisito-content">
               <h3>Observabilidad auditable</h3>
-              <p>Visibilidad completa sobre qué pasa con tus datos y modelos. Auditable por ti en cualquier momento.</p>
+              <p>Visibilidad completa sobre qué pasa con tus datos y modelos. Auditable por ti en cualquier momento. Sin cajas negras.</p>
             </div>
           </article>
 
@@ -426,7 +591,7 @@
             <div class="requisito-number">4</div>
             <div class="requisito-content">
               <h3>Portabilidad verificable</h3>
-              <p>Migra tus datos y configuraciones a otro proveedor sin barreras técnicas. Sin lock-in.</p>
+              <p>Migra tus datos y configuraciones a otro proveedor sin barreras técnicas artificiales. Cero lock-in contractual o técnico.</p>
             </div>
           </article>
 
@@ -434,7 +599,7 @@
             <div class="requisito-number">5</div>
             <div class="requisito-content">
               <h3>Capacidad de salida</h3>
-              <p>Extrae la totalidad de tus datos en cualquier momento. Logs, configuraciones, modelos, todo.</p>
+              <p>Extrae la totalidad de tus datos en cualquier momento. Logs, configuraciones, modelos fine-tuned, todo.</p>
             </div>
           </article>
 
@@ -442,7 +607,7 @@
             <div class="requisito-number">6</div>
             <div class="requisito-content">
               <h3>Cifrado con control de llaves</h3>
-              <p>Tú controlas las llaves de cifrado. Nadie más puede acceder a tus datos.</p>
+              <p>Tú controlas las llaves de cifrado. Si el proveedor controla las llaves, controla el acceso a tus datos.</p>
             </div>
           </article>
 
@@ -450,9 +615,43 @@
             <div class="requisito-number">7</div>
             <div class="requisito-content">
               <h3>Aislamiento verificable</h3>
-              <p>Tu ambiente está completamente separado. Tus datos nunca se mezclan con los de otros clientes.</p>
+              <p>Tu ambiente está completamente separado. Tus datos nunca se mezclan con los de otros clientes. Verificable mediante auditoría.</p>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" aria-labelledby="map-title">
+      <div class="container">
+        <div class="map-grid">
+          <div class="map-content">
+            <h2 id="map-title">La infraestructura que <span class="accent">Latinoamérica necesita</span></h2>
+            <p>Si tu IA corre en otro lugar, no te pertenece. Saptiva no solo potencia IA: estamos reemplazando el stack extranjero completamente. Cómputo, orquestación y control, todo bajo soberanía regional.</p>
+
+            <ul class="map-features">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Todos los workloads procesados en región — Soberano por default</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Despliegue air-gapped disponible — Datos locales y privados</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Cifrado, control de acceso y auditoría — Listo para industrias reguladas</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Orquestación vendor-neutral — Sin dependencia de hyperscalers</span>
+              </li>
+            </ul>
+          </div>
+          <div class="map-visual">
+            <img src="assets/latam-sovereign-map.svg" alt="Mapa de infraestructura soberana en Latinoamérica">
+          </div>
         </div>
       </div>
     </section>
@@ -464,7 +663,7 @@
           Por qué <span class="accent">importa</span>
         </h2>
         <p class="section-subtitle text-center" style="margin: 0 auto;">
-          La infraestructura de IA de una nación no puede depender de decisiones tomadas en otra jurisdicción.
+          La dependencia tecnológica no es una abstracción. Tiene consecuencias concretas.
         </p>
 
         <div class="control-grid">
@@ -473,7 +672,7 @@
               <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <h3>Protección contra CLOUD Act</h3>
-            <p>La ley de EEUU permite acceso a datos en servidores de empresas americanas, sin importar dónde estén físicamente.</p>
+            <p>La ley de EEUU permite acceso a datos en servidores de empresas americanas, sin importar dónde estén físicamente. Con Saptiva, tus datos están protegidos.</p>
           </article>
 
           <article class="control-card">
@@ -481,7 +680,7 @@
               <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </div>
             <h3>Compliance demostrable</h3>
-            <p>Genera evidencia de cumplimiento en horas, no semanas. Listo para cualquier auditoría regulatoria.</p>
+            <p>Genera evidencia de cumplimiento en horas, no semanas. Listo para cualquier auditoría regulatoria. Un regulador puede solicitar exportación de logs y evidencia.</p>
           </article>
 
           <article class="control-card">
@@ -489,7 +688,7 @@
               <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
             </div>
             <h3>Independencia tecnológica</h3>
-            <p>Sin dependencia de hyperscalers extranjeros. Tu infraestructura crítica bajo tu control.</p>
+            <p>Sin dependencia de hyperscalers extranjeros. Tu infraestructura crítica bajo tu control. Sin gatekeepers, sin lock-in.</p>
           </article>
         </div>
       </div>
@@ -510,7 +709,7 @@
             <div class="solucion-card-content">
               <span class="solucion-tag">Tus Datos</span>
               <h3>Residencia local garantizada</h3>
-              <p>Golden copy siempre en tu jurisdicción. Cifrado con llaves que solo tú controlas. Sin acceso de terceros.</p>
+              <p>Golden copy siempre en tu jurisdicción. AES-256 en reposo, TLS 1.3 en tránsito. Cifrado con llaves que solo tú controlas.</p>
             </div>
           </article>
 
@@ -518,7 +717,7 @@
             <div class="solucion-card-content">
               <span class="solucion-tag">Tu Infraestructura</span>
               <h3>Despliega donde quieras</h3>
-              <p>On-prem, nube privada o híbrido. Control plane siempre bajo tu jurisdicción. Sin lock-in.</p>
+              <p>On-prem, nube privada, híbrido o air-gapped. Control plane siempre bajo tu jurisdicción. Multinube sin lock-in.</p>
             </div>
           </article>
 
@@ -526,7 +725,7 @@
             <div class="solucion-card-content">
               <span class="solucion-tag">Tu Independencia</span>
               <h3>Sin dependencia de vendor</h3>
-              <p>Tus datos y modelos son tuyos. Migra a otro proveedor cuando quieras, sin fricción.</p>
+              <p>Protocolos abiertos (REST, gRPC, GraphQL). Soporte nativo para modelos open source. Tus datos y modelos son tuyos.</p>
             </div>
           </article>
         </div>
@@ -540,11 +739,14 @@
           IA Soberana para <span class="accent">tu institución</span>
         </h2>
         <p class="section-subtitle">
-          Agenda una sesión de arquitectura con nuestro equipo para evaluar cómo cumplir los 7 requisitos en tu contexto.
+          Agenda una sesión de arquitectura con nuestro equipo para evaluar cómo cumplir los 7 requisitos de IA Soberana en tu contexto.
         </p>
         <div class="cta-buttons">
-          <a href="../demo/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <a href="../demo/" class="btn btn-primary">
             Sesión de arquitectura
+          </a>
+          <a href="#requisitos" class="btn btn-secondary">
+            Ver los 7 requisitos
           </a>
         </div>
       </div>

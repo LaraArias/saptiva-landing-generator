@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Saptiva - El sistema operativo de IA para LATAM. Plataforma enterprise para llevar IA a producción con control total.">
-  <meta name="keywords" content="IA enterprise, plataforma IA, IA LATAM, inteligencia artificial empresarial">
-  <meta property="og:title" content="Saptiva - El Sistema Operativo de IA para LATAM">
-  <meta property="og:description" content="Lleva IA a producción en semanas, no meses. Control total sobre tus datos y tu infraestructura.">
+  <meta name="description" content="Saptiva - El sistema operativo de IA para LATAM. Despliega IA donde quieras, con control total sobre tus datos e infraestructura.">
+  <meta name="keywords" content="IA enterprise, plataforma IA, IA LATAM, inteligencia artificial empresarial, GenAI infrastructure">
+  <meta property="og:title" content="Saptiva - Tu IA, en tus términos">
+  <meta property="og:description" content="Build, deploy, and scale AI across Latin America — with full control over where it runs and how it performs.">
   <meta property="og:type" content="website">
-  <title>Saptiva - El Sistema Operativo de IA para LATAM</title>
+  <title>Saptiva - Tu IA, en tus términos | GenAI Infrastructure for LATAM</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://calendly.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -64,6 +63,21 @@
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
     .accent { color: var(--primary); }
     .text-center { text-align: center; }
+
+    /* Announcement Banner */
+    .announcement {
+      background: var(--primary);
+      color: var(--bg-dark);
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .announcement a {
+      color: var(--bg-dark);
+      text-decoration: underline;
+      margin-left: 8px;
+    }
 
     /* Nav */
     .nav {
@@ -140,6 +154,8 @@
     .btn-primary:hover { background: var(--primary-hover); }
     .btn-secondary { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
     .btn-secondary:hover { background: rgba(0, 229, 176, 0.1); }
+    .btn-ghost { background: transparent; color: var(--text-white); border: 1px solid var(--border-dark); }
+    .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
 
     /* Sections */
     .section { padding: 100px 0; }
@@ -168,10 +184,139 @@
       background-size: 48px 48px;
       pointer-events: none;
     }
-    .hero-content { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
-    .hero-title { font-size: 64px; font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
-    .hero-subtitle { font-size: 20px; color: var(--text-muted); margin-bottom: 40px; line-height: 1.7; }
-    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content { max-width: 600px; }
+    .hero-title { font-size: 56px; font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+    .hero-subtitle { font-size: 19px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.7; }
+    .hero-description { font-size: 16px; color: var(--text-muted); margin-bottom: 40px; line-height: 1.7; }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-visual { display: flex; justify-content: center; align-items: center; }
+    .hero-visual img { max-width: 100%; width: 100%; }
+
+    /* Partners */
+    .partners {
+      padding: 60px 0;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .partners-label {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .partners-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .partners-logos img {
+      height: 32px;
+      width: auto;
+      opacity: 0.7;
+      filter: grayscale(100%) brightness(200%);
+      transition: opacity 0.2s ease;
+    }
+    .partners-logos img:hover { opacity: 1; }
+
+    /* What We Do */
+    .what-we-do-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .what-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .what-card .icon-box {
+      width: 48px;
+      height: 48px;
+      background: var(--icon-box-bg);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .what-card .icon-box svg { width: 24px; height: 24px; stroke: var(--primary-dark); stroke-width: 1.5; fill: none; }
+    .what-card h3 { color: var(--primary-dark); font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+    .what-card p { color: var(--text-gray); font-size: 14px; line-height: 1.6; }
+
+    /* Products */
+    .products {
+      padding: 80px 0;
+      background: var(--bg-dark-card);
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .products-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .products-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 12px;
+    }
+    .products-header p {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .product-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .product-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+    .product-image {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bg-dark-card) 0%, var(--bg-dark) 100%);
+      padding: 24px;
+    }
+    .product-image img { max-height: 120px; max-width: 200px; object-fit: contain; }
+    .product-content { padding: 24px; }
+    .product-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      background: rgba(0, 229, 176, 0.1);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .product-content h3 { font-size: 22px; font-weight: 600; color: var(--text-white); margin-bottom: 8px; }
+    .product-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
 
     /* Industries */
     .industries-grid {
@@ -214,32 +359,49 @@
     .industry-link svg { width: 20px; height: 20px; transition: transform 0.2s ease; }
     .industry-card:hover .industry-link svg { transform: translateX(4px); }
 
-    /* Control Cards */
-    .control-grid {
+    /* Why Saptiva */
+    .why-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
       margin-top: 48px;
     }
-    .control-card {
-      background: var(--bg-white);
-      border: 1px solid var(--border-light);
-      border-radius: 12px;
-      padding: 32px;
-    }
-    .control-card .icon-box {
-      width: 56px;
-      height: 56px;
-      background: var(--icon-box-bg);
-      border-radius: 12px;
+    .why-content h3 { font-size: 24px; font-weight: 700; color: var(--text-white); margin-bottom: 16px; }
+    .why-content p { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
+    .why-list { list-style: none; }
+    .why-list li {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: var(--text-white);
+      font-size: 15px;
     }
-    .control-card .icon-box svg { width: 28px; height: 28px; stroke: var(--primary-dark); stroke-width: 1.5; fill: none; }
-    .control-card h3 { color: var(--primary-dark); font-size: 20px; font-weight: 600; margin-bottom: 12px; }
-    .control-card p { color: var(--text-gray); font-size: 15px; line-height: 1.6; }
+    .why-list li svg { width: 20px; height: 20px; color: var(--primary); flex-shrink: 0; margin-top: 2px; }
+    .why-visual { display: flex; justify-content: center; }
+    .why-visual img { max-width: 100%; border-radius: 12px; }
+
+    /* Testimonial */
+    .testimonial {
+      padding: 80px 0;
+      background: var(--bg-dark-card);
+    }
+    .testimonial-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonial-quote {
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text-white);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+    .testimonial-author { color: var(--primary); font-weight: 600; font-size: 16px; }
+    .testimonial-role { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
 
     /* CTA */
     .cta-final {
@@ -264,24 +426,63 @@
     .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
 
     /* Footer */
-    .footer { background: var(--bg-dark); border-top: 1px solid var(--border-dark); padding: 32px 0; text-align: center; }
-    .footer p { color: var(--text-muted); font-size: 14px; }
+    .footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-dark);
+      padding: 48px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand p { color: var(--text-muted); font-size: 14px; margin-top: 16px; line-height: 1.6; }
+    .footer-links h4 { color: var(--text-white); font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { color: var(--text-muted); font-size: 14px; transition: color 0.2s ease; }
+    .footer-links a:hover { color: var(--primary); }
+    .footer-bottom {
+      border-top: 1px solid var(--border-dark);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p { color: var(--text-muted); font-size: 13px; }
+    .footer-badges { display: flex; gap: 16px; align-items: center; }
+    .footer-badges img { height: 32px; width: auto; }
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .hero-title { font-size: 48px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-content { max-width: 100%; }
+      .hero-cta { justify-content: center; }
+      .hero-visual { margin-top: 48px; }
+      .hero-title { font-size: 44px; }
       .section-title { font-size: 32px; }
+      .what-we-do-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: 1fr; }
       .industries-grid { grid-template-columns: 1fr; }
-      .control-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .nav { padding: 16px 24px; }
       .nav-links { display: none; }
+      .hero { padding-top: 100px; }
       .hero-title { font-size: 36px; }
       .hero-subtitle { font-size: 17px; }
       .section { padding: 60px 0; }
+      .section-title { font-size: 28px; }
+      .what-we-do-grid { grid-template-columns: 1fr; }
+      .partners-logos { gap: 32px; }
+      .partners-logos img { height: 24px; }
       .hero-cta, .cta-buttons { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; justify-content: center; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
     }
   </style>
 </head>
@@ -302,9 +503,11 @@
           <li><a href="../gobierno/">Gobierno</a></li>
         </ul>
       </li>
+      <li><a href="#productos" class="nav-link">Productos</a></li>
+      <li><a href="#porque" class="nav-link">Por qué Saptiva</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="../demo/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+      <a href="../demo/" class="btn btn-primary">
         Agenda una demo
       </a>
     </div>
@@ -315,21 +518,133 @@
     <!-- Hero -->
     <section class="hero section-dark" aria-labelledby="hero-title">
       <div class="container">
-        <div class="hero-content">
-          <h1 id="hero-title" class="hero-title">
-            El sistema operativo de <span class="accent">IA para LATAM</span>
-          </h1>
-          <p class="hero-subtitle">
-            Lleva casos de uso de IA a producción en semanas, no meses. Con control total sobre tus datos y tu infraestructura.
-          </p>
-          <div class="hero-cta">
-            <a href="../demo/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-              Agenda una demo
-            </a>
-            <a href="#industrias" class="btn btn-secondary">
-              Ver industrias
-            </a>
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 id="hero-title" class="hero-title">
+              <span class="accent">Tu IA</span>, en tus términos
+            </h1>
+            <p class="hero-subtitle">
+              Build, deploy, and scale AI across Latin America — with full control over where it runs and how it performs.
+            </p>
+            <p class="hero-description">
+              Saptiva te permite desplegar GenAI donde lo necesites — cloud, híbrido, on-prem o air-gapped. Arquitectura diseñada para industrias reguladas, infraestructura crítica y cargas de trabajo de alta seguridad. Sin salida de datos. Sin lock-in. Control total.
+            </p>
+            <div class="hero-cta">
+              <a href="../demo/" class="btn btn-primary">
+                Agenda una demo
+              </a>
+              <a href="#productos" class="btn btn-secondary">
+                Explorar productos
+              </a>
+            </div>
           </div>
+          <div class="hero-visual">
+            <img src="assets/hero-infrastructure.svg" alt="Infraestructura de IA Saptiva" loading="eager">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="partners section-dark" aria-label="Partners y certificaciones">
+      <div class="container">
+        <p class="partners-label">Saptiva conecta gobiernos, empresas y desarrolladores, potenciando la economía de IA de América Latina</p>
+        <div class="partners-logos">
+          <img src="assets/logo-aws.svg" alt="AWS">
+          <img src="assets/logo-oracle.svg" alt="Oracle">
+          <img src="assets/logo-nvidia.svg" alt="NVIDIA Inception">
+          <img src="assets/logo-anthropic.svg" alt="Anthropic">
+        </div>
+      </div>
+    </section>
+
+    <!-- What We Do -->
+    <section id="que-hacemos" class="section section-light" aria-labelledby="que-hacemos-title">
+      <div class="container">
+        <h2 id="que-hacemos-title" class="section-title text-center">
+          Tu IA. Tu infraestructura. <span class="accent">Tus términos.</span>
+        </h2>
+        <p class="section-subtitle text-center" style="margin: 0 auto;">
+          Control total sobre tu IA — desde cómputo hasta modelos y despliegue. Ejecuta workloads en la nube, on-prem, híbrido o air-gapped, con cero lock-in y gobernanza completa sobre tus datos.
+        </p>
+
+        <div class="what-we-do-grid">
+          <article class="what-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h3>Full Stack Ownership</h3>
+            <p>Controla tu cómputo, datos y workflows — desde orquestación hasta despliegue, en cualquier ambiente.</p>
+          </article>
+
+          <article class="what-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Hybrid Flexibility</h3>
+            <p>Ejecuta IA en la nube, on-prem, híbrido o air-gapped — con integración opcional de hyperscalers y control total.</p>
+          </article>
+
+          <article class="what-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Open Model Freedom</h3>
+            <p>Usa cualquier modelo: open o closed — incluyendo LLaMA, Qwen, Grok, o tus propias versiones fine-tuned.</p>
+          </article>
+
+          <article class="what-card">
+            <div class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>No Lock-In</h3>
+            <p>Mantente modular, portable y vendor-neutral — con libertad de despliegue en cada capa de tu stack de IA.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="productos" class="products" aria-labelledby="productos-title">
+      <div class="container">
+        <div class="products-header">
+          <h2 id="productos-title">Despliega <span class="accent">IA Anywhere</span>. Ejecútala a tu manera.</h2>
+          <p>Saptiva te da todo lo necesario para ejecutar IA a escala — cómputo, modelos y agentes — con control total sobre dónde corren los workloads y cómo se orquestan.</p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/concept-rag.svg" alt="RAGster - Knowledge Management">
+            </div>
+            <div class="product-content">
+              <span class="product-tag">Knowledge Management</span>
+              <h3>RAGster</h3>
+              <p>Búsqueda inteligente en documentos. Tus documentos alimentan respuestas precisas con trazabilidad completa de fuentes.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/concept-copilot.svg" alt="Bank Advisor - Copilotos IA">
+            </div>
+            <div class="product-content">
+              <span class="product-tag">Copilotos IA</span>
+              <h3>Bank Advisor</h3>
+              <p>Asesor virtual 24/7. Pregunta en lenguaje natural, obtén insights de negocio con conocimiento experto.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/concept-orchestration.svg" alt="FRIDA - Orquestación">
+            </div>
+            <div class="product-content">
+              <span class="product-tag">Orquestación</span>
+              <h3>FRIDA</h3>
+              <p>Control centralizado de infraestructura IA. Cloud, on-prem o híbrido desde una sola plataforma.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -338,16 +653,16 @@
     <section id="industrias" class="section section-dark" aria-labelledby="industrias-title">
       <div class="container">
         <h2 id="industrias-title" class="section-title text-center">
-          Soluciones por <span class="accent">industria</span>
+          Impacto real en sectores <span class="accent">regulados y críticos</span>
         </h2>
         <p class="section-subtitle text-center" style="margin: 0 auto;">
-          Cada industria tiene necesidades distintas. Conoce cómo ayudamos a cada una.
+          Desde banca y gobierno hasta automatización enterprise, Saptiva potencia despliegues de IA donde el control, compliance y soberanía de datos no son negociables.
         </p>
 
         <div class="industries-grid">
           <a href="../financial-services/" class="industry-card">
             <span class="industry-tag">Servicios Financieros</span>
-            <h3>Resultados en 2 semanas</h3>
+            <h3>IA en producción en 2 semanas</h3>
             <p>Soluciones plug and play que ya funcionan en otras instituciones. Resultados antes del siguiente comité, no planes de 12 meses.</p>
             <span class="industry-link">
               Explorar soluciones
@@ -358,7 +673,7 @@
           <a href="../gobierno/" class="industry-card">
             <span class="industry-tag">Gobierno</span>
             <h3>IA Soberana</h3>
-            <p>Control total sobre tus datos e infraestructura. Cumplimiento regulatorio garantizado. Sin dependencia de proveedores extranjeros.</p>
+            <p>Control total sobre tus datos e infraestructura. Los 7 requisitos de IA Soberana. Sin dependencia de proveedores extranjeros.</p>
             <span class="industry-link">
               Explorar soluciones
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -368,40 +683,52 @@
       </div>
     </section>
 
-    <!-- Control -->
-    <section id="control" class="section section-light" aria-labelledby="control-title">
+    <!-- Why Saptiva -->
+    <section id="porque" class="section section-dark" style="background: var(--bg-dark-card);" aria-labelledby="porque-title">
       <div class="container">
-        <h2 id="control-title" class="section-title text-center">
-          IA en <span class="accent">tus términos</span>
+        <h2 id="porque-title" class="section-title text-center">
+          Qué hace a Saptiva <span class="accent">única</span>
         </h2>
-        <p class="section-subtitle text-center" style="margin: 0 auto;">
-          Control total sobre tus datos y tu infraestructura.
+        <p class="section-subtitle text-center" style="margin: 0 auto 48px;">
+          No solo construimos infraestructura. Estamos definiendo cómo Latinoamérica despliega y opera IA a escala.
         </p>
 
-        <div class="control-grid">
-          <article class="control-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3>Tus Datos</h3>
-            <p>Residencia local garantizada. Tus datos nunca salen de tu jurisdicción. Cumplimiento regulatorio desde el día uno.</p>
-          </article>
+        <div class="why-grid">
+          <div class="why-content">
+            <h3>Infraestructura probada a escala</h3>
+            <p>Construida por el equipo detrás de la plataforma de mensajería más grande de Latinoamérica (adquirida por Twilio). Saptiva trae experiencia profunda en escalar sistemas de misión crítica para ambientes altamente regulados.</p>
 
-          <article class="control-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            </div>
-            <h3>Tu Infraestructura</h3>
-            <p>Cloud, on-prem o híbrido. Multinube sin lock-in. Tú decides dónde corre cada carga de trabajo.</p>
-          </article>
+            <ul class="why-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Enterprise-Grade AI — Totalmente privado, totalmente compliant
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                IA para Latinoamérica — Cerramos la brecha de infraestructura de la región
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Sin gatekeepers. Sin lock-in. Control total.
+              </li>
+            </ul>
+          </div>
+          <div class="why-visual">
+            <img src="assets/frida-diagram.png" alt="FRIDA - Sistema Operativo de IA">
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <article class="control-card">
-            <div class="icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-            </div>
-            <h3>Tu Independencia</h3>
-            <p>Sin dependencia de vendor. Observabilidad completa. Acceso a todos tus modelos y datos. Migra cuando quieras.</p>
-          </article>
+    <!-- Testimonial -->
+    <section class="testimonial" aria-label="Testimonial">
+      <div class="container">
+        <div class="testimonial-content">
+          <p class="testimonial-quote">
+            "Saptiva impulsa la transformación digital segura en finanzas al ofrecer infraestructura local alineada con estándares CNBV. En Bojaware, compartimos esa visión: IA soberana y confiable para un ecosistema RegTech más fuerte."
+          </p>
+          <p class="testimonial-author">Omar Lozano</p>
+          <p class="testimonial-role">CEO, Bojaware</p>
         </div>
       </div>
     </section>
@@ -410,14 +737,17 @@
     <section id="cta" class="cta-final section-dark" aria-labelledby="cta-title">
       <div class="container">
         <h2 id="cta-title" class="section-title">
-          IA en producción, <span class="accent">en tus términos</span>
+          Build Smarter. Run Faster. <span class="accent">Control Your AI.</span>
         </h2>
         <p class="section-subtitle">
-          Agenda una llamada con nuestro equipo y descubre cómo podemos ayudarte.
+          Descubre cómo Saptiva entrega infraestructura de IA que se adapta a tus ambientes, tus datos y tus necesidades operativas — con privacidad total y cero lock-in.
         </p>
         <div class="cta-buttons">
-          <a href="../demo/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <a href="../demo/" class="btn btn-primary">
             Agenda una demo
+          </a>
+          <a href="#productos" class="btn btn-secondary">
+            Explorar productos
           </a>
         </div>
       </div>
@@ -427,7 +757,40 @@
 
   <footer class="footer" role="contentinfo">
     <div class="container">
-      <p>&copy; 2026 Saptiva. El sistema operativo de IA para LATAM.</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/saptiva-logo.png" alt="Saptiva AI" style="height: 28px; width: auto;">
+          <p>El sistema operativo de IA para Latinoamérica. Infraestructura GenAI que te da control total sobre tus datos, modelos y despliegues.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Productos</h4>
+          <ul>
+            <li><a href="#productos">RAGster</a></li>
+            <li><a href="#productos">Bank Advisor</a></li>
+            <li><a href="#productos">FRIDA</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Industrias</h4>
+          <ul>
+            <li><a href="../financial-services/">Servicios Financieros</a></li>
+            <li><a href="../gobierno/">Gobierno</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="mailto:hi@saptiva.com">hi@saptiva.com</a></li>
+            <li><a href="../demo/">Agenda una demo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Saptiva AI. El sistema operativo de IA para LATAM.</p>
+        <div class="footer-badges">
+          <img src="assets/logo-nvidia.svg" alt="NVIDIA Inception Program" style="filter: grayscale(100%) brightness(200%); opacity: 0.7;">
+        </div>
+      </div>
     </div>
   </footer>
 

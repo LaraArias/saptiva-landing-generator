@@ -1,68 +1,188 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
-  <!-- Background glow -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" fill="none">
   <defs>
-    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#2AF2CE" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#0B1426" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#2AF2CE"/>
+    <!-- Gradients for isometric cube faces -->
+    <linearGradient id="cubeTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3DFFD8"/>
+      <stop offset="100%" stop-color="#2AF2CE"/>
+    </linearGradient>
+    <linearGradient id="cubeLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1AB89C"/>
+      <stop offset="100%" stop-color="#148F78"/>
+    </linearGradient>
+    <linearGradient id="cubeRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D4AD"/>
       <stop offset="100%" stop-color="#1AB89C"/>
     </linearGradient>
+
+    <!-- Dark cube for particles -->
+    <linearGradient id="darkCubeTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D4A5C"/>
+      <stop offset="100%" stop-color="#2D3748"/>
+    </linearGradient>
+    <linearGradient id="darkCubeLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A2332"/>
+      <stop offset="100%" stop-color="#151C28"/>
+    </linearGradient>
+    <linearGradient id="darkCubeRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D3748"/>
+      <stop offset="100%" stop-color="#1A2332"/>
+    </linearGradient>
+
+    <!-- Glow effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle glow for main structure -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Isometric cube unit (size 24) -->
+    <g id="cube">
+      <!-- Top face -->
+      <polygon points="0,-12 20.8,-24 41.6,-12 20.8,0" fill="url(#cubeTop)"/>
+      <!-- Left face -->
+      <polygon points="0,-12 0,12 20.8,24 20.8,0" fill="url(#cubeLeft)"/>
+      <!-- Right face -->
+      <polygon points="20.8,0 20.8,24 41.6,12 41.6,-12" fill="url(#cubeRight)"/>
+    </g>
+
+    <!-- Small isometric cube (size 12) -->
+    <g id="cubeSmall">
+      <polygon points="0,-6 10.4,-12 20.8,-6 10.4,0" fill="url(#cubeTop)"/>
+      <polygon points="0,-6 0,6 10.4,12 10.4,0" fill="url(#cubeLeft)"/>
+      <polygon points="10.4,0 10.4,12 20.8,6 20.8,-6" fill="url(#cubeRight)"/>
+    </g>
+
+    <!-- Dark particle cube (size 8) -->
+    <g id="darkCube">
+      <polygon points="0,-4 6.9,-8 13.9,-4 6.9,0" fill="url(#darkCubeTop)"/>
+      <polygon points="0,-4 0,4 6.9,8 6.9,0" fill="url(#darkCubeLeft)"/>
+      <polygon points="6.9,0 6.9,8 13.9,4 13.9,-4" fill="url(#darkCubeRight)"/>
+    </g>
+
+    <!-- Tiny dark cube (size 6) -->
+    <g id="darkCubeTiny">
+      <polygon points="0,-3 5.2,-6 10.4,-3 5.2,0" fill="url(#darkCubeTop)"/>
+      <polygon points="0,-3 0,3 5.2,6 5.2,0" fill="url(#darkCubeLeft)"/>
+      <polygon points="5.2,0 5.2,6 10.4,3 10.4,-3" fill="url(#darkCubeRight)"/>
+    </g>
   </defs>
 
-  <ellipse cx="200" cy="150" rx="180" ry="140" fill="url(#glow)"/>
+  <!-- Main structure - fortress-like arrangement -->
+  <g transform="translate(250, 200)" filter="url(#softGlow)">
 
-  <!-- Shield outline -->
-  <path d="M200 40 L280 70 L280 160 C280 200 200 260 200 260 C200 260 120 200 120 160 L120 70 Z"
-        stroke="#2AF2CE" stroke-width="3" fill="none" opacity="0.3"/>
+    <!-- Base layer (5x5 grid, offset for isometric) -->
+    <!-- Row 1 -->
+    <use href="#cube" transform="translate(-83.2, 48)"/>
+    <use href="#cube" transform="translate(-41.6, 24)"/>
+    <use href="#cube" transform="translate(0, 0)"/>
+    <use href="#cube" transform="translate(41.6, 24)"/>
+    <use href="#cube" transform="translate(83.2, 48)"/>
 
-  <!-- Inner shield -->
-  <path d="M200 60 L260 85 L260 155 C260 185 200 235 200 235 C200 235 140 185 140 155 L140 85 Z"
-        stroke="#2AF2CE" stroke-width="2" fill="rgba(42, 242, 206, 0.1)"/>
+    <!-- Row 2 -->
+    <use href="#cube" transform="translate(-62.4, 60)"/>
+    <use href="#cube" transform="translate(-20.8, 36)"/>
+    <use href="#cube" transform="translate(20.8, 12)"/>
+    <use href="#cube" transform="translate(62.4, 36)"/>
 
-  <!-- Server rack inside shield -->
-  <g transform="translate(165, 100)">
-    <!-- Server 1 -->
-    <rect x="0" y="0" width="70" height="25" rx="3" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="1.5"/>
-    <circle cx="12" cy="12.5" r="4" fill="#2AF2CE"/>
-    <line x1="25" y1="8" x2="60" y2="8" stroke="#1A2744" stroke-width="2"/>
-    <line x1="25" y1="17" x2="55" y2="17" stroke="#1A2744" stroke-width="2"/>
+    <!-- Row 3 -->
+    <use href="#cube" transform="translate(-41.6, 72)"/>
+    <use href="#cube" transform="translate(0, 48)"/>
+    <use href="#cube" transform="translate(41.6, 72)"/>
 
-    <!-- Server 2 -->
-    <rect x="0" y="30" width="70" height="25" rx="3" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="1.5"/>
-    <circle cx="12" cy="42.5" r="4" fill="#2AF2CE"/>
-    <line x1="25" y1="38" x2="60" y2="38" stroke="#1A2744" stroke-width="2"/>
-    <line x1="25" y1="47" x2="55" y2="47" stroke="#1A2744" stroke-width="2"/>
+    <!-- Row 4 -->
+    <use href="#cube" transform="translate(-20.8, 84)"/>
+    <use href="#cube" transform="translate(20.8, 60)"/>
 
-    <!-- Server 3 -->
-    <rect x="0" y="60" width="70" height="25" rx="3" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="1.5"/>
-    <circle cx="12" cy="72.5" r="4" fill="#2AF2CE"/>
-    <line x1="25" y1="68" x2="60" y2="68" stroke="#1A2744" stroke-width="2"/>
-    <line x1="25" y1="77" x2="55" y2="77" stroke="#1A2744" stroke-width="2"/>
+    <!-- Row 5 -->
+    <use href="#cube" transform="translate(0, 96)"/>
+
+    <!-- Second layer - building up -->
+    <use href="#cube" transform="translate(-41.6, 0)"/>
+    <use href="#cube" transform="translate(0, -24)"/>
+    <use href="#cube" transform="translate(41.6, 0)"/>
+    <use href="#cube" transform="translate(-20.8, 12)"/>
+    <use href="#cube" transform="translate(20.8, -12)"/>
+
+    <!-- Third layer - center column rising -->
+    <use href="#cube" transform="translate(0, -48)"/>
+    <use href="#cube" transform="translate(-20.8, -36)"/>
+    <use href="#cube" transform="translate(20.8, -36)"/>
+
+    <!-- Fourth layer - tower -->
+    <use href="#cube" transform="translate(0, -72)"/>
+
+    <!-- Fifth layer - peak -->
+    <use href="#cube" transform="translate(0, -96)"/>
+
+    <!-- Corner towers -->
+    <use href="#cube" transform="translate(-83.2, 24)"/>
+    <use href="#cube" transform="translate(83.2, 24)"/>
+    <use href="#cube" transform="translate(-83.2, 0)"/>
+    <use href="#cube" transform="translate(83.2, 0)"/>
+
+    <!-- Side extensions -->
+    <use href="#cube" transform="translate(-62.4, 12)"/>
+    <use href="#cube" transform="translate(62.4, 12)"/>
+
   </g>
 
-  <!-- Lock icon at top of shield -->
-  <g transform="translate(188, 70)">
-    <rect x="0" y="10" width="24" height="18" rx="3" fill="#2AF2CE"/>
-    <path d="M5 10 V6 C5 2 19 2 19 6 V10" stroke="#2AF2CE" stroke-width="3" fill="none"/>
-    <circle cx="12" cy="19" r="3" fill="#0B1426"/>
+  <!-- Floating particle cubes - dark -->
+  <g opacity="0.8">
+    <!-- Left side particles -->
+    <use href="#darkCube" transform="translate(45, 80)"/>
+    <use href="#darkCubeTiny" transform="translate(60, 140)"/>
+    <use href="#darkCube" transform="translate(30, 200)"/>
+    <use href="#darkCubeTiny" transform="translate(80, 260)"/>
+    <use href="#darkCube" transform="translate(55, 320)"/>
+
+    <!-- Right side particles -->
+    <use href="#darkCube" transform="translate(420, 90)"/>
+    <use href="#darkCubeTiny" transform="translate(440, 150)"/>
+    <use href="#darkCube" transform="translate(450, 220)"/>
+    <use href="#darkCubeTiny" transform="translate(410, 280)"/>
+    <use href="#darkCube" transform="translate(430, 340)"/>
+
+    <!-- Top particles -->
+    <use href="#darkCubeTiny" transform="translate(180, 40)"/>
+    <use href="#darkCube" transform="translate(280, 30)"/>
+    <use href="#darkCubeTiny" transform="translate(350, 50)"/>
+
+    <!-- Bottom particles -->
+    <use href="#darkCubeTiny" transform="translate(120, 360)"/>
+    <use href="#darkCube" transform="translate(320, 370)"/>
   </g>
 
-  <!-- Connection dots outside shield -->
-  <circle cx="80" cy="100" r="6" fill="#2AF2CE" opacity="0.6"/>
-  <circle cx="320" cy="100" r="6" fill="#2AF2CE" opacity="0.6"/>
-  <circle cx="80" cy="200" r="6" fill="#2AF2CE" opacity="0.6"/>
-  <circle cx="320" cy="200" r="6" fill="#2AF2CE" opacity="0.6"/>
+  <!-- Small teal accent cubes floating -->
+  <g opacity="0.6">
+    <use href="#cubeSmall" transform="translate(70, 120)"/>
+    <use href="#cubeSmall" transform="translate(400, 130)"/>
+    <use href="#cubeSmall" transform="translate(100, 300)"/>
+    <use href="#cubeSmall" transform="translate(380, 310)"/>
+  </g>
 
-  <!-- Connection lines to shield -->
-  <line x1="86" y1="100" x2="120" y2="120" stroke="#2AF2CE" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
-  <line x1="314" y1="100" x2="280" y2="120" stroke="#2AF2CE" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
-  <line x1="86" y1="200" x2="140" y2="180" stroke="#2AF2CE" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
-  <line x1="314" y1="200" x2="260" y2="180" stroke="#2AF2CE" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+  <!-- Subtle connection dots -->
+  <g fill="#2AF2CE" opacity="0.4">
+    <circle cx="95" cy="180" r="3"/>
+    <circle cx="405" cy="180" r="3"/>
+    <circle cx="150" cy="350" r="2"/>
+    <circle cx="350" cy="350" r="2"/>
+    <circle cx="250" cy="380" r="2"/>
+  </g>
 
-  <!-- "SOBERANO" text arc (optional, subtle) -->
-  <text x="200" y="280" text-anchor="middle" fill="#2AF2CE" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="4" opacity="0.5">
-    INFRAESTRUCTURA SOBERANA
-  </text>
+  <!-- Very subtle grid lines at bottom -->
+  <g stroke="#1A2744" stroke-width="0.5" opacity="0.3">
+    <line x1="50" y1="380" x2="450" y2="380"/>
+    <line x1="100" y1="360" x2="400" y2="360"/>
+  </g>
 </svg>

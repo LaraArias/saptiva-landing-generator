@@ -129,3 +129,81 @@ Cada aprendizaje previene errores futuros.
 - Links funcionan (relativos o absolutos según contexto)
 - Dropdown accesible por teclado
 - Active state visible en página actual
+
+---
+
+## [2026-02-06] - NUNCA inventar datos geográficos para mapas SVG
+
+**Contexto**: Creando mapa interactivo de LATAM para landing de Gobierno
+**Error**: Primer intento generó SVG paths "a mano" que produjeron polígonos irregulares sin parecido a LATAM
+**Causa raíz**: Múltiples capas de fallo:
+1. SVG paths fueron inventados basándose en descripción textual de geografía
+2. ux-reviewer "aprobó" el mapa leyendo solo código SVG, sin renderizar visualmente
+3. No hubo validación real hasta que el usuario vio el resultado en Chrome
+
+**Principio 1**: NUNCA generar paths SVG geográficos sin datos reales
+- Los mapas DEBEN construirse desde fuentes de datos verificables
+- No importa qué tan precisa sea la descripción textual, paths inventados no funcionan
+
+**Principio 2**: Reviewers que leen código NO pueden validar output visual
+- Un agente leyendo SVG code no puede determinar si "parece LATAM"
+- Validación visual REQUIERE renderizar en navegador o generar screenshot
+- Si no hay capacidad de screenshot, ESCALAR al usuario para validación visual
+
+**Principio 3**: Assets geográficos requieren pipeline especializado
+- No son equivalentes a "generar un icono" o "crear una ilustración"
+- Requieren datos científicos de proyección cartográfica
+
+**Fuentes de datos confiables:**
+```
+Natural Earth (recomendado para ilustraciones):
+https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/
+
+Resoluciones disponibles:
+- ne_110m = baja resolución (suficiente para landing pages)
+- ne_50m = media resolución
+- ne_10m = alta resolución (heavy, solo para apps especializadas)
+
+Alternativas:
+- OpenStreetMap (para mapas interactivos complejos)
+- GeoJSON.xyz (simplified boundaries)
+```
+
+**Transformación correcta GeoJSON → SVG:**
+```python
+# 1. Definir bounds del área (ejemplo LATAM)
+min_lon, max_lon = -120, -30
+min_lat, max_lat = -56, 35
+
+# 2. Convertir coordenadas geográficas a píxeles SVG
+def geo_to_svg(lon, lat, svg_width, svg_height):
+    x = (lon - min_lon) / (max_lon - min_lon) * svg_width
+    y = (max_lat - lat) / (max_lat - min_lat) * svg_height  # Flip Y axis
+    return x, y
+
+# 3. Aplicar a cada coordenada del GeoJSON
+# 4. Generar path string: "M x1,y1 L x2,y2 L x3,y3 Z"
+```
+
+**Proceso correcto para assets geográficos:**
+1. Identificar fuente de datos confiable (Natural Earth, OSM)
+2. Descargar GeoJSON real del área requerida
+3. Transformar coordenadas a SVG con proyección adecuada
+4. Generar archivo SVG
+5. **RENDERIZAR en navegador y verificar visualmente**
+6. Solo entonces declarar "aprobado"
+
+**Acción implementada (v005 Gobierno):**
+- Mapa LATAM construido desde `ne_110m_admin_0_countries.geojson`
+- Script Python para extracción y transformación
+- Validación visual en Chrome antes de aprobar
+- Resultado: mapa geográficamente preciso de 19 países LATAM
+
+**Actualización a specs:**
+- Agregar a `graphic-designer` instructions: "Para mapas geográficos, SIEMPRE usar fuentes de datos reales"
+- Agregar a `ux-reviewer` checklist: "¿El asset requiere validación visual? Si sí, escalar al usuario"
+- Agregar a validation-criteria.md: "Assets geográficos deben incluir fuente de datos en comentario SVG"
+
+**Regla general extraída:**
+> Si un asset representa datos del mundo real (mapas, gráficos científicos, diagramas técnicos),
+> DEBE generarse desde datos verificables, no desde conocimiento interno del LLM.

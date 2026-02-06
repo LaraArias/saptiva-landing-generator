@@ -910,19 +910,22 @@
         tag: 'Gestión del Conocimiento',
         title: 'RAGster',
         description: 'Convierte tu documentación en un asistente inteligente. RAGster indexa tus documentos y permite consultas en lenguaje natural con citas a fuentes originales. Todo corre en tu infraestructura — tus datos nunca salen.',
-        video: 'https://player.vimeo.com/video/1138584196'
+        video: 'https://player.vimeo.com/video/1138584196',
+        type: 'video'
       },
       bankadvisor: {
         tag: 'Copilotos IA',
         title: 'Bank Advisor',
         description: 'Un copiloto entrenado en tus políticas, normativas y productos financieros. Responde preguntas complejas de clientes y empleados con la precisión y trazabilidad que auditoría requiere.',
-        video: 'https://www.loom.com/embed/635cc24f7f854f548c2a6d5094b6e4e2'
+        video: 'https://www.loom.com/embed/635cc24f7f854f548c2a6d5094b6e4e2',
+        type: 'video'
       },
       frida: {
         tag: 'Orquestación',
         title: 'FRIDA',
         description: 'El sistema operativo de tu IA. FRIDA orquesta modelos, gestiona recursos de cómputo y monitorea performance desde un solo panel — sin importar si corres en AWS, Azure, on-prem o híbrido.',
-        video: null
+        image: 'assets/frida-diagram.png',
+        type: 'image'
       }
     };
 
@@ -935,12 +938,12 @@
       document.getElementById('modalDescription').textContent = data.description;
 
       const videoContainer = document.getElementById('modalVideo');
-      if (data.video) {
+      if (data.type === 'video') {
+        videoContainer.style.paddingBottom = '56.25%';
         videoContainer.innerHTML = `<iframe src="${data.video}" allowfullscreen></iframe>`;
-        videoContainer.style.display = 'block';
-      } else {
-        videoContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 40px;">Demo próximamente disponible</p>';
+      } else if (data.type === 'image') {
         videoContainer.style.paddingBottom = '0';
+        videoContainer.innerHTML = `<img src="${data.image}" alt="${data.title}" style="width: 100%; border-radius: 12px;">`;
       }
 
       document.getElementById('productModal').classList.add('active');

@@ -1,189 +1,168 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" width="500" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
   <defs>
-    <!-- Grid pattern -->
-    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1A2744" stroke-width="0.5"/>
-    </pattern>
+    <!-- Gradient for the map surface -->
+    <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3DFFD8"/>
+      <stop offset="50%" stop-color="#2AF2CE"/>
+      <stop offset="100%" stop-color="#1ED9B8"/>
+    </linearGradient>
 
-    <!-- Glow filter -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
+    <!-- Darker side gradient -->
+    <linearGradient id="sideGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1AB89C"/>
+      <stop offset="100%" stop-color="#148F78"/>
+    </linearGradient>
+
+    <!-- Glow effect -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <!-- Floating cube -->
-    <g id="cube">
-      <polygon points="0,-6 10,0 0,6 -10,0" fill="#3D4F6F"/>
-      <polygon points="0,6 10,0 10,8 0,14" fill="#2D3748"/>
-      <polygon points="0,6 -10,0 -10,8 0,14" fill="#1A2744"/>
-    </g>
+    <!-- Soft shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#2AF2CE" flood-opacity="0.3"/>
+    </filter>
 
-    <g id="cube-sm">
-      <polygon points="0,-4 6,0 0,4 -6,0" fill="#3D4F6F"/>
-      <polygon points="0,4 6,0 6,6 0,10" fill="#2D3748"/>
-      <polygon points="0,4 -6,0 -6,6 0,10" fill="#1A2744"/>
-    </g>
-
-    <g id="cube-primary">
-      <polygon points="0,-4 6,0 0,4 -6,0" fill="#2AF2CE"/>
-      <polygon points="0,4 6,0 6,6 0,10" fill="#20D4B4"/>
-      <polygon points="0,4 -6,0 -6,6 0,10" fill="#1AB89C"/>
+    <!-- Server icon -->
+    <g id="server">
+      <rect x="0" y="0" width="20" height="14" rx="2" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="1"/>
+      <circle cx="5" cy="7" r="2" fill="#2AF2CE"/>
+      <line x1="10" y1="5" x2="17" y2="5" stroke="#1A2744" stroke-width="1.5"/>
+      <line x1="10" y1="9" x2="15" y2="9" stroke="#1A2744" stroke-width="1.5"/>
     </g>
   </defs>
 
   <!-- Background -->
-  <rect width="500" height="600" fill="#0B1426"/>
-  <rect width="500" height="600" fill="url(#grid)" opacity="0.4"/>
+  <rect width="400" height="500" fill="transparent"/>
 
-  <!-- Floating cubes background -->
-  <use href="#cube" transform="translate(60, 80)"/>
-  <use href="#cube-sm" transform="translate(440, 100)"/>
-  <use href="#cube" transform="translate(50, 200)"/>
-  <use href="#cube-sm" transform="translate(80, 320)"/>
-  <use href="#cube" transform="translate(450, 250)"/>
-  <use href="#cube-sm" transform="translate(430, 380)"/>
-  <use href="#cube" transform="translate(460, 480)"/>
-  <use href="#cube-sm" transform="translate(40, 450)"/>
-  <use href="#cube" transform="translate(100, 550)"/>
-  <use href="#cube-sm" transform="translate(400, 550)"/>
-  <use href="#cube-sm" transform="translate(420, 160)"/>
-  <use href="#cube" transform="translate(70, 130)"/>
-
-  <!-- LATAM Map - Isometric 3D solid shape -->
-  <g transform="translate(120, 40)" filter="url(#glow)">
-
-    <!-- Mexico - Top face -->
-    <polygon fill="#2AF2CE" points="
-      40,30 90,15 140,25 160,45 150,65 120,75 100,85 70,75 50,55
-    "/>
-    <!-- Mexico - Right face -->
-    <polygon fill="#20D4B4" points="
-      160,45 160,60 150,80 120,90 100,100 100,85 120,75 150,65
-    "/>
-    <!-- Mexico - Left face -->
-    <polygon fill="#1AB89C" points="
-      40,30 40,45 50,70 70,90 70,75 50,55
-    "/>
-
-    <!-- Central America - Top face -->
-    <polygon fill="#2AF2CE" points="
-      100,85 130,95 150,115 140,125 110,115 95,100
-    "/>
-    <!-- Central America - Right face -->
-    <polygon fill="#20D4B4" points="
-      150,115 150,130 140,140 110,130 110,115 140,125
-    "/>
-    <!-- Central America - Left face -->
-    <polygon fill="#1AB89C" points="
-      95,100 95,115 110,130 110,115
-    "/>
-
-    <!-- Colombia/Venezuela - Top face -->
-    <polygon fill="#2AF2CE" points="
-      110,115 180,105 220,115 230,135 210,155 160,165 120,155 105,135
-    "/>
-    <!-- Colombia/Venezuela - Right face -->
-    <polygon fill="#20D4B4" points="
-      230,135 230,155 210,175 160,185 160,165 210,155
-    "/>
-    <!-- Colombia/Venezuela - Left face -->
-    <polygon fill="#1AB89C" points="
-      105,135 105,155 120,175 120,155
-    "/>
-
-    <!-- Ecuador/Peru - Top face -->
-    <polygon fill="#2AF2CE" points="
-      90,155 120,155 125,175 115,200 95,210 75,195 70,170
-    "/>
-    <!-- Ecuador/Peru - Right face -->
-    <polygon fill="#20D4B4" points="
-      125,175 125,195 115,220 95,230 95,210 115,200
-    "/>
-    <!-- Ecuador/Peru - Left face -->
-    <polygon fill="#1AB89C" points="
-      70,170 70,190 75,215 75,195
-    "/>
-
-    <!-- Brazil - Top face (largest) -->
-    <polygon fill="#2AF2CE" points="
-      125,155 160,165 210,155 250,170 270,200 265,250 240,290 200,310 160,300 130,270 110,230 105,190 115,165
-    "/>
-    <!-- Brazil - Right face -->
-    <polygon fill="#20D4B4" points="
-      270,200 270,225 265,275 240,315 200,335 160,325 160,300 200,310 240,290 265,250
-    "/>
-    <!-- Brazil - Left face -->
-    <polygon fill="#1AB89C" points="
-      105,190 105,215 110,255 130,295 130,270 110,230
-    "/>
-
-    <!-- Bolivia/Paraguay - Top face -->
-    <polygon fill="#2AF2CE" points="
-      95,230 130,270 140,310 120,330 90,320 70,290 75,250
-    "/>
-    <!-- Bolivia/Paraguay - Right face -->
-    <polygon fill="#20D4B4" points="
-      140,310 140,335 120,355 90,345 90,320 120,330
-    "/>
-    <!-- Bolivia/Paraguay - Left face -->
-    <polygon fill="#1AB89C" points="
-      70,290 70,315 90,345 90,320
-    "/>
-
-    <!-- Argentina/Chile - Top face -->
-    <polygon fill="#2AF2CE" points="
-      70,320 120,330 140,360 130,400 110,440 90,470 70,490 55,470 50,420 55,370 60,340
-    "/>
-    <!-- Argentina/Chile - Right face -->
-    <polygon fill="#20D4B4" points="
-      140,360 140,385 130,425 110,465 90,495 70,515 70,490 90,470 110,440 130,400
-    "/>
-    <!-- Argentina/Chile - Left face -->
-    <polygon fill="#1AB89C" points="
-      50,420 50,445 55,495 55,470
-    "/>
-
-    <!-- Tierra del Fuego - Top face -->
-    <polygon fill="#2AF2CE" points="
-      60,495 85,500 95,520 85,535 65,530 55,515
-    "/>
-    <!-- Tierra del Fuego - Right face -->
-    <polygon fill="#20D4B4" points="
-      95,520 95,535 85,550 65,545 65,530 85,535
-    "/>
-    <!-- Tierra del Fuego - Left face -->
-    <polygon fill="#1AB89C" points="
-      55,515 55,530 65,545 65,530
-    "/>
+  <!-- Subtle grid -->
+  <g stroke="#1A2744" stroke-width="0.5" opacity="0.3">
+    <line x1="0" y1="100" x2="400" y2="100"/>
+    <line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="0" y1="300" x2="400" y2="300"/>
+    <line x1="0" y1="400" x2="400" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="300" y1="0" x2="300" y2="500"/>
   </g>
 
-  <!-- Floating primary cubes (accents) -->
-  <use href="#cube-primary" transform="translate(380, 120)"/>
-  <use href="#cube-primary" transform="translate(400, 200)"/>
-  <use href="#cube-primary" transform="translate(390, 300)"/>
-  <use href="#cube-primary" transform="translate(370, 420)"/>
-  <use href="#cube-primary" transform="translate(110, 100)"/>
-  <use href="#cube-primary" transform="translate(90, 250)"/>
-  <use href="#cube-primary" transform="translate(100, 400)"/>
-  <use href="#cube-primary" transform="translate(130, 520)"/>
+  <!-- LATAM Map - Clean isometric 3D -->
+  <g transform="translate(80, 20)" filter="url(#shadow)">
 
-  <!-- Data connection dots -->
-  <g fill="#2AF2CE" opacity="0.7">
-    <circle cx="270" cy="120" r="3"/>
-    <circle cx="320" cy="180" r="2.5"/>
-    <circle cx="340" cy="280" r="3"/>
-    <circle cx="300" cy="380" r="2.5"/>
-    <circle cx="250" cy="460" r="3"/>
+    <!-- Mexico -->
+    <g>
+      <polygon fill="url(#mapGradient)" stroke="#2AF2CE" stroke-width="0.5" points="
+        30,25 80,10 130,20 150,40 140,60 110,70 90,80 60,70 40,50
+      "/>
+      <polygon fill="url(#sideGradient)" points="
+        150,40 150,55 140,75 110,85 90,95 90,80 110,70 140,60
+      "/>
+    </g>
+
+    <!-- Central America -->
+    <g>
+      <polygon fill="url(#mapGradient)" stroke="#2AF2CE" stroke-width="0.5" points="
+        90,80 120,90 140,110 130,120 100,110 85,95
+      "/>
+      <polygon fill="url(#sideGradient)" points="
+        140,110 140,125 130,135 100,125 100,110 130,120
+      "/>
+    </g>
+
+    <!-- Colombia/Venezuela/Guianas -->
+    <g>
+      <polygon fill="url(#mapGradient)" stroke="#2AF2CE" stroke-width="0.5" points="
+        100,105 170,95 210,105 220,125 200,145 150,155 110,145 95,125
+      "/>
+      <polygon fill="url(#sideGradient)" points="
+        220,125 220,145 200,165 150,175 150,155 200,145
+      "/>
+    </g>
+
+    <!-- Ecuador/Peru -->
+    <g>
+      <polygon fill="url(#mapGradient)" stroke="#2AF2CE" stroke-width="0.5" points="
+        80,145 110,145 115,165 105,190 85,200 65,185 60,160
+      "/>
+      <polygon fill="url(#sideGradient)" points="
+        115,165 115,185 105,210 85,220 85,200 105,190
+      "/>
+    </g>
+
+    <!-- Brazil (largest) -->
+    <g>
+      <polygon fill="url(#mapGradient)" stroke="#2AF2CE" stroke-width="0.5" points="
+        115,145 150,155 200,145 240,160 260,190 255,240 230,280 190,300 150,290 120,260 100,220 95,180 105,155
+      "/>
+      <polygon fill="url(#sideGradient)" points="
+        260,190 260,215 255,265 230,305 190,325 150,315 150,290 190,300 230,280 255,240
+      "/>
+    </g>
+
+    <!-- Bolivia/Paraguay -->
+    <g>
+      <polygon fill="url(#mapGradient)" stroke="#2AF2CE" stroke-width="0.5" points="
+        85,220 120,260 130,300 110,320 80,310 60,280 65,240
+      "/>
+      <polygon fill="url(#sideGradient)" points="
+        130,300 130,325 110,345 80,335 80,310 110,320
+      "/>
+    </g>
+
+    <!-- Argentina/Chile -->
+    <g>
+      <polygon fill="url(#mapGradient)" stroke="#2AF2CE" stroke-width="0.5" points="
+        60,310 110,320 130,350 120,390 100,430 80,460 60,480 45,460 40,410 45,360 50,330
+      "/>
+      <polygon fill="url(#sideGradient)" points="
+        130,350 130,375 120,415 100,455 80,485 60,505 60,480 80,460 100,430 120,390
+      "/>
+    </g>
   </g>
 
-  <!-- Subtle connection lines -->
-  <g stroke="#2AF2CE" stroke-width="1" opacity="0.2" fill="none">
-    <path d="M270,120 Q300,150 320,180"/>
-    <path d="M320,180 Q335,230 340,280"/>
-    <path d="M340,280 Q320,330 300,380"/>
-    <path d="M300,380 Q275,420 250,460"/>
+  <!-- Connection nodes with pulse effect -->
+  <g>
+    <!-- Node 1 - Mexico -->
+    <circle cx="180" cy="50" r="6" fill="#2AF2CE" opacity="0.9"/>
+    <circle cx="180" cy="50" r="10" fill="none" stroke="#2AF2CE" stroke-width="1" opacity="0.4"/>
+
+    <!-- Node 2 - Colombia -->
+    <circle cx="240" cy="140" r="6" fill="#2AF2CE" opacity="0.9"/>
+    <circle cx="240" cy="140" r="10" fill="none" stroke="#2AF2CE" stroke-width="1" opacity="0.4"/>
+
+    <!-- Node 3 - Brazil -->
+    <circle cx="280" cy="220" r="6" fill="#2AF2CE" opacity="0.9"/>
+    <circle cx="280" cy="220" r="10" fill="none" stroke="#2AF2CE" stroke-width="1" opacity="0.4"/>
+
+    <!-- Node 4 - Argentina -->
+    <circle cx="200" cy="380" r="6" fill="#2AF2CE" opacity="0.9"/>
+    <circle cx="200" cy="380" r="10" fill="none" stroke="#2AF2CE" stroke-width="1" opacity="0.4"/>
   </g>
+
+  <!-- Connection lines between nodes -->
+  <g stroke="#2AF2CE" stroke-width="1.5" fill="none" opacity="0.5" stroke-dasharray="4,4">
+    <path d="M180,50 Q220,95 240,140"/>
+    <path d="M240,140 Q270,180 280,220"/>
+    <path d="M280,220 Q250,300 200,380"/>
+  </g>
+
+  <!-- Small floating elements -->
+  <g fill="#2AF2CE" opacity="0.6">
+    <rect x="320" y="80" width="8" height="8" rx="1" transform="rotate(45 324 84)"/>
+    <rect x="340" y="180" width="6" height="6" rx="1" transform="rotate(45 343 183)"/>
+    <rect x="330" y="300" width="8" height="8" rx="1" transform="rotate(45 334 304)"/>
+    <rect x="60" y="120" width="6" height="6" rx="1" transform="rotate(45 63 123)"/>
+    <rect x="50" y="280" width="8" height="8" rx="1" transform="rotate(45 54 284)"/>
+  </g>
+
+  <!-- Server icons around the map -->
+  <use href="#server" transform="translate(310, 100)"/>
+  <use href="#server" transform="translate(320, 220)"/>
+  <use href="#server" transform="translate(300, 350)"/>
+  <use href="#server" transform="translate(40, 180)"/>
+  <use href="#server" transform="translate(30, 360)"/>
 </svg>

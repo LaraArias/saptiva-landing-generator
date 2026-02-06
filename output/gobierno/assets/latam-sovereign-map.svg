@@ -159,7 +159,7 @@
   </g>
 
   <!-- Brazil tooltip -->
-  <g transform="translate(430, 295)">
+  <g transform="translate(340, 295)">
     <rect width="130" height="52" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
     <circle cx="14" cy="17" r="5" fill="#2AF2CE"/>
     <path d="M11.5,15.5 L13.5,17.5 L17,14" stroke="#0F1A2E" stroke-width="2" fill="none"/>

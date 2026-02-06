@@ -150,21 +150,21 @@
 
   <!-- Colombia tooltip -->
   <g transform="translate(290, 135)">
-    <rect width="180" height="52" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <rect width="160" height="52" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
     <circle cx="14" cy="17" r="5" fill="#2AF2CE"/>
     <path d="M11.5,15.5 L13.5,17.5 L17,14" stroke="#0F1A2E" stroke-width="2" fill="none"/>
-    <text x="26" y="20" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">Cumple regulaciones locales</text>
-    <text x="14" y="40" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10">LFPDPPP, habeas data, LGPD</text>
+    <text x="26" y="20" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">Cumple Ley 1581</text>
+    <text x="14" y="40" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10">Habeas Data Colombia</text>
     <line x1="0" y1="40" x2="-25" y2="55" stroke="#1A2744" stroke-width="1"/>
   </g>
 
   <!-- Brazil tooltip -->
   <g transform="translate(430, 295)">
-    <rect width="118" height="52" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <rect width="130" height="52" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
     <circle cx="14" cy="17" r="5" fill="#2AF2CE"/>
     <path d="M11.5,15.5 L13.5,17.5 L17,14" stroke="#0F1A2E" stroke-width="2" fill="none"/>
-    <text x="26" y="20" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">Despliegue air-gapped</text>
-    <text x="14" y="40" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10">100% aislado de internet</text>
+    <text x="26" y="20" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">Cumple LGPD</text>
+    <text x="14" y="40" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10">Lei Geral de Proteção</text>
     <line x1="0" y1="40" x2="-10" y2="55" stroke="#1A2744" stroke-width="1"/>
   </g>
 
@@ -174,18 +174,8 @@
     <circle cx="14" cy="17" r="5" fill="#2AF2CE"/>
     <path d="M11.5,15.5 L13.5,17.5 L17,14" stroke="#0F1A2E" stroke-width="2" fill="none"/>
     <text x="26" y="20" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">Fuera de CLOUD Act</text>
-    <text x="14" y="40" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10">Sin jurisdicción extranjera</text>
+    <text x="14" y="40" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10">Ley 25.326 Argentina</text>
     <line x1="155" y1="40" x2="302" y2="55" stroke="#1A2744" stroke-width="1"/>
-  </g>
-
-  <!-- Status indicator -->
-  <g transform="translate(352, 8)">
-    <rect width="140" height="36" rx="6" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="1" opacity="0.9"/>
-    <circle cx="16" cy="18" r="5" fill="#006847"/>
-    <circle cx="32" cy="18" r="5" fill="#CE1126"/>
-    <circle cx="48" cy="18" r="5" fill="#FEDF00"/>
-    <circle cx="64" cy="18" r="5" fill="#75AADB"/>
-    <text x="78" y="22" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500">4 nodos activos</text>
   </g>
 
 </svg>

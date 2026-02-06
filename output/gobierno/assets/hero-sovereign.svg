@@ -1,188 +1,208 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
   <defs>
-    <!-- Gradients for isometric cube faces -->
-    <linearGradient id="cubeTop" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#3DFFD8"/>
-      <stop offset="100%" stop-color="#2AF2CE"/>
-    </linearGradient>
-    <linearGradient id="cubeLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1AB89C"/>
-      <stop offset="100%" stop-color="#148F78"/>
-    </linearGradient>
-    <linearGradient id="cubeRight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#22D4AD"/>
-      <stop offset="100%" stop-color="#1AB89C"/>
+    <!-- Gradientes base institucionales - Navy dominante -->
+    <linearGradient id="navyBase" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0F1A2E"/>
+      <stop offset="100%" stop-color="#0A1628"/>
     </linearGradient>
 
-    <!-- Dark cube for particles -->
-    <linearGradient id="darkCubeTop" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#3D4A5C"/>
-      <stop offset="100%" stop-color="#2D3748"/>
+    <linearGradient id="shieldOuter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2744"/>
+      <stop offset="100%" stop-color="#0F1A2E"/>
     </linearGradient>
-    <linearGradient id="darkCubeLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1A2332"/>
-      <stop offset="100%" stop-color="#151C28"/>
-    </linearGradient>
-    <linearGradient id="darkCubeRight" x1="0%" y1="0%" x2="100%" y2="100%">
+
+    <linearGradient id="shieldMiddle" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#2D3748"/>
-      <stop offset="100%" stop-color="#1A2332"/>
+      <stop offset="50%" stop-color="#1A2744"/>
+      <stop offset="100%" stop-color="#0F1A2E"/>
     </linearGradient>
 
-    <!-- Glow effect -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
+    <linearGradient id="shieldInner" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2744"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+
+    <linearGradient id="towerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D3748"/>
+      <stop offset="100%" stop-color="#1A2744"/>
+    </linearGradient>
+
+    <linearGradient id="coreGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2744"/>
+      <stop offset="100%" stop-color="#0F1A2E"/>
+    </linearGradient>
+
+    <!-- Glow muy sutil para acentos teal -->
+    <filter id="tealGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <!-- Subtle glow for main structure -->
-    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- Isometric cube unit (size 24) -->
-    <g id="cube">
-      <!-- Top face -->
-      <polygon points="0,-12 20.8,-24 41.6,-12 20.8,0" fill="url(#cubeTop)"/>
-      <!-- Left face -->
-      <polygon points="0,-12 0,12 20.8,24 20.8,0" fill="url(#cubeLeft)"/>
-      <!-- Right face -->
-      <polygon points="20.8,0 20.8,24 41.6,12 41.6,-12" fill="url(#cubeRight)"/>
-    </g>
-
-    <!-- Small isometric cube (size 12) -->
-    <g id="cubeSmall">
-      <polygon points="0,-6 10.4,-12 20.8,-6 10.4,0" fill="url(#cubeTop)"/>
-      <polygon points="0,-6 0,6 10.4,12 10.4,0" fill="url(#cubeLeft)"/>
-      <polygon points="10.4,0 10.4,12 20.8,6 20.8,-6" fill="url(#cubeRight)"/>
-    </g>
-
-    <!-- Dark particle cube (size 8) -->
-    <g id="darkCube">
-      <polygon points="0,-4 6.9,-8 13.9,-4 6.9,0" fill="url(#darkCubeTop)"/>
-      <polygon points="0,-4 0,4 6.9,8 6.9,0" fill="url(#darkCubeLeft)"/>
-      <polygon points="6.9,0 6.9,8 13.9,4 13.9,-4" fill="url(#darkCubeRight)"/>
-    </g>
-
-    <!-- Tiny dark cube (size 6) -->
-    <g id="darkCubeTiny">
-      <polygon points="0,-3 5.2,-6 10.4,-3 5.2,0" fill="url(#darkCubeTop)"/>
-      <polygon points="0,-3 0,3 5.2,6 5.2,0" fill="url(#darkCubeLeft)"/>
-      <polygon points="5.2,0 5.2,6 10.4,3 10.4,-3" fill="url(#darkCubeRight)"/>
-    </g>
+    <!-- Grid institucional -->
+    <pattern id="gridPattern" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#1A2744" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
   </defs>
 
-  <!-- Main structure - fortress-like arrangement -->
-  <g transform="translate(250, 200)" filter="url(#softGlow)">
+  <!-- Fondo base navy solido -->
+  <rect width="500" height="400" fill="url(#navyBase)"/>
 
-    <!-- Base layer (5x5 grid, offset for isometric) -->
-    <!-- Row 1 -->
-    <use href="#cube" transform="translate(-83.2, 48)"/>
-    <use href="#cube" transform="translate(-41.6, 24)"/>
-    <use href="#cube" transform="translate(0, 0)"/>
-    <use href="#cube" transform="translate(41.6, 24)"/>
-    <use href="#cube" transform="translate(83.2, 48)"/>
+  <!-- Grid sutil de fondo -->
+  <rect width="500" height="400" fill="url(#gridPattern)" opacity="0.5"/>
 
-    <!-- Row 2 -->
-    <use href="#cube" transform="translate(-62.4, 60)"/>
-    <use href="#cube" transform="translate(-20.8, 36)"/>
-    <use href="#cube" transform="translate(20.8, 12)"/>
-    <use href="#cube" transform="translate(62.4, 36)"/>
+  <!-- ESTRUCTURA PRINCIPAL - Centrada, ocupa 75% del canvas -->
+  <g transform="translate(250, 195)">
 
-    <!-- Row 3 -->
-    <use href="#cube" transform="translate(-41.6, 72)"/>
-    <use href="#cube" transform="translate(0, 48)"/>
-    <use href="#cube" transform="translate(41.6, 72)"/>
+    <!-- CAPA 1: Escudo hexagonal exterior (perimetro de proteccion) -->
+    <!-- Borde exterior - linea de jurisdiccion -->
+    <polygon
+      points="0,-155 134,-77.5 134,77.5 0,155 -134,77.5 -134,-77.5"
+      fill="none"
+      stroke="#2D3748"
+      stroke-width="2.5"
+      opacity="0.6"/>
 
-    <!-- Row 4 -->
-    <use href="#cube" transform="translate(-20.8, 84)"/>
-    <use href="#cube" transform="translate(20.8, 60)"/>
+    <!-- Escudo principal - forma solida -->
+    <polygon
+      points="0,-140 121,-70 121,70 0,140 -121,70 -121,-70"
+      fill="url(#shieldOuter)"
+      stroke="#2D3748"
+      stroke-width="1.5"/>
 
-    <!-- Row 5 -->
-    <use href="#cube" transform="translate(0, 96)"/>
+    <!-- Segunda capa del escudo -->
+    <polygon
+      points="0,-115 100,-57.5 100,57.5 0,115 -100,57.5 -100,-57.5"
+      fill="url(#shieldMiddle)"
+      stroke="#2D3748"
+      stroke-width="1"/>
 
-    <!-- Second layer - building up -->
-    <use href="#cube" transform="translate(-41.6, 0)"/>
-    <use href="#cube" transform="translate(0, -24)"/>
-    <use href="#cube" transform="translate(41.6, 0)"/>
-    <use href="#cube" transform="translate(-20.8, 12)"/>
-    <use href="#cube" transform="translate(20.8, -12)"/>
+    <!-- Tercera capa - nucleo protegido -->
+    <polygon
+      points="0,-85 74,-42.5 74,42.5 0,85 -74,42.5 -74,-42.5"
+      fill="url(#shieldInner)"
+      stroke="#2D3748"
+      stroke-width="0.75"/>
 
-    <!-- Third layer - center column rising -->
-    <use href="#cube" transform="translate(0, -48)"/>
-    <use href="#cube" transform="translate(-20.8, -36)"/>
-    <use href="#cube" transform="translate(20.8, -36)"/>
+    <!-- CAPA 2: Torre de control central -->
+    <!-- Base de la torre -->
+    <rect x="-55" y="-25" width="110" height="70" rx="4" fill="url(#towerGradient)" stroke="#2D3748" stroke-width="1"/>
 
-    <!-- Fourth layer - tower -->
-    <use href="#cube" transform="translate(0, -72)"/>
+    <!-- Nucleo central elevado -->
+    <rect x="-42" y="-52" width="84" height="35" rx="3" fill="url(#coreGradient)" stroke="#2D3748" stroke-width="0.75"/>
 
-    <!-- Fifth layer - peak -->
-    <use href="#cube" transform="translate(0, -96)"/>
+    <!-- Panel superior de control -->
+    <rect x="-30" y="-70" width="60" height="22" rx="2" fill="#0F1A2E" stroke="#2D3748" stroke-width="0.75"/>
 
-    <!-- Corner towers -->
-    <use href="#cube" transform="translate(-83.2, 24)"/>
-    <use href="#cube" transform="translate(83.2, 24)"/>
-    <use href="#cube" transform="translate(-83.2, 0)"/>
-    <use href="#cube" transform="translate(83.2, 0)"/>
+    <!-- Capsula de mando superior -->
+    <rect x="-20" y="-82" width="40" height="14" rx="2" fill="#0A1628" stroke="#1A2744" stroke-width="0.5"/>
 
-    <!-- Side extensions -->
-    <use href="#cube" transform="translate(-62.4, 12)"/>
-    <use href="#cube" transform="translate(62.4, 12)"/>
+    <!-- CAPA 3: Indicadores de estado (acentos teal - 10% del visual) -->
+    <g filter="url(#tealGlow)">
+      <!-- Luz central principal - el corazon del sistema -->
+      <circle cx="0" cy="-75" r="3.5" fill="#2AF2CE" opacity="0.9"/>
+
+      <!-- Indicadores del panel -->
+      <circle cx="-14" cy="-59" r="2" fill="#2AF2CE" opacity="0.6"/>
+      <circle cx="0" cy="-59" r="2" fill="#2AF2CE" opacity="0.8"/>
+      <circle cx="14" cy="-59" r="2" fill="#2AF2CE" opacity="0.6"/>
+
+      <!-- Linea de estado activo -->
+      <line x1="-22" y1="-40" x2="22" y2="-40" stroke="#2AF2CE" stroke-width="1" opacity="0.5"/>
+    </g>
+
+    <!-- CAPA 4: Conexiones controladas (lineas solidas, no particulas) -->
+    <!-- Red de conexion desde el centro hacia el perimetro -->
+    <g stroke="#2AF2CE" stroke-width="0.75" opacity="0.35">
+      <!-- Conexion superior -->
+      <line x1="0" y1="-25" x2="0" y2="-70"/>
+      <!-- Conexiones diagonales superiores -->
+      <line x1="42" y1="-20" x2="85" y2="-50"/>
+      <line x1="-42" y1="-20" x2="-85" y2="-50"/>
+      <!-- Conexiones laterales -->
+      <line x1="55" y1="10" x2="95" y2="10"/>
+      <line x1="-55" y1="10" x2="-95" y2="10"/>
+      <!-- Conexiones diagonales inferiores -->
+      <line x1="42" y1="40" x2="75" y2="65"/>
+      <line x1="-42" y1="40" x2="-75" y2="65"/>
+    </g>
+
+    <!-- Nodos de control en los vertices del escudo -->
+    <g fill="#2AF2CE" filter="url(#tealGlow)" opacity="0.5">
+      <circle cx="0" cy="-115" r="3"/>
+      <circle cx="100" cy="-57.5" r="3"/>
+      <circle cx="-100" cy="-57.5" r="3"/>
+      <circle cx="100" cy="57.5" r="3"/>
+      <circle cx="-100" cy="57.5" r="3"/>
+      <circle cx="0" cy="115" r="3"/>
+    </g>
+
+    <!-- CAPA 5: Elementos de datos protegidos (representacion abstracta) -->
+    <!-- Bloques de datos dentro del perimetro - izquierda -->
+    <g opacity="0.5">
+      <rect x="-95" y="-25" width="28" height="6" rx="1" fill="#2D3748"/>
+      <rect x="-95" y="-15" width="22" height="6" rx="1" fill="#2D3748"/>
+      <rect x="-95" y="-5" width="26" height="6" rx="1" fill="#2D3748"/>
+      <rect x="-95" y="5" width="20" height="6" rx="1" fill="#2D3748"/>
+    </g>
+
+    <!-- Bloques de datos - derecha -->
+    <g opacity="0.5">
+      <rect x="67" y="-25" width="28" height="6" rx="1" fill="#2D3748"/>
+      <rect x="73" y="-15" width="22" height="6" rx="1" fill="#2D3748"/>
+      <rect x="69" y="-5" width="26" height="6" rx="1" fill="#2D3748"/>
+      <rect x="75" y="5" width="20" height="6" rx="1" fill="#2D3748"/>
+    </g>
+
+    <!-- CAPA 6: Refuerzos de esquinas (estabilidad institucional) -->
+    <g stroke="#2D3748" stroke-width="1.5" fill="none" opacity="0.7">
+      <!-- Esquinas del escudo exterior -->
+      <path d="M -121,-70 L -121,-55 M -121,-70 L -108,-70"/>
+      <path d="M 121,-70 L 121,-55 M 121,-70 L 108,-70"/>
+      <path d="M -121,70 L -121,55 M -121,70 L -108,70"/>
+      <path d="M 121,70 L 121,55 M 121,70 L 108,70"/>
+      <path d="M 0,-140 L -12,-134 M 0,-140 L 12,-134"/>
+      <path d="M 0,140 L -12,134 M 0,140 L 12,134"/>
+    </g>
+
+    <!-- Linea base de estabilidad -->
+    <g opacity="0.5">
+      <line x1="-110" y1="125" x2="110" y2="125" stroke="#2D3748" stroke-width="2"/>
+      <line x1="-90" y1="135" x2="90" y2="135" stroke="#1A2744" stroke-width="1.5"/>
+      <line x1="-70" y1="143" x2="70" y2="143" stroke="#0F1A2E" stroke-width="1"/>
+    </g>
 
   </g>
 
-  <!-- Floating particle cubes - dark -->
-  <g opacity="0.8">
-    <!-- Left side particles -->
-    <use href="#darkCube" transform="translate(45, 80)"/>
-    <use href="#darkCubeTiny" transform="translate(60, 140)"/>
-    <use href="#darkCube" transform="translate(30, 200)"/>
-    <use href="#darkCubeTiny" transform="translate(80, 260)"/>
-    <use href="#darkCube" transform="translate(55, 320)"/>
-
-    <!-- Right side particles -->
-    <use href="#darkCube" transform="translate(420, 90)"/>
-    <use href="#darkCubeTiny" transform="translate(440, 150)"/>
-    <use href="#darkCube" transform="translate(450, 220)"/>
-    <use href="#darkCubeTiny" transform="translate(410, 280)"/>
-    <use href="#darkCube" transform="translate(430, 340)"/>
-
-    <!-- Top particles -->
-    <use href="#darkCubeTiny" transform="translate(180, 40)"/>
-    <use href="#darkCube" transform="translate(280, 30)"/>
-    <use href="#darkCubeTiny" transform="translate(350, 50)"/>
-
-    <!-- Bottom particles -->
-    <use href="#darkCubeTiny" transform="translate(120, 360)"/>
-    <use href="#darkCube" transform="translate(320, 370)"/>
+  <!-- Elementos de contexto institucional en las esquinas del canvas -->
+  <!-- Esquina superior izquierda -->
+  <g opacity="0.25">
+    <line x1="20" y1="25" x2="55" y2="25" stroke="#2D3748" stroke-width="1.5"/>
+    <line x1="20" y1="25" x2="20" y2="60" stroke="#2D3748" stroke-width="1.5"/>
+    <circle cx="20" cy="25" r="2" fill="#2D3748"/>
   </g>
 
-  <!-- Small teal accent cubes floating -->
-  <g opacity="0.6">
-    <use href="#cubeSmall" transform="translate(70, 120)"/>
-    <use href="#cubeSmall" transform="translate(400, 130)"/>
-    <use href="#cubeSmall" transform="translate(100, 300)"/>
-    <use href="#cubeSmall" transform="translate(380, 310)"/>
+  <!-- Esquina superior derecha -->
+  <g opacity="0.25">
+    <line x1="445" y1="25" x2="480" y2="25" stroke="#2D3748" stroke-width="1.5"/>
+    <line x1="480" y1="25" x2="480" y2="60" stroke="#2D3748" stroke-width="1.5"/>
+    <circle cx="480" cy="25" r="2" fill="#2D3748"/>
   </g>
 
-  <!-- Subtle connection dots -->
-  <g fill="#2AF2CE" opacity="0.4">
-    <circle cx="95" cy="180" r="3"/>
-    <circle cx="405" cy="180" r="3"/>
-    <circle cx="150" cy="350" r="2"/>
-    <circle cx="350" cy="350" r="2"/>
-    <circle cx="250" cy="380" r="2"/>
+  <!-- Esquina inferior izquierda -->
+  <g opacity="0.25">
+    <line x1="20" y1="375" x2="55" y2="375" stroke="#2D3748" stroke-width="1.5"/>
+    <line x1="20" y1="340" x2="20" y2="375" stroke="#2D3748" stroke-width="1.5"/>
+    <circle cx="20" cy="375" r="2" fill="#2D3748"/>
   </g>
 
-  <!-- Very subtle grid lines at bottom -->
-  <g stroke="#1A2744" stroke-width="0.5" opacity="0.3">
-    <line x1="50" y1="380" x2="450" y2="380"/>
-    <line x1="100" y1="360" x2="400" y2="360"/>
+  <!-- Esquina inferior derecha -->
+  <g opacity="0.25">
+    <line x1="445" y1="375" x2="480" y2="375" stroke="#2D3748" stroke-width="1.5"/>
+    <line x1="480" y1="340" x2="480" y2="375" stroke="#2D3748" stroke-width="1.5"/>
+    <circle cx="480" cy="375" r="2" fill="#2D3748"/>
   </g>
+
 </svg>

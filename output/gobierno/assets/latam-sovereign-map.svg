@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" fill="none">
   <defs>
-    <!-- Glow filter for nodes -->
-    <filter id="nodeGlow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-
-    <!-- Pulse animation for active nodes -->
-    <radialGradient id="pulseGrad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#2AF2CE" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#2AF2CE" stop-opacity="0"/>
-    </radialGradient>
+    <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2AF2CE" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#2AF2CE" stop-opacity="0.1"/>
+    </linearGradient>
   </defs>
 
-  <!-- Subtle background grid -->
-  <g stroke="#1A2744" stroke-width="0.5" opacity="0.4">
+  <!-- Background -->
+  <rect width="500" height="600" fill="#0B1426"/>
+
+  <!-- Grid sutil -->
+  <g stroke="#1A2744" stroke-width="0.5" opacity="0.3">
     <line x1="0" y1="100" x2="500" y2="100"/>
     <line x1="0" y1="200" x2="500" y2="200"/>
     <line x1="0" y1="300" x2="500" y2="300"/>
@@ -29,200 +29,185 @@
     <line x1="400" y1="0" x2="400" y2="600"/>
   </g>
 
-  <!-- LATAM Map - Geographically Accurate Silhouettes -->
-  <g stroke="#2AF2CE" stroke-width="1.5" fill="none" opacity="0.7" stroke-linejoin="round" stroke-linecap="round">
+  <!-- LATAM Continental Mass - Simplified but recognizable geography -->
+  <!-- Based on real proportions: viewBox maps roughly to -120 to -30 lon, +30 to -55 lat -->
 
-    <!-- MEXICO - with Baja California, Gulf of Mexico curve, and Yucatan peninsula -->
-    <!-- Baja California peninsula (long thin peninsula on Pacific side) -->
-    <path d="M75,45 L72,55 L68,75 L65,95 L62,115 L60,130 L63,140 L70,138 L75,125 L78,105 L82,85 L85,65 L88,50 L85,42 L75,45"/>
+  <g fill="url(#mapGrad)" stroke="#2AF2CE" stroke-width="1.2">
 
-    <!-- Mexico mainland - distinctive shape with Gulf curve and Yucatan -->
-    <path d="M95,42 L115,38 L140,35 L165,40 L185,50 L200,60
-             L205,75 L200,90 L190,100 L175,108
-             L180,115 L190,118 L205,115 L215,120 L220,130 L215,138 L200,135
-             L185,130 L170,125 L155,128 L140,135 L125,140
-             L110,138 L100,130 L92,118 L88,105 L85,90 L88,70 L92,55 L95,42"/>
+    <!-- MEXICO - Recognizable shape with Baja California and Yucatan -->
+    <!-- Baja California Peninsula - the distinctive long thin peninsula -->
+    <path d="M45,35 L42,50 L38,70 L35,95 L33,115 L35,130 L42,128 L48,110 L52,85 L55,60 L52,40 Z"/>
 
-    <!-- Yucatan Peninsula (distinctive protrusion into Caribbean) -->
-    <path d="M200,135 L210,128 L225,125 L238,130 L245,140 L240,152 L225,158 L210,155 L200,148"/>
+    <!-- Mexico Mainland - with Gulf of Mexico curve -->
+    <path d="M65,30 L95,28 L130,32 L160,45 L180,60 L188,80 L180,100 L165,115
+             L175,125 L195,130 L210,145 L205,160 L185,155 L160,150
+             L130,155 L100,150 L80,135 L68,115 L62,90 L65,60 Z"/>
 
-    <!-- CENTRAL AMERICA - thin isthmus connecting to South America -->
-    <path d="M140,145 L145,155 L150,168 L152,180 L148,195 L142,210 L138,225 L140,238 L148,248"/>
+    <!-- Yucatan Peninsula - distinctive protrusion -->
+    <path d="M185,155 L200,145 L220,142 L238,150 L245,165 L235,180 L215,185 L195,178 L185,165 Z"/>
 
-    <!-- CARIBBEAN hints (Cuba, Hispaniola, Puerto Rico) -->
-    <g stroke-dasharray="4,4" opacity="0.4">
-      <path d="M245,95 Q270,90 290,100 L295,108 Q285,115 265,112 L250,105 Q245,100 245,95"/>
-      <path d="M305,105 L325,102 L335,108 L330,115 L310,115 L305,105"/>
-      <path d="M345,110 L360,108 L365,115 L355,118 L345,110"/>
-    </g>
+    <!-- CENTRAL AMERICA - Thin isthmus -->
+    <path d="M130,165 L140,180 L145,200 L142,225 L135,250 L140,270 L155,285"/>
 
-    <!-- COLOMBIA - northern South America with Caribbean coast -->
-    <path d="M148,248 L160,245 L180,240 L200,238 L220,242 L240,250 L258,262
-             L268,278 L270,295 L265,312 L255,325 L240,332 L220,335
-             L200,330 L180,322 L165,310 L155,295 L150,278 L148,260 L148,248"/>
+    <!-- COLOMBIA - Northern South America -->
+    <path d="M155,285 L180,280 L210,278 L245,285 L275,300 L290,325
+             L285,355 L265,375 L235,385 L200,380 L170,365 L155,340 L150,310 Z"/>
 
-    <!-- VENEZUELA -->
-    <path d="M240,250 L260,245 L285,248 L310,255 L330,268 L340,285
-             L335,302 L320,315 L300,322 L280,320 L265,312"/>
+    <!-- VENEZUELA - Northeast -->
+    <path d="M245,285 L280,278 L320,285 L355,305 L365,335 L350,360 L315,370 L285,365 L265,355"/>
 
-    <!-- ECUADOR - small country on Pacific coast -->
-    <path d="M120,310 L140,305 L155,310 L165,325 L160,345 L145,360 L125,365 L110,355 L105,338 L110,320 L120,310"/>
+    <!-- GUIANAS hint -->
+    <path d="M355,305 L380,300 L400,315 L395,345 L370,355 L355,340" opacity="0.5"/>
 
-    <!-- PERU - Pacific coast country -->
-    <path d="M105,355 L125,365 L145,360 L160,370 L170,390 L168,415 L160,440 L145,460 L125,468 L105,462 L88,445 L78,420 L75,395 L80,370 L90,355 L105,355"/>
+    <!-- ECUADOR - Small Pacific coast country -->
+    <path d="M115,365 L145,360 L165,375 L160,400 L140,420 L115,415 L100,395 L105,375 Z"/>
 
-    <!-- BRAZIL - dominant landmass with distinctive northeast bulge toward Africa -->
-    <path d="M220,335 L245,330 L275,328 L305,332 L335,345 L360,365
-             L378,388 L388,415 L392,442 L388,470 L378,495
-             L360,515 L335,528 L305,535 L275,532 L248,522
-             L225,505 L205,480 L190,455 L180,425 L175,395
-             L178,365 L188,345 L205,338 L220,335"/>
+    <!-- PERU - Pacific coast -->
+    <path d="M100,395 L115,415 L140,420 L165,435 L175,465 L168,500 L150,530 L120,540
+             L90,525 L70,490 L65,450 L75,415 Z"/>
 
-    <!-- Brazil northeast bulge (distinctive feature pointing toward Africa) -->
-    <path d="M360,365 L380,355 L398,350 L415,355 L425,368 L422,385 L410,398 L392,405 L378,400 L368,388"/>
+    <!-- BRAZIL - Dominant landmass ~50% of South America -->
+    <!-- Main body -->
+    <path d="M235,385 L275,378 L320,380 L365,395 L400,420 L425,455
+             L435,495 L430,535 L415,565 L385,585 L345,595 L300,590
+             L260,575 L225,550 L200,515 L185,475 L180,435 L190,400 Z"/>
 
-    <!-- BOLIVIA - landlocked, roughly rectangular -->
-    <path d="M175,395 L195,388 L218,392 L235,405 L238,425 L230,445 L210,455 L188,450 L172,435 L168,415 L175,395"/>
+    <!-- Brazil Northeast Bulge - THE distinctive feature pointing toward Africa -->
+    <path d="M400,420 L425,405 L450,400 L470,410 L478,435 L468,460 L445,475 L420,470 L405,450"/>
 
-    <!-- PARAGUAY - small landlocked country -->
-    <path d="M238,425 L255,420 L272,428 L278,448 L270,468 L252,475 L235,470 L228,452 L230,445 L238,425"/>
+    <!-- BOLIVIA - Landlocked -->
+    <path d="M180,450 L210,440 L240,448 L255,470 L250,500 L225,515 L195,508 L175,485 Z"/>
 
-    <!-- URUGUAY - small country on Atlantic coast -->
-    <path d="M278,485 L295,478 L308,485 L312,502 L302,518 L285,522 L272,515 L270,498 L278,485"/>
+    <!-- PARAGUAY - Small landlocked -->
+    <path d="M255,490 L280,482 L300,495 L305,520 L290,545 L265,550 L250,535 L250,510 Z"/>
 
-    <!-- ARGENTINA - long country extending to Patagonia -->
-    <path d="M210,455 L230,470 L252,475 L270,498 L272,520
-             L265,545 L252,565 L235,580 L215,590 L195,592
-             L178,585 L165,570 L158,548 L155,520 L160,490
-             L172,468 L190,458 L210,455"/>
+    <!-- URUGUAY - Small Atlantic coast -->
+    <path d="M305,540 L325,530 L342,542 L345,565 L330,580 L310,582 L298,570 L300,552 Z"/>
 
-    <!-- Patagonia tip (Tierra del Fuego hint) -->
-    <path d="M195,592 L210,598 L215,610 L200,615 L185,608 L180,595"/>
+    <!-- ARGENTINA - Long country to Patagonia -->
+    <path d="M225,515 L250,535 L265,550 L290,565 L300,590
+             L290,620 L270,650 L245,675 L215,690 L185,685
+             L160,665 L145,630 L140,590 L150,555 L175,525 Z"/>
 
-    <!-- CHILE - distinctive long thin coastal strip along Pacific -->
-    <path d="M88,445 L100,458 L105,478 L102,502 L95,528 L88,555 L82,578 L78,598 L82,610 L92,615
-             L98,608 L102,588 L108,562 L115,535 L122,505 L128,478 L130,455 L125,438"/>
+    <!-- Tierra del Fuego hint -->
+    <path d="M185,685 L210,695 L220,710 L200,718 L175,708 L170,692" opacity="0.6"/>
+
+    <!-- CHILE - THE distinctive long thin coastal strip -->
+    <path d="M70,490 L85,520 L90,555 L85,595 L75,640 L68,680 L72,710 L85,718
+             L92,705 L98,665 L105,620 L115,575 L125,530 L130,490 L120,460"
+          stroke-width="1.5"/>
 
   </g>
 
-  <!-- Connection network curves -->
-  <g stroke="#2AF2CE" stroke-width="1" fill="none" opacity="0.5">
+  <!-- Caribbean Islands hint -->
+  <g fill="none" stroke="#2AF2CE" stroke-width="0.8" opacity="0.4" stroke-dasharray="3,3">
+    <!-- Cuba -->
+    <path d="M250,85 Q290,78 320,92 L325,102 Q305,112 275,108 L255,98 Z"/>
+    <!-- Hispaniola -->
+    <path d="M340,95 L365,92 L375,102 L368,112 L345,112 Z"/>
+    <!-- Puerto Rico -->
+    <path d="M385,100 L405,98 L410,108 L400,112 Z"/>
+  </g>
+
+  <!-- Connection Network - Animated data flow lines -->
+  <g stroke="#2AF2CE" stroke-width="1.5" fill="none" opacity="0.6">
     <!-- Mexico City to Bogota -->
-    <path d="M180,95 Q200,160 210,290" stroke-dasharray="6,4">
-      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite"/>
+    <path d="M165,95 Q180,180 210,330" stroke-dasharray="8,6">
+      <animate attributeName="stroke-dashoffset" from="0" to="28" dur="3s" repeatCount="indefinite"/>
     </path>
 
     <!-- Bogota to Sao Paulo -->
-    <path d="M235,300 Q290,350 330,430" stroke-dasharray="6,4">
-      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite"/>
+    <path d="M235,345 Q310,420 365,510" stroke-dasharray="8,6">
+      <animate attributeName="stroke-dashoffset" from="0" to="28" dur="3s" repeatCount="indefinite"/>
     </path>
 
     <!-- Sao Paulo to Buenos Aires -->
-    <path d="M300,450 Q260,490 215,530" stroke-dasharray="6,4">
-      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite"/>
+    <path d="M340,530 Q290,570 235,600" stroke-dasharray="8,6">
+      <animate attributeName="stroke-dashoffset" from="0" to="28" dur="3s" repeatCount="indefinite"/>
     </path>
 
     <!-- Cross connections (subtle) -->
-    <path d="M180,95 Q170,200 200,380" stroke-dasharray="4,6" opacity="0.3"/>
-    <path d="M330,430 Q280,480 215,530" stroke-dasharray="4,6" opacity="0.3"/>
+    <path d="M165,95 Q160,250 200,450" stroke-dasharray="4,8" opacity="0.3"/>
+    <path d="M365,510 Q300,555 235,600" stroke-dasharray="4,8" opacity="0.3"/>
   </g>
 
-  <!-- Node points with pulse effect - positioned on actual country locations -->
+  <!-- NODE POINTS - 4 data centers with glow -->
   <g filter="url(#nodeGlow)">
-    <!-- Mexico City node (central Mexico) -->
-    <circle cx="180" cy="95" r="8" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="2"/>
-    <circle cx="180" cy="95" r="4" fill="#2AF2CE">
-      <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+    <!-- Mexico City -->
+    <circle cx="165" cy="95" r="12" fill="#0B1426" stroke="#2AF2CE" stroke-width="2.5"/>
+    <circle cx="165" cy="95" r="6" fill="#2AF2CE">
+      <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/>
     </circle>
 
-    <!-- Bogota node (Colombia) -->
-    <circle cx="210" cy="290" r="8" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="2"/>
-    <circle cx="210" cy="290" r="4" fill="#2AF2CE">
-      <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    <!-- Bogota -->
+    <circle cx="210" cy="330" r="12" fill="#0B1426" stroke="#2AF2CE" stroke-width="2.5"/>
+    <circle cx="210" cy="330" r="6" fill="#2AF2CE">
+      <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite" begin="0.5s"/>
     </circle>
 
-    <!-- Sao Paulo node (southeast Brazil) -->
-    <circle cx="305" cy="450" r="8" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="2"/>
-    <circle cx="305" cy="450" r="4" fill="#2AF2CE">
-      <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" begin="1s"/>
+    <!-- Sao Paulo -->
+    <circle cx="340" cy="520" r="12" fill="#0B1426" stroke="#2AF2CE" stroke-width="2.5"/>
+    <circle cx="340" cy="520" r="6" fill="#2AF2CE">
+      <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite" begin="1s"/>
     </circle>
 
-    <!-- Buenos Aires node (Argentina coast) -->
-    <circle cx="215" cy="530" r="8" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="2"/>
-    <circle cx="215" cy="530" r="4" fill="#2AF2CE">
-      <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" begin="1.5s"/>
+    <!-- Buenos Aires -->
+    <circle cx="235" cy="600" r="12" fill="#0B1426" stroke="#2AF2CE" stroke-width="2.5"/>
+    <circle cx="235" cy="600" r="6" fill="#2AF2CE">
+      <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite" begin="1.5s"/>
     </circle>
   </g>
 
-  <!-- Tooltip boxes - key sovereignty messages -->
+  <!-- TOOLTIPS with sovereignty messages -->
 
-  <!-- Tooltip 1 - Mexico: Data residency -->
-  <g transform="translate(12, 42)">
-    <rect x="0" y="0" width="165" height="50" rx="4" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
-    <g fill="#2AF2CE">
-      <circle cx="12" cy="15" r="4"/>
-      <path d="M10,13 L11.5,14.5 L14,12" stroke="#0F1A2E" stroke-width="1.5" fill="none"/>
-    </g>
-    <text x="22" y="18" fill="#2AF2CE" font-family="Inter, sans-serif" font-size="10" font-weight="600">Residencia de datos en México</text>
-    <text x="12" y="36" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="9">Sin transferencias transfronterizas</text>
-    <!-- Connector line to Mexico City node -->
-    <line x1="165" y1="40" x2="172" y2="87" stroke="#1A2744" stroke-width="1"/>
+  <!-- Mexico tooltip -->
+  <g transform="translate(8, 38)">
+    <rect width="175" height="52" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="14" cy="17" r="5" fill="#2AF2CE"/>
+    <path d="M11.5,15.5 L13.5,17.5 L17,14" stroke="#0F1A2E" stroke-width="2" fill="none"/>
+    <text x="26" y="20" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">Residencia de datos en México</text>
+    <text x="14" y="40" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10">Sin transferencias transfronterizas</text>
+    <line x1="175" y1="40" x2="157" y2="87" stroke="#1A2744" stroke-width="1"/>
   </g>
 
-  <!-- Tooltip 2 - Colombia: Compliance regional -->
-  <g transform="translate(268, 235)">
-    <rect x="0" y="0" width="170" height="50" rx="4" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
-    <g fill="#2AF2CE">
-      <circle cx="12" cy="15" r="4"/>
-      <path d="M10,13 L11.5,14.5 L14,12" stroke="#0F1A2E" stroke-width="1.5" fill="none"/>
-    </g>
-    <text x="22" y="18" fill="#2AF2CE" font-family="Inter, sans-serif" font-size="10" font-weight="600">Cumple regulaciones locales</text>
-    <text x="12" y="36" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="9">LFPDPPP, habeas data, LGPD</text>
-    <!-- Connector line to Bogota node -->
-    <line x1="0" y1="40" x2="-50" y2="52" stroke="#1A2744" stroke-width="1"/>
+  <!-- Colombia tooltip -->
+  <g transform="translate(290, 275)">
+    <rect width="180" height="52" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="14" cy="17" r="5" fill="#2AF2CE"/>
+    <path d="M11.5,15.5 L13.5,17.5 L17,14" stroke="#0F1A2E" stroke-width="2" fill="none"/>
+    <text x="26" y="20" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">Cumple regulaciones locales</text>
+    <text x="14" y="40" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10">LFPDPPP, habeas data, LGPD</text>
+    <line x1="0" y1="40" x2="-72" y2="52" stroke="#1A2744" stroke-width="1"/>
   </g>
 
-  <!-- Tooltip 3 - Brazil: Air-gapped -->
-  <g transform="translate(355, 400)">
-    <rect x="0" y="0" width="125" height="50" rx="4" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
-    <g fill="#2AF2CE">
-      <circle cx="12" cy="15" r="4"/>
-      <path d="M10,13 L11.5,14.5 L14,12" stroke="#0F1A2E" stroke-width="1.5" fill="none"/>
-    </g>
-    <text x="22" y="18" fill="#2AF2CE" font-family="Inter, sans-serif" font-size="10" font-weight="600">Despliegue air-gapped</text>
-    <text x="12" y="36" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="9">100% aislado de internet</text>
-    <!-- Connector line to Sao Paulo node -->
-    <line x1="0" y1="40" x2="-42" y2="52" stroke="#1A2744" stroke-width="1"/>
+  <!-- Brazil tooltip -->
+  <g transform="translate(375, 468)">
+    <rect width="118" height="52" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="14" cy="17" r="5" fill="#2AF2CE"/>
+    <path d="M11.5,15.5 L13.5,17.5 L17,14" stroke="#0F1A2E" stroke-width="2" fill="none"/>
+    <text x="26" y="20" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">Despliegue air-gapped</text>
+    <text x="14" y="40" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10">100% aislado de internet</text>
+    <line x1="0" y1="40" x2="-27" y2="54" stroke="#1A2744" stroke-width="1"/>
   </g>
 
-  <!-- Tooltip 4 - Argentina: No CLOUD Act -->
-  <g transform="translate(12, 490)">
-    <rect x="0" y="0" width="145" height="50" rx="4" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
-    <g fill="#2AF2CE">
-      <circle cx="12" cy="15" r="4"/>
-      <path d="M10,13 L11.5,14.5 L14,12" stroke="#0F1A2E" stroke-width="1.5" fill="none"/>
-    </g>
-    <text x="22" y="18" fill="#2AF2CE" font-family="Inter, sans-serif" font-size="10" font-weight="600">Fuera de CLOUD Act</text>
-    <text x="12" y="36" fill="#A0AEC0" font-family="Inter, sans-serif" font-size="9">Sin jurisdicción extranjera</text>
-    <!-- Connector line to Buenos Aires node -->
-    <line x1="145" y1="35" x2="207" y2="42" stroke="#1A2744" stroke-width="1"/>
+  <!-- Argentina tooltip -->
+  <g transform="translate(8, 545)">
+    <rect width="155" height="52" rx="6" fill="#0F1A2E" stroke="#1A2744" stroke-width="1"/>
+    <circle cx="14" cy="17" r="5" fill="#2AF2CE"/>
+    <path d="M11.5,15.5 L13.5,17.5 L17,14" stroke="#0F1A2E" stroke-width="2" fill="none"/>
+    <text x="26" y="20" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">Fuera de CLOUD Act</text>
+    <text x="14" y="40" fill="#94A3B8" font-family="Inter, system-ui, sans-serif" font-size="10">Sin jurisdicción extranjera</text>
+    <line x1="155" y1="40" x2="227" y2="57" stroke="#1A2744" stroke-width="1"/>
   </g>
 
-  <!-- Status indicator - bottom right -->
-  <g transform="translate(350, 550)">
-    <rect x="0" y="0" width="140" height="40" rx="4" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="1" opacity="0.8"/>
-    <!-- Country flags as colored dots -->
-    <circle cx="15" cy="20" r="4" fill="#006847"/>
-    <circle cx="28" cy="20" r="4" fill="#CE1126"/>
-    <circle cx="41" cy="20" r="4" fill="#FEDF00"/>
-    <circle cx="54" cy="20" r="4" fill="#75AADB"/>
-    <text x="68" y="24" fill="#2AF2CE" font-family="Inter, sans-serif" font-size="10" font-weight="500">4 nodos activos</text>
+  <!-- Status indicator -->
+  <g transform="translate(352, 8)">
+    <rect width="140" height="36" rx="6" fill="#0F1A2E" stroke="#2AF2CE" stroke-width="1" opacity="0.9"/>
+    <circle cx="16" cy="18" r="5" fill="#006847"/>
+    <circle cx="32" cy="18" r="5" fill="#CE1126"/>
+    <circle cx="48" cy="18" r="5" fill="#FEDF00"/>
+    <circle cx="64" cy="18" r="5" fill="#75AADB"/>
+    <text x="78" y="22" fill="#2AF2CE" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500">4 nodos activos</text>
   </g>
 
-  <!-- Decorative elements -->
-  <g fill="#2AF2CE" opacity="0.3">
-    <rect x="20" y="20" width="6" height="6" rx="1" transform="rotate(45 23 23)"/>
-    <rect x="470" y="30" width="6" height="6" rx="1" transform="rotate(45 473 33)"/>
-    <rect x="480" y="560" width="6" height="6" rx="1" transform="rotate(45 483 563)"/>
-  </g>
 </svg>
